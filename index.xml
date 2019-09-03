@@ -1,23 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Billo Blog</title>
+    <title>HOME on Billo Blog</title>
     <link>https://blog.billo.io/</link>
-    <description>Recent content on Billo Blog</description>
+    <description>Recent content in HOME on Billo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <copyright>Copyright@Billo Park</copyright>
+    <lastBuildDate>Thu, 02 May 2019 19:47:09 +0200</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Billo&#39;s Blog</title>
-      <link>https://blog.billo.io/</link>
+      <title>Sample project</title>
+      <link>https://blog.billo.io/portfolio/sample-project/</link>
+      <pubDate>Thu, 02 May 2019 19:47:09 +0200</pubDate>
+      
+      <guid>https://blog.billo.io/portfolio/sample-project/</guid>
+      <description>This would be a description of your sample project. You can add any content you&amp;rsquo;d like.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+    </item>
+    
+    <item>
+      <title>ABOUT ME</title>
+      <link>https://blog.billo.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.billo.io/</guid>
-      <description>ABOUT ME</description>
+      <guid>https://blog.billo.io/about/</guid>
+      <description>보드게임을 좋아하는 개발자 박지훈입니다. 💻 초등학교때 집에 있던 HTML 책을 보며 홈페이지를 만들어 본 게 개발 경험의 시작이었습니다. 중학교와 고등학교 때 Python과 Golang을 써보면서 개발에 관심을 가지다가 대학교에서 전산학부에 진학하게 되었습니다. 이후 대학교 3학년까지 다니고 지금은 휴학중입니다.
+2017.12 - 2018.1 Engineer Intern @ SK Hynix
+2018.3 - Present Backend Developer @ ZOYI Corporation
+🎲 시간이 나면 보드게임을 하며 시간을 보냅니다. 파티게임부터 전략게임까지 모든 종류의 보드게임을 좋아합니다. 특히 마이티, 나방 속이기와 한밤의 늑대인간, 상트페테르부르크를 좋아합니다.</description>
+    </item>
+    
+    <item>
+      <title>BOARDGAME</title>
+      <link>https://blog.billo.io/bgpost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.billo.io/bgpost/</guid>
+      <description>This is boardgame section</description>
     </item>
     
   </channel>
