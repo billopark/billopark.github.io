@@ -87,13 +87,14 @@ For example, see content/_index.md page:</description>
     </item>
     
     <item>
-      <title>ABOUT</title>
+      <title>ABOUT ME</title>
       <link>https://blog.billo.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog.billo.io/about/</guid>
-      <description>This is my about page. 👋
-Lorem ipsum dolor sit amet, 😄 consectetur adipisicing elit. Voluptates aut, tenetur distinctio voluptatibus ab. Nihil id dignissimos unde, tenetur iusto facilis suscipit corporis, ipsam necessitatibus, eaque iste deleniti consequuntur reprehenderit? 🌍</description>
+      <description> 보드게임을 좋아하는 개발자입니다.
+초등학교때 집에 있던 HTML 책을 보며 홈페이지를 만들어 본게 개발경험의 시작이었습니다. 중학교와 고등학교 때 Python과 Golang을 써보면서 개발에 관심을 가지다가 대학교에서 전산학부에 진학하게 되었습니다.
+🎲 💻 📽️ </description>
     </item>
     
   </channel>
