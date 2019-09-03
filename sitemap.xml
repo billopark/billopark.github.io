@@ -3,13 +3,63 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.billo.io/about/</loc>
+    <loc>https://blog.billo.io/bgpost/</loc>
+    <lastmod>2019-05-03T09:37:55+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.billo.io/bgpost/</loc>
+    <loc>https://blog.billo.io/bgpost/getting-started/</loc>
+    <lastmod>2019-05-03T09:37:55+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/</loc>
+    <lastmod>2019-05-03T09:37:55+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/bgpost/portfolio-definition/</loc>
+    <lastmod>2019-05-02T19:49:05+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/bgpost/archetypes/</loc>
+    <lastmod>2019-05-02T19:25:30+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/bgpost/shortcodes/</loc>
+    <lastmod>2019-04-29T16:18:12+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/bgpost/config-file/</loc>
+    <lastmod>2019-04-20T16:18:12+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/bgpost/define-specific-og-image/</loc>
+    <lastmod>2019-04-20T11:14:59+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -22,12 +72,6 @@
   
   <url>
     <loc>https://blog.billo.io/devpost/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
