@@ -3,27 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.billo.io/</loc>
-    <lastmod>2019-05-02T19:47:09+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/portfolio/</loc>
-    <lastmod>2019-05-02T19:47:09+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/portfolio/sample-project/</loc>
-    <lastmod>2019-05-02T19:47:09+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.billo.io/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -43,6 +22,12 @@
   
   <url>
     <loc>https://blog.billo.io/devpost/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
