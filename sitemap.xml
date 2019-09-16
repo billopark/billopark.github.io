@@ -3,39 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.billo.io/about/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://blog.billo.io/devposts/</loc>
+    <lastmod>2019-09-16T23:06:52+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.billo.io/bgpost/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/categories/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/devpost/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://blog.billo.io/devposts/go_struct_validation/</loc>
+    <lastmod>2019-09-16T23:06:52+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.billo.io/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2019-09-16T23:06:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/bgposts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/series/</loc>
   </url>
   
   <url>
     <loc>https://blog.billo.io/tags/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   
 </urlset>

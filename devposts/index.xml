@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HOME on Billo Park</title>
-    <link>https://blog.billo.io/</link>
-    <description>Recent content in HOME on Billo Park</description>
+    <title>DEVELOPMENT on Billo Park</title>
+    <link>https://blog.billo.io/devposts/</link>
+    <description>Recent content in DEVELOPMENT on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
     <lastBuildDate>Mon, 16 Sep 2019 23:06:52 +0900</lastBuildDate>
     
-	<atom:link href="https://blog.billo.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.billo.io/devposts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,18 +19,6 @@
       <guid>https://blog.billo.io/devposts/go_struct_validation/</guid>
       <description>외부에서 Data Object를 받아오는 경우, 특히 신뢰할 수 없는 출처로부터 받아오는 경우에는 해당 Object에 대한 Validation작업이 필수적으로 요구된다. RESTful API를 구현한 Backend Server가 대표적인 예인데, 클라이언트에서 넘겨준 Object는 무조건 신뢰할 수 없는 정보로 간주하고 Validation을 해야 안전한 서버를 구현할 수 있다. 이를 위해, Golang에서도 struct 에 담긴 Data를 검증하는 다양한 방법이 존재한다.
 가장 Naive 하게 구현할 수 있는 방법은 해당 struct에 IsValid() 함수를 구현하는 방법이다. 예를 들어, 아래 형태의 struct를 사용한다고 가정 해 보자.</description>
-    </item>
-    
-    <item>
-      <title>ABOUT ME</title>
-      <link>https://blog.billo.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.billo.io/about/</guid>
-      <description>보드게임을 좋아하는 개발자 박지훈입니다. 💻 초등학교때 집에 있던 HTML 책을 보며 홈페이지를 만들어 본 게 개발 경험의 시작이었습니다. 중학교와 고등학교 때 Python과 Golang을 써보면서 개발에 관심을 가지다가 대학교에서 전산학부에 진학하게 되었습니다. 이후 대학교 3학년까지 다니고 지금은 휴학중입니다.
-2017.12 - 2018.1 Engineer Intern @ SK Hynix
-2018.3 - Present Backend Developer @ ZOYI Corporation
-🎲 시간이 나면 보드게임을 하며 시간을 보냅니다. 파티게임부터 전략게임까지 모든 종류의 보드게임을 좋아합니다. 특히 마이티, 나방 속이기와 한밤의 늑대인간, 상트페테르부르크를 좋아합니다.</description>
     </item>
     
   </channel>
