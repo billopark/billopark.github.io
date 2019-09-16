@@ -1,114 +1,101 @@
 <!DOCTYPE html>
-<html lang='ko'><head>
-  <title>Golang에서 Structure Validation하기 - Billo Park</title>
-  <link rel='canonical' href='https://blog.billo.io/devposts/go_struct_validation/' />
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1' />
-  <meta name='description' content='Golang에서 구조체를 검증하는 방법' />
-  <meta name='theme-color' content='black' />
-  
+<html lang="ko">
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
+    <meta name="author" content="Billo Park">
+    <meta name="description" content="Hello! I&#39;m Billo">
+    <meta name="keywords" content="blog,developer,boardgame">
 
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang에서 Structure Validation하기"/>
+<meta name="twitter:description" content="Golang에서 구조체를 검증하는 방법"/>
 
-
-
-
-<link rel="stylesheet" href="https://blog.billo.io/sass/style.min.cf2eeff825d4dbc673ce0b82d270d9fc32d34973a7d5cd079e0dcf4fe3e77515.css" integrity="sha256-zy7v&#43;CXU28ZzzguC0nDZ/DLTSXOn1c0Hng3PT&#43;PndRU=" media="screen">
-<link rel="stylesheet" href="https://blog.billo.io/syntax.min.css" integrity="" media="screen">
-
-  <meta property="og:title" content="Golang에서 Structure Validation하기" />
+    <meta property="og:title" content="Golang에서 Structure Validation하기" />
 <meta property="og:description" content="Golang에서 구조체를 검증하는 방법" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.billo.io/devposts/go_struct_validation/" />
 <meta property="article:published_time" content="2019-09-04T23:06:52+09:00" />
 <meta property="article:modified_time" content="2019-09-16T23:06:52+09:00" />
 
-  <meta itemprop="name" content="Golang에서 Structure Validation하기">
-<meta itemprop="description" content="Golang에서 구조체를 검증하는 방법">
 
-
-<meta itemprop="datePublished" content="2019-09-04T23:06:52&#43;09:00" />
-<meta itemprop="dateModified" content="2019-09-16T23:06:52&#43;09:00" />
-<meta itemprop="wordCount" content="630">
-
-
-
-<meta itemprop="keywords" content="" />
-
-</head>
-<body>
-
-  <header style="background-image:linear-gradient(
-      rgba(0,0,0,0.4),rgba(0,0,0,0.4)
-    ),url(&#39;https://blog.billo.io/images/default-sidebar.jpg&#39;)">
-
-  <div class="intro">
-    <div class="logo-container">
-      <a href="https://blog.billo.io/">
-        <img src='https://blog.billo.io/images/edna-west.jpg' alt="Profile HOME" class="rounded-logo">
-      </a>
-    </div>
-    <h2>Welcome, I'm John Doe</h2>
-    <h3>This is my personal website</h3>
-    <div class="menu">
-      
-
-        <p>
-            <a href="about/">
-                About
-            </a>
-        </p>
-
-        <p>
-            <a href="devposts/">
-                Development
-            </a>
-        </p>
-
-        <p>
-            <a href="bgposts/">
-                Boardgame
-            </a>
-        </p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="socials">
-      
-  
-    <a href="#ZgotmplZ" class="social-link" target="_blank" rel="noopener" ><div class="icon">
-  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-  
-  </svg>
-</div>
-</a>
-  
-
-  
-    <a href="#ZgotmplZ" class="social-link" target="_blank" rel="noopener" ><div class="icon">
-  <svg width="35px" height="35px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-  
-  </svg>
-</div>
-</a>
-  
-
-  </div>
-
-</header>
-
-  <div class="content-wrapper">
     
-    <main id="content" class="devposts">
+      <base href="https://blog.billo.io/devposts/go_struct_validation/">
+    
+    <title>
+  Golang에서 Structure Validation하기 · Billo Park
+</title>
 
-<h1>Golang에서 Structure Validation하기</h1>
-<p>외부에서 Data Object를 받아오는 경우, 특히 신뢰할 수 없는 출처로부터 받아오는 경우에는 해당 Object에 대한 Validation작업이 필수적으로 요구된다. RESTful API를 구현한 Backend Server가 대표적인 예인데, 클라이언트에서 넘겨준 Object는 무조건 신뢰할 수 없는 정보로 간주하고 Validation을 해야 안전한 서버를 구현할 수 있다. 이를 위해, Golang에서도 struct 에 담긴 Data를 검증하는 다양한 방법이 존재한다.</p>
+    
+      <link rel="canonical" href="https://blog.billo.io/devposts/go_struct_validation/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://blog.billo.io/">
+      Billo Park
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/devposts/">Development</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/bgposts/">Boardgame</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Golang에서 Structure Validation하기</h1>
+    </header>
+
+    <p>외부에서 Data Object를 받아오는 경우, 특히 신뢰할 수 없는 출처로부터 받아오는 경우에는 해당 Object에 대한 Validation작업이 필수적으로 요구된다. RESTful API를 구현한 Backend Server가 대표적인 예인데, 클라이언트에서 넘겨준 Object는 무조건 신뢰할 수 없는 정보로 간주하고 Validation을 해야 안전한 서버를 구현할 수 있다. 이를 위해, Golang에서도 struct 에 담긴 Data를 검증하는 다양한 방법이 존재한다.</p>
 
 <hr />
 
@@ -140,45 +127,45 @@
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#fff;font-weight:bold">package</span> main
 
 <span style="color:#fff;font-weight:bold">import</span> (
-    <span style="color:#0ff;font-weight:bold">&#34;fmt&#34;</span>
-    <span style="color:#0ff;font-weight:bold">&#34;regexp&#34;</span>
+	<span style="color:#0ff;font-weight:bold">&#34;fmt&#34;</span>
+	<span style="color:#0ff;font-weight:bold">&#34;regexp&#34;</span>
 
-    <span style="color:#0ff;font-weight:bold">&#34;github.com/go-ozzo/ozzo-validation&#34;</span>
-    <span style="color:#0ff;font-weight:bold">&#34;github.com/go-ozzo/ozzo-validation/is&#34;</span>
+	<span style="color:#0ff;font-weight:bold">&#34;github.com/go-ozzo/ozzo-validation&#34;</span>
+	<span style="color:#0ff;font-weight:bold">&#34;github.com/go-ozzo/ozzo-validation/is&#34;</span>
 )
 
 <span style="color:#fff;font-weight:bold">type</span> Address <span style="color:#fff;font-weight:bold">struct</span> {
-    Street <span style="color:#fff;font-weight:bold">string</span>
-    City   <span style="color:#fff;font-weight:bold">string</span>
-    State  <span style="color:#fff;font-weight:bold">string</span>
-    Zip    <span style="color:#fff;font-weight:bold">string</span>
+	Street <span style="color:#fff;font-weight:bold">string</span>
+	City   <span style="color:#fff;font-weight:bold">string</span>
+	State  <span style="color:#fff;font-weight:bold">string</span>
+	Zip    <span style="color:#fff;font-weight:bold">string</span>
 }
 
 <span style="color:#fff;font-weight:bold">func</span> (a Address) Validate() <span style="color:#fff;font-weight:bold">error</span> {
-    <span style="color:#fff;font-weight:bold">return</span> validation.ValidateStruct(&amp;a,
-        <span style="color:#007f7f">// Street cannot be empty, and the length must between 5 and 50
-</span><span style="color:#007f7f"></span>      validation.Field(&amp;a.Street, validation.Required, validation.Length(<span style="color:#ff0;font-weight:bold">5</span>, <span style="color:#ff0;font-weight:bold">50</span>)),
-        <span style="color:#007f7f">// City cannot be empty, and the length must between 5 and 50
-</span><span style="color:#007f7f"></span>      validation.Field(&amp;a.City, validation.Required, validation.Length(<span style="color:#ff0;font-weight:bold">5</span>, <span style="color:#ff0;font-weight:bold">50</span>)),
-        <span style="color:#007f7f">// State cannot be empty, and must be a string consisting of two letters in upper case
-</span><span style="color:#007f7f"></span>      validation.Field(&amp;a.State, validation.Required, validation.Match(regexp.MustCompile(<span style="color:#0ff;font-weight:bold">&#34;^[A-Z]{2}$&#34;</span>))),
-        <span style="color:#007f7f">// State cannot be empty, and must be a string consisting of five digits
-</span><span style="color:#007f7f"></span>      validation.Field(&amp;a.Zip, validation.Required, validation.Match(regexp.MustCompile(<span style="color:#0ff;font-weight:bold">&#34;^[0-9]{5}$&#34;</span>))),
-    )
+	<span style="color:#fff;font-weight:bold">return</span> validation.ValidateStruct(&amp;a,
+		<span style="color:#007f7f">// Street cannot be empty, and the length must between 5 and 50
+</span><span style="color:#007f7f"></span>		validation.Field(&amp;a.Street, validation.Required, validation.Length(<span style="color:#ff0;font-weight:bold">5</span>, <span style="color:#ff0;font-weight:bold">50</span>)),
+		<span style="color:#007f7f">// City cannot be empty, and the length must between 5 and 50
+</span><span style="color:#007f7f"></span>		validation.Field(&amp;a.City, validation.Required, validation.Length(<span style="color:#ff0;font-weight:bold">5</span>, <span style="color:#ff0;font-weight:bold">50</span>)),
+		<span style="color:#007f7f">// State cannot be empty, and must be a string consisting of two letters in upper case
+</span><span style="color:#007f7f"></span>		validation.Field(&amp;a.State, validation.Required, validation.Match(regexp.MustCompile(<span style="color:#0ff;font-weight:bold">&#34;^[A-Z]{2}$&#34;</span>))),
+		<span style="color:#007f7f">// State cannot be empty, and must be a string consisting of five digits
+</span><span style="color:#007f7f"></span>		validation.Field(&amp;a.Zip, validation.Required, validation.Match(regexp.MustCompile(<span style="color:#0ff;font-weight:bold">&#34;^[0-9]{5}$&#34;</span>))),
+	)
 }
 
 <span style="color:#fff;font-weight:bold">func</span> main() {
-    a := Address{
-        Street: <span style="color:#0ff;font-weight:bold">&#34;123&#34;</span>,
-        City:   <span style="color:#0ff;font-weight:bold">&#34;Unknown&#34;</span>,
-        State:  <span style="color:#0ff;font-weight:bold">&#34;Virginia&#34;</span>,
-        Zip:    <span style="color:#0ff;font-weight:bold">&#34;12345&#34;</span>,
-    }
+	a := Address{
+		Street: <span style="color:#0ff;font-weight:bold">&#34;123&#34;</span>,
+		City:   <span style="color:#0ff;font-weight:bold">&#34;Unknown&#34;</span>,
+		State:  <span style="color:#0ff;font-weight:bold">&#34;Virginia&#34;</span>,
+		Zip:    <span style="color:#0ff;font-weight:bold">&#34;12345&#34;</span>,
+	}
 
-    err := a.Validate()
-    fmt.Println(err)
-    <span style="color:#007f7f">// Output:
-</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// Street: the length must be between 5 and 50; State: must be in a valid format.
+	err := a.Validate()
+	fmt.Println(err)
+	<span style="color:#007f7f">// Output:
+</span><span style="color:#007f7f"></span>	<span style="color:#007f7f">// Street: the length must be between 5 and 50; State: must be in a valid format.
 </span><span style="color:#007f7f"></span>}</code></pre></div>
 <p>이와 같은 라이브러리를 사용하여 검증하는 것은 첫번째 <code>IsValid()</code> 함수를 사용하는 것과 비슷하나, <strong>Validation 관리</strong>가 용이하며 <strong>기본적인 기능은 바퀴를 다시 만들지 않아도 된다는 점</strong> 등의 강점을 가진다.</p>
 
@@ -189,37 +176,37 @@
 <p>아래는 struct tag방식을 활용하여 Validation을 도와주는 <a href="https://github.com/go-playground/validator">go-playground/validator.v9</a> 패키지의 struct 예시이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007f7f">// User contains user information
 </span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">type</span> User <span style="color:#fff;font-weight:bold">struct</span> {
-    FirstName      <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`json:&#34;fname&#34;`</span>
-    LastName       <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`json:&#34;lname&#34;`</span>
-    Age            <span style="color:#fff;font-weight:bold">uint8</span>      <span style="color:#0ff;font-weight:bold">`validate:&#34;gte=0,lte=130&#34;`</span>
-    Email          <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`validate:&#34;required,email&#34;`</span>
-    FavouriteColor <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`validate:&#34;hexcolor|rgb|rgba&#34;`</span>
-    Addresses      []*Address <span style="color:#0ff;font-weight:bold">`validate:&#34;required,dive,required&#34;`</span> <span style="color:#007f7f">// a person can have a home and cottage...
+	FirstName      <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`json:&#34;fname&#34;`</span>
+	LastName       <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`json:&#34;lname&#34;`</span>
+	Age            <span style="color:#fff;font-weight:bold">uint8</span>      <span style="color:#0ff;font-weight:bold">`validate:&#34;gte=0,lte=130&#34;`</span>
+	Email          <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`validate:&#34;required,email&#34;`</span>
+	FavouriteColor <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`validate:&#34;hexcolor|rgb|rgba&#34;`</span>
+	Addresses      []*Address <span style="color:#0ff;font-weight:bold">`validate:&#34;required,dive,required&#34;`</span> <span style="color:#007f7f">// a person can have a home and cottage...
 </span><span style="color:#007f7f"></span>}</code></pre></div>
 <p>이렇게 필드 레벨로 Validation 해야하는 정보를 적어놓은 후, 패키지의 Validator로 Validation을 진행할 수 있다.</p>
 
 <p>아래는 같은 라이브러리의 예제 코드 중 벨리데이션 하는 부분이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#fff;font-weight:bold">func</span> main() {
 
-    validate = validator.New()
+	validate = validator.New()
 
-    <span style="color:#007f7f">// register validation for &#39;User&#39;
-</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// NOTE: only have to register a non-pointer type for &#39;User&#39;, validator
-</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// interanlly dereferences during it&#39;s type checks.
-</span><span style="color:#007f7f"></span>  validate.RegisterStructValidation(UserStructLevelValidation, User{})
+	<span style="color:#007f7f">// register validation for &#39;User&#39;
+</span><span style="color:#007f7f"></span>	<span style="color:#007f7f">// NOTE: only have to register a non-pointer type for &#39;User&#39;, validator
+</span><span style="color:#007f7f"></span>	<span style="color:#007f7f">// interanlly dereferences during it&#39;s type checks.
+</span><span style="color:#007f7f"></span>	validate.RegisterStructValidation(UserStructLevelValidation, User{})
 
-    user := &amp;User{
-        FirstName:      <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>,
-        LastName:       <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>,
-        Age:            <span style="color:#ff0;font-weight:bold">45</span>,
-        Email:          <span style="color:#0ff;font-weight:bold">&#34;Badger.Smith@gmail.com&#34;</span>,
-        FavouriteColor: <span style="color:#0ff;font-weight:bold">&#34;#000&#34;</span>,
-        Addresses:      []*Address{address},
-    }
+	user := &amp;User{
+		FirstName:      <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>,
+		LastName:       <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>,
+		Age:            <span style="color:#ff0;font-weight:bold">45</span>,
+		Email:          <span style="color:#0ff;font-weight:bold">&#34;Badger.Smith@gmail.com&#34;</span>,
+		FavouriteColor: <span style="color:#0ff;font-weight:bold">&#34;#000&#34;</span>,
+		Addresses:      []*Address{address},
+	}
 
-    <span style="color:#007f7f">// returns InvalidValidationError for bad validation input, nil or ValidationErrors ( []FieldError )
-</span><span style="color:#007f7f"></span>  err := validate.Struct(user)
-    <span style="color:#fff;font-weight:bold">if</span> err != <span style="color:#fff;font-weight:bold">nil</span> {
+	<span style="color:#007f7f">// returns InvalidValidationError for bad validation input, nil or ValidationErrors ( []FieldError )
+</span><span style="color:#007f7f"></span>	err := validate.Struct(user)
+	<span style="color:#fff;font-weight:bold">if</span> err != <span style="color:#fff;font-weight:bold">nil</span> {
         ...</code></pre></div>
 <p>struct tag를 활용한 Validation의 경우 java의 Annotation을 사용하듯 손쉽게 Validation을 진행할 수 있다는 장점이 있다. 이와 비슷한 방식의 Validation 라이브러리로는 <a href="https://github.com/asaskevich/govalidator">asaskevich/govalidator</a>, <a href="https://github.com/go-validator/validator">go-validator/validator</a>,  등이 있다.</p>
 
@@ -227,16 +214,27 @@
 
 <p>struct를 Validation하는 것을 소홀히 하다가는 잘못된 input으로 인해 큰 피해를 입을 수 있음을 명심하고 위의 방법들로 Validation을 진행하는 것이 좋을 것 같다.</p>
 
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Billo Park</p>
+    
+    
+    
+    
+  </section>
+</footer>
 
     </main>
-  </div>
-  <footer>
-    <div class="footer-wrapper">
-      <p>Made with ❤️ &mdash; Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> and the <a href="https://github.com/bjacquemet/personal-web" target='_blank' rel="external">Personal Web</a> theme. Icons come from the great <a href="https://fontawesome.com/license" target="_blank" rel="external">Font Awesome</a> library</p>
-      <p></p>
-    </div>
-  </footer>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,400i,600" rel="stylesheet">
-  
-</body>
+
+    
+
+  </body>
+
 </html>
