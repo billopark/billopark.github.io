@@ -6,10 +6,20 @@
     <description>Recent content in HOME on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Mon, 16 Sep 2019 23:06:52 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2019 21:56:25 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>로컬 환경에서 Subdomain 테스트하기</title>
+      <link>https://blog.billo.io/devposts/local_subdomain/</link>
+      <pubDate>Thu, 19 Sep 2019 21:56:25 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/local_subdomain/</guid>
+      <description>서버 환경을 로컬에서 테스트 할 때는 localhost라는 호스트네임을 사용한다. localhost는 일반적인 경우 아무 문제없이 테스트에 사용할 수 있다. 하지만 localhost의 경우, 도메인에 대한 validation이 있는 프로젝트의 경우 예외적으로 처리해줘야 할 수도 있으며 subdomain을 테스트 할 수 없다는 문제가 있다.
+일반적으로 이 문제를 해결하기 위해서는 /etc/hosts을 수정한다. /etc/hosts파일은 호스트네임과 IP를 매핑할 때 사용하는 파일이다. 이 파일을 이용해서 원하는 서브도메인을 포함한 호스트네임을 127.0.0.1과 같은 루프백 주소로 매핑을 하면, 서브도메인을 로컬에서 정상적으로 테스트 할 수 있다.</description>
+    </item>
     
     <item>
       <title>Golang에서 Structure Validation하기</title>
