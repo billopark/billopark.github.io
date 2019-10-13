@@ -89,13 +89,32 @@
 
       <div class="content">
         
-  <section class="container page">
-  <article>
-    <header>
-      <h1>Golang에서 Structure Validation하기</h1>
-    </header>
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Golang에서 Structure Validation하기</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-16T23:06:52&#43;09:00'>
+                September 16, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3분
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
 
-    <p>외부에서 Data Object를 받아오는 경우, 특히 신뢰할 수 없는 출처로부터 받아오는 경우에는 해당 Object에 대한 Validation작업이 필수적으로 요구된다. RESTful API를 구현한 Backend Server가 대표적인 예인데, 클라이언트에서 넘겨준 Object는 무조건 신뢰할 수 없는 정보로 간주하고 Validation을 해야 안전한 서버를 구현할 수 있다. 이를 위해, Golang에서도 struct 에 담긴 Data를 검증하는 다양한 방법이 존재한다.</p>
+      <div>
+        <p>외부에서 Data Object를 받아오는 경우, 특히 신뢰할 수 없는 출처로부터 받아오는 경우에는 해당 Object에 대한 Validation작업이 필수적으로 요구된다. RESTful API를 구현한 Backend Server가 대표적인 예인데, 클라이언트에서 넘겨준 Object는 무조건 신뢰할 수 없는 정보로 간주하고 Validation을 해야 안전한 서버를 구현할 수 있다. 이를 위해, Golang에서도 struct 에 담긴 Data를 검증하는 다양한 방법이 존재한다.</p>
 
 <hr />
 
@@ -214,9 +233,39 @@
 
 <p>struct를 Validation하는 것을 소홀히 하다가는 잘못된 input으로 인해 큰 피해를 입을 수 있음을 명심하고 위의 방법들로 Validation을 진행하는 것이 좋을 것 같다.</p>
 
-  </article>
-</section>
+      </div>
 
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "disqus_nC1Yov8tag" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
 
       </div>
 
