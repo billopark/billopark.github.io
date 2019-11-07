@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.billo.io/devposts/</loc>
+    <lastmod>2019-11-08T02:37:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/devposts/domain_backorder/</loc>
+    <lastmod>2019-11-08T02:37:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/</loc>
+    <lastmod>2019-11-08T02:37:11+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/bgposts/19_fall_festa/</loc>
     <lastmod>2019-10-13T05:46:25+09:00</lastmod>
   </url>
@@ -10,16 +25,6 @@
   <url>
     <loc>https://blog.billo.io/bgposts/</loc>
     <lastmod>2019-10-13T05:46:25+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/</loc>
-    <lastmod>2019-10-13T05:46:25+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/devposts/</loc>
-    <lastmod>2019-09-19T21:56:25+09:00</lastmod>
   </url>
   
   <url>
