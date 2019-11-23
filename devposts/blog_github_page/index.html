@@ -153,7 +153,7 @@
 </figure>
 
 
-<p>Github Pages란 <a href="https://github.com">Github</a> 에 특별한 Repository를 만들면 자신의 Github ID를 이용해서 (내 github ID).github.io 형태로 정적 사이트를 제공해주는 서비스이다. Github Pages 를 이용하게 된 이유는</p>
+<p>Github Pages란 <a href="https://github.com">Github</a> 에 특별한 Repository를 만들면 자신의 Github ID를 이용해서 <code>(내 github ID).github.io</code> 형태로 정적 사이트를 제공해주는 서비스이다. Github Pages 를 이용하게 된 이유는</p>
 
 <ol>
 <li>호스팅에 대해서 따로 고민하지 않아도 된다.</li>
@@ -263,7 +263,7 @@
 
 <p>3번의 기능적 요구조건을 떠올려보자. 로컬환경에서 블로그를 띄워서 확인할 때에는 CDN의 이미지를 가져오면 안되고 로컬의 값을 가져와야 한다. 그리고 배포된 환경에서는 CDN의 이미지를 가져와야 한다. 이렇게 이미지의 주소를 실행하는 환경에 따라서 Dynamic하게 가져오려면 Hugo의 일반 image 삽입방법으로는 커버할 수 없다.</p>
 
-<p>그래서 생각해낸 방법은 Hugo의 <a href="https://gohugo.io/content-management/shortcodes/"><strong>shortcode</strong></a> 기능이다. shortcode란 컨텐츠 파일에서 사용할 수 있는 간단한 코드를 말한다. 우선, Hugo의 환경변수 기능을 사용해서, Hugo 실행시 어떤 환경인지 알 수 있게 했다. 그리고 환경변수에 따라서 path를 다르게 가져오기 위해 각 실행환경 별로 config 파일을 만들고, config파일에 staticpath라는 파라미터를 추가했다.</p>
+<p>그래서 생각해낸 방법은 Hugo의 <a href="https://gohugo.io/content-management/shortcodes/"><strong>shortcode</strong></a> 기능이다. shortcode란 컨텐츠 파일에서 사용할 수 있는 간단한 코드를 말한다. 우선, Hugo의 환경변수 기능을 사용해서, Hugo 실행시 어떤 환경인지 알 수 있게 했다. 그리고 환경변수에 따라서 path를 다르게 가져오기 위해 각 실행환경 별로 config 파일을 만들고, config파일에 <code>staticpath</code>라는 파라미터를 추가했다.</p>
 
 
 <figure >
@@ -275,13 +275,13 @@
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">staticpath = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span></code></pre></div>
 <p>production/params.toml</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">staticpath = <span style="color:#0ff;font-weight:bold">&#34;https://blog-static.billo.io&#34;</span></code></pre></div>
-<p>그리고 img라는 이미지 shortcode를 만들었다. 이 shortcode는 HTML의 img 태그를 자동으로 만들어준다. 이 때 img 태그의 src를 넣을 때, staticpath를 자동으로 붙여주도록 했다.</p>
+<p>그리고 img라는 이미지 shortcode를 만들었다. 이 shortcode는 HTML의 img 태그를 자동으로 만들어준다. 이 때 <code>img</code> 태그의 <code>src</code>를 넣을 때, <code>staticpath</code>를 자동으로 붙여주도록 했다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#007f7f">&lt;!-- image --&gt;</span>
 &lt;<span style="font-weight:bold">figure</span> <span style="color:#f00">{{</span> <span style="color:#007f7f">with</span> <span style="color:#f00">.</span><span style="color:#007f7f">Get</span> <span style="color:#f00">&#34;</span><span style="color:#007f7f">class</span><span style="color:#f00">&#34;</span> <span style="color:#f00">}}</span><span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;{{.}}&#34;</span><span style="color:#f00">{{</span> <span style="color:#007f7f">end</span> <span style="color:#f00">}}</span>&gt;
         &lt;<span style="font-weight:bold">img</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ $.Page.Site.Params.staticpath }}{{ .Get &#34;</span><span style="color:#007f7f">src</span><span style="color:#f00">&#34;</span> <span style="color:#f00">}}&#34;</span> /&gt;
 &lt;/<span style="font-weight:bold">figure</span>&gt;
 <span style="color:#007f7f">&lt;!-- image --&gt;</span></code></pre></div>
-<p>이 shortcode는 layouts/shortcodes 밑에 html파일로 저장하면 된다.</p>
+<p>이 shortcode는 <code>layouts/shortcodes</code> 밑에 html파일로 저장하면 된다.</p>
 
 <p>그리고 배포 스크립트에서도 hugo를 빌드할 때 환경변수를 넘겨주도록 변경해주어야 한다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo -t hugo-coder --environment production</code></pre></div>
@@ -289,7 +289,9 @@
 
 <h2 id="소회">소회</h2>
 
-<p>아직 만든지 얼마 안된 블로그라 해야할 작업들이 많이 남아있지만, 일차 사용할만 한 수준까지 오게 되어 글을 작성하게 되었다. 생각보다 많은 기능을 Hugo가 제공해주어서 내가 스스로 작업한게 많지는 않다. 이렇게 작업된 블로그는 생각보다 사용해보면 <strong>편하다</strong>. 네이버 블로그나 티스토리를 사용하는 것 보다 쉬울수는 없겠으나, 로컬에서 포스트를 MD로 쓰는 것만 익숙해진다면 어렵지 않게 사용할 수 있는게 신기했다. 그리고 내가 필요한 기능을 내가 만드는 게 생각보다 재밌는 경험이라, 많은 분들께 블로그 하나 만들어 보시기를 추천드린다.</p>
+<p>아직 만든지 얼마 안된 블로그라 해야할 작업들이 많이 남아있지만, 일차 사용할만 한 수준까지 오게 되어 글을 작성하게 되었다.</p>
+
+<p>생각보다 많은 기능을 Hugo가 제공해주어서 내가 스스로 작업한게 많지는 않다. 이렇게 작업된 블로그는 생각보다 사용해보면 <strong>편하다</strong>. 네이버 블로그나 티스토리를 사용하는 것 보다 쉬울수는 없겠으나, 로컬에서 포스트를 MD로 쓰는 것만 익숙해진다면 어렵지 않게 사용할 수 있는게 신기했다. 그리고 내가 필요한 기능을 내가 만드는 게 생각보다 재밌는 경험이라, 많은 분들께 블로그 하나 만들어 보시기를 추천드린다.</p>
 
       </div>
 
