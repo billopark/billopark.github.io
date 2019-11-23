@@ -6,10 +6,22 @@
     <description>Recent content in DEVELOPMENT on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 08 Nov 2019 02:37:11 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Nov 2019 22:27:33 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/devposts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Github Pages &#43; Hugo를 사용한 블로그 구축기</title>
+      <link>https://blog.billo.io/devposts/blog_github_page/</link>
+      <pubDate>Sat, 23 Nov 2019 22:27:33 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/blog_github_page/</guid>
+      <description>Github Pages + Hugo로 결정하게 된 이유 개발 하면서 구글링을 하다보면 많은 개발블로그들을 만날 수 있다. 개발 블로그들을 보면서 필요성을 느끼고 나에게 어떤 종류의 블로그가 필요한지 고민해봤다. 내가 필요했던 조건은 2가지였는데,
+ 관리를 따로 하지 않아도 될 만큼 수월할 것 커스터마이징이 쉽게 가능할 것  이었다.
+우선, 첫번째 조건에 의해서 동적 사이트보다는 정적 사이트를 선호하게 되었다.
+일반적으로 웹에서 쉽게 만나볼 수 있는 블로그들은 동적 사이트이다. 동적 사이트란, 사이트 내부에 DB가 존재해서 사이트를 접속하는 시점에 DB에 있는 정보를 읽어와서 접속 시점마다 내용이 다를 수 있는, 그런 형태의 사이트를 의미한다.</description>
+    </item>
     
     <item>
       <title>Domain Backorder 후기</title>
@@ -19,7 +31,7 @@
       <guid>https://blog.billo.io/devposts/domain_backorder/</guid>
       <description>여러분들이 아는 naver.com, google.com, billo.io 같은 모든 도메인들은 만료기간 을 가진다. 이 정보들은 WHOIS 서비스 를 이용하면 만료일을 쉽게 조회할 수 있다.
 예를 들어 billo.io 도메인의 경우, 2021년 6월 30일까지 인 것을 알 수 있다.
- billo.io WHOIS   이 도메인 만료기간 내에 도메인을 갱신하면 계속해서 사용할 수 있다. 만약 만료기간을 넘게 되면 어떻게 될까? 도메인 만료기간 이후에 Renewal Grace Period 가 부여된다. 이 기간은 도메인은 만료되었지만 원한다면 다시 갱신할 수 있는 기간을 의미한다.</description>
+ 이 도메인 만료기간 내에 도메인을 갱신하면 계속해서 사용할 수 있다. 만약 만료기간을 넘게 되면 어떻게 될까? 도메인 만료기간 이후에 Renewal Grace Period 가 부여된다. 이 기간은 도메인은 만료되었지만 원한다면 다시 갱신할 수 있는 기간을 의미한다.</description>
     </item>
     
     <item>
