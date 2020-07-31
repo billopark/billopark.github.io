@@ -40,7 +40,7 @@
     
       
       
-      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.877594e391c0f71458b0a93731eb8eb697dd1497cdecc44390bf9b1ac5c8ffe4.css" integrity="sha256-h3WU45HA9xRYsKk3MeuOtpfdFJfN7MRDkL&#43;bGsXI/&#43;Q=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.9f4f034f4b47e43195a49a37078c3bc350d0120e736bb2a4e102d116d7db2363.css" integrity="sha256-n08DT0tH5DGVpJo3B4w7w1DQEg5za7Kk4QLRFtfbI2M=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -54,7 +54,7 @@
     <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.74.3" />
     
     
     <meta name="naver-site-verification" content="dcd74279d8766b1eb11bf3c826dbdc112dec682b"/>
@@ -67,6 +67,7 @@
     <a class="navigation-title" href="https://blog.billo.io/">
       Billo Park
     </a>
+    
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
@@ -87,6 +88,7 @@
       
       
     </ul>
+    
   </section>
 </nav>
 
@@ -119,16 +121,14 @@
 
       <div>
         <p>외부에서 Data Object를 받아오는 경우, 특히 신뢰할 수 없는 출처로부터 받아오는 경우에는 해당 Object에 대한 Validation작업이 필수적으로 요구된다. RESTful API를 구현한 Backend Server가 대표적인 예인데, 클라이언트에서 넘겨준 Object는 무조건 신뢰할 수 없는 정보로 간주하고 Validation을 해야 안전한 서버를 구현할 수 있다. 이를 위해, Golang에서도 struct 에 담긴 Data를 검증하는 다양한 방법이 존재한다.</p>
-
-<hr />
-
+<hr>
 <p>가장 Naive 하게 구현할 수 있는 방법은 해당 struct에 <code>IsValid()</code> 함수를 구현하는 방법이다.
 예를 들어, 아래 형태의 struct를 사용한다고 가정 해 보자.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#fff;font-weight:bold">type</span> Person <span style="color:#fff;font-weight:bold">struct</span> {
         Name <span style="color:#fff;font-weight:bold">string</span>
         Age <span style="color:#fff;font-weight:bold">int</span>
-    }</code></pre></div>
-<p>이 경우, 아래와 같은 Validation Function을 만들어서 검증할 수 있다.</p>
+    }
+</code></pre></div><p>이 경우, 아래와 같은 Validation Function을 만들어서 검증할 수 있다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#fff;font-weight:bold">func</span> (p *Person) IsValid() <span style="color:#fff;font-weight:bold">error</span> {
         <span style="color:#fff;font-weight:bold">if</span> (<span style="color:#fff;font-weight:bold">len</span>(p.name) &lt;= <span style="color:#ff0;font-weight:bold">0</span> || <span style="color:#fff;font-weight:bold">len</span>(p.name) &gt; <span style="color:#ff0;font-weight:bold">30</span>) {
             <span style="color:#fff;font-weight:bold">return</span> errors.New(<span style="color:#0ff;font-weight:bold">&#34;이름 길이가 너무 길거나 너무 짧습니다.&#34;</span>)
@@ -139,13 +139,10 @@
         }
 
         <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">nil</span>
-    }</code></pre></div>
-<p>작은 규모의 프로젝트일 때는 이렇게 하나하나 검증을 해줄 수 있지만, 프로젝트가 커지고 struct가 복잡해질 수록 이 방법은 감당하기 어려워 질 것이다.</p>
-
-<hr />
-
+    }
+</code></pre></div><p>작은 규모의 프로젝트일 때는 이렇게 하나하나 검증을 해줄 수 있지만, 프로젝트가 커지고 struct가 복잡해질 수록 이 방법은 감당하기 어려워 질 것이다.</p>
+<hr>
 <p>이보다 조금 더 나은 Approach를 제공하는것이 <a href="https://github.com/go-ozzo/ozzo-validation">go-ozzo/ozzo-validation</a> 라이브러리다. 이 라이브러리에서는 위의 방법을 그들이 제공하는 기본함수들을 통해서 조금 더 쉽게 Validation을 할 수 있도록 돕는다.</p>
-
 <p>아래는 ozzo-validation의 Readme 에 적혀있는 예제 코드이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#fff;font-weight:bold">package</span> main
 
@@ -189,13 +186,10 @@
 	fmt.Println(err)
 	<span style="color:#007f7f">// Output:
 </span><span style="color:#007f7f"></span>	<span style="color:#007f7f">// Street: the length must be between 5 and 50; State: must be in a valid format.
-</span><span style="color:#007f7f"></span>}</code></pre></div>
-<p>이와 같은 라이브러리를 사용하여 검증하는 것은 첫번째 <code>IsValid()</code> 함수를 사용하는 것과 비슷하나, <strong>Validation 관리</strong>가 용이하며 <strong>기본적인 기능은 바퀴를 다시 만들지 않아도 된다는 점</strong> 등의 강점을 가진다.</p>
-
-<hr />
-
+</span><span style="color:#007f7f"></span>}
+</code></pre></div><p>이와 같은 라이브러리를 사용하여 검증하는 것은 첫번째 <code>IsValid()</code> 함수를 사용하는 것과 비슷하나, <strong>Validation 관리</strong>가 용이하며 <strong>기본적인 기능은 바퀴를 다시 만들지 않아도 된다는 점</strong> 등의 강점을 가진다.</p>
+<hr>
 <p>또한 Golang의 struct tag를 활용한 방식도 널리 쓰인다. struct tag란 struct의 field마다 일종의 annotation을 달 수 있는 방식인데, 이 struct tag는 Reflection을 통해 Runtime에 tag정보를 불러올 수 있다는 장점이 있다. 이 방식은 struct를 json Marshal/Unmarshal 할 때 json에서의 필드명 등을 정의할 때 쉽게 볼 수 있다.</p>
-
 <p>아래는 struct tag방식을 활용하여 Validation을 도와주는 <a href="https://github.com/go-playground/validator">go-playground/validator.v9</a> 패키지의 struct 예시이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007f7f">// User contains user information
 </span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">type</span> User <span style="color:#fff;font-weight:bold">struct</span> {
@@ -205,9 +199,8 @@
 	Email          <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`validate:&#34;required,email&#34;`</span>
 	FavouriteColor <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`validate:&#34;hexcolor|rgb|rgba&#34;`</span>
 	Addresses      []*Address <span style="color:#0ff;font-weight:bold">`validate:&#34;required,dive,required&#34;`</span> <span style="color:#007f7f">// a person can have a home and cottage...
-</span><span style="color:#007f7f"></span>}</code></pre></div>
-<p>이렇게 필드 레벨로 Validation 해야하는 정보를 적어놓은 후, 패키지의 Validator로 Validation을 진행할 수 있다.</p>
-
+</span><span style="color:#007f7f"></span>}
+</code></pre></div><p>이렇게 필드 레벨로 Validation 해야하는 정보를 적어놓은 후, 패키지의 Validator로 Validation을 진행할 수 있다.</p>
 <p>아래는 같은 라이브러리의 예제 코드 중 벨리데이션 하는 부분이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#fff;font-weight:bold">func</span> main() {
 
@@ -230,11 +223,9 @@
 	<span style="color:#007f7f">// returns InvalidValidationError for bad validation input, nil or ValidationErrors ( []FieldError )
 </span><span style="color:#007f7f"></span>	err := validate.Struct(user)
 	<span style="color:#fff;font-weight:bold">if</span> err != <span style="color:#fff;font-weight:bold">nil</span> {
-        ...</code></pre></div>
-<p>struct tag를 활용한 Validation의 경우 java의 Annotation을 사용하듯 손쉽게 Validation을 진행할 수 있다는 장점이 있다. 이와 비슷한 방식의 Validation 라이브러리로는 <a href="https://github.com/asaskevich/govalidator">asaskevich/govalidator</a>, <a href="https://github.com/go-validator/validator">go-validator/validator</a> 등이 있다.</p>
-
+        ...
+</code></pre></div><p>struct tag를 활용한 Validation의 경우 java의 Annotation을 사용하듯 손쉽게 Validation을 진행할 수 있다는 장점이 있다. 이와 비슷한 방식의 Validation 라이브러리로는 <a href="https://github.com/asaskevich/govalidator">asaskevich/govalidator</a>, <a href="https://github.com/go-validator/validator">go-validator/validator</a> 등이 있다.</p>
 <p>하지만 이 방법은 꽤 Magical하다. Magical이란 프로그래밍 플로우를 따라가면서 보기에 명시적이지 않은 부분이 있음을 의미한다. 이 방식의 경우 struct tag에 적은 내용이 어떻게 Validate 되는지가 라이브러리 레벨로 묶여 있어 해당사항을 알기 어렵다. 차라리 go generate등을 통해서 struct를 Validation해줄 함수를 만드는 라이브러리가 있었다면 더 <strong>Go스럽지</strong>않았을까</p>
-
 <p>struct를 Validation하는 것을 소홀히 하다가는 잘못된 input으로 인해 큰 피해를 입을 수 있음을 명심하고 위의 방법들로 Validation을 진행하는 것이 좋을 것 같다.</p>
 
       </div>
@@ -273,16 +264,17 @@
 
       </div>
 
-      <footer class="footer">
-  <section class="container">
-    
-      <p>Billo Park</p>
-    
-    
-    
-    
-  </section>
-</footer>
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Billo Park</p>
+      
+      
+      
+      
+    </section>
+  </footer>
 
     </main>
 

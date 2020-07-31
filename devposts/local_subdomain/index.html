@@ -42,7 +42,7 @@
     
       
       
-      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.877594e391c0f71458b0a93731eb8eb697dd1497cdecc44390bf9b1ac5c8ffe4.css" integrity="sha256-h3WU45HA9xRYsKk3MeuOtpfdFJfN7MRDkL&#43;bGsXI/&#43;Q=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.9f4f034f4b47e43195a49a37078c3bc350d0120e736bb2a4e102d116d7db2363.css" integrity="sha256-n08DT0tH5DGVpJo3B4w7w1DQEg5za7Kk4QLRFtfbI2M=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -56,7 +56,7 @@
     <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.74.3" />
     
     
     <meta name="naver-site-verification" content="dcd74279d8766b1eb11bf3c826dbdc112dec682b"/>
@@ -69,6 +69,7 @@
     <a class="navigation-title" href="https://blog.billo.io/">
       Billo Park
     </a>
+    
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
@@ -89,6 +90,7 @@
       
       
     </ul>
+    
   </section>
 </nav>
 
@@ -121,18 +123,14 @@
 
       <div>
         <p>서버 환경을 로컬에서 테스트 할 때는 localhost라는 호스트네임을 사용한다. localhost는 일반적인 경우 아무 문제없이 테스트에 사용할 수 있다. 하지만 localhost의 경우, 도메인에 대한 validation이 있는 프로젝트의 경우 예외적으로 처리해줘야 할 수도 있으며 <strong>subdomain</strong>을 테스트 할 수 없다는 문제가 있다.</p>
-
 <p>일반적으로 이 문제를 해결하기 위해서는 /etc/hosts을 수정한다. /etc/hosts파일은 호스트네임과 IP를 매핑할 때 사용하는 파일이다. 이 파일을 이용해서 원하는 서브도메인을 포함한 호스트네임을 127.0.0.1과 같은 루프백 주소로 매핑을 하면, 서브도메인을 로컬에서 정상적으로 테스트 할 수 있다. 하지만 이 방법은 프로젝트 외부의 세팅에 의존해야 하며, 여러 프로젝트를 테스트하기에 적합하지 않고, 테스트에 사용한 도메인을 실제 접속 할 때 파일을 다시 수정해주어야 하는 단점이 있다.</p>
-
 <p>따라서 이 방법 대신 새로운 방법을 소개하려고 한다. 바로 lvh.me 도메인을 사용하는 것이다. 따로 세팅해야 할 것 없이, localhost 대신 lvh.me 도메인을 사용하면 된다. 즉, 서버를 <code>localhost:8080</code> 에 띄워뒀다면 <code>lvh.me:8080</code>으로도 접속할 수 있다. 특히 이 주소는 서브도메인에서도 잘 동작한다.</p>
-
 <p>DNSChecker로 이 서버의 A레코드를 찾아보면, 127.0.0.1가 나오는 것을 알 수 있다.
 
 <figure >
         <img src="https://blog-static.billo.io/images/local_subdomain/lvh-dns.png" />
 </figure>
 </p>
-
 <p>이 방법을 이용하면 /etc/hosts 파일을 수정할 필요 없이 로컬에서 쉽게 도메인 Validation이 들어간 테스트 혹은 서브도메인을 포함한 테스트를 진행할 수 있다.</p>
 
       </div>
@@ -171,16 +169,17 @@
 
       </div>
 
-      <footer class="footer">
-  <section class="container">
-    
-      <p>Billo Park</p>
-    
-    
-    
-    
-  </section>
-</footer>
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Billo Park</p>
+      
+      
+      
+      
+    </section>
+  </footer>
 
     </main>
 
