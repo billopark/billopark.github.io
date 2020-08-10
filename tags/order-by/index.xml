@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>order by on Billo Park</title>
+    <link>https://blog.billo.io/tags/order-by/</link>
+    <description>Recent content in order by on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 03 Aug 2020 22:05:17 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/order-by/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PostgreSQL에서 LIMIT/OFFSET 쓸 때 주의할 점</title>
+      <link>https://blog.billo.io/devposts/psql_offset_wo_order_by/</link>
+      <pubDate>Mon, 03 Aug 2020 22:05:17 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/psql_offset_wo_order_by/</guid>
+      <description>여러분이 간단한 게시판을 하나 만들었다고 생각해보자.
+SELECT * FROM articles;
+를 하면 모든 게시글을 다 가져올 수 있을것이다.
+게시글이 많아져서, 게시판에 Pagination을 적용하려고 한다.
+한 페이지에 30개정도씩 보여주면 될 것이다.
+5페이지 게시글을 보여주려면
+SELECT * FROM articles LIMIT 30 OFFSET 120;
+을 하면 될 것 같다.
+음&amp;hellip; 예상하지 못했던 게시글들이 보인다.
+뭐가 문제지..?
+ 정답은 ORDER BY 절이 빠졌기 때문이다.
+ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대로 정렬해준다.</description>
+    </item>
+    
+  </channel>
+</rss>

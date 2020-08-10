@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github pages on Billo Park</title>
+    <link>https://blog.billo.io/tags/github-pages/</link>
+    <description>Recent content in github pages on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Sat, 23 Nov 2019 22:27:33 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github Pages &#43; Hugo를 사용한 블로그 구축기</title>
+      <link>https://blog.billo.io/devposts/blog_github_page/</link>
+      <pubDate>Sat, 23 Nov 2019 22:27:33 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/blog_github_page/</guid>
+      <description>Github Pages + Hugo로 결정하게 된 이유 개발 하면서 구글링을 하다보면 많은 개발블로그들을 만날 수 있다. 개발 블로그들을 보면서 필요성을 느끼고 나에게 어떤 종류의 블로그가 필요한지 고민해봤다. 내가 필요했던 조건은 2가지였는데,
+ 관리를 따로 하지 않아도 될 만큼 수월할 것 커스터마이징이 쉽게 가능할 것  이었다.
+우선, 첫번째 조건에 의해서 동적 사이트보다는 정적 사이트를 선호하게 되었다.
+일반적으로 웹에서 쉽게 만나볼 수 있는 블로그들은 동적 사이트이다. 동적 사이트란, 사이트 내부에 DB가 존재해서 사이트를 접속하는 시점에 DB에 있는 정보를 읽어와서 접속 시점마다 내용이 다를 수 있는, 그런 형태의 사이트를 의미한다.</description>
+    </item>
+    
+  </channel>
+</rss>

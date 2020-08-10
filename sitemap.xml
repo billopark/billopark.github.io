@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://blog.billo.io/tags/golang/</loc>
+    <lastmod>2020-08-08T00:11:15+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/devposts/nil_for_go/</loc>
     <lastmod>2020-08-08T00:11:15+09:00</lastmod>
   </url>
@@ -18,8 +23,58 @@
   </url>
   
   <url>
+    <loc>https://blog.billo.io/tags/nil/</loc>
+    <lastmod>2020-08-08T00:11:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/</loc>
+    <lastmod>2020-08-08T00:11:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/zero-value/</loc>
+    <lastmod>2020-08-08T00:11:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/at-time-zone/</loc>
+    <lastmod>2020-08-06T00:26:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/postgres/</loc>
+    <lastmod>2020-08-06T00:26:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/postgresql/</loc>
+    <lastmod>2020-08-06T00:26:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/psql/</loc>
+    <lastmod>2020-08-06T00:26:48+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/devposts/psql_at_time_zone/</loc>
     <lastmod>2020-08-06T00:26:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/timestamp/</loc>
+    <lastmod>2020-08-06T00:26:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/timezone/</loc>
+    <lastmod>2020-08-06T00:26:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/order-by/</loc>
+    <lastmod>2020-08-03T22:05:17+09:00</lastmod>
   </url>
   
   <url>
@@ -28,13 +83,53 @@
   </url>
   
   <url>
+    <loc>https://blog.billo.io/tags/dns/</loc>
+    <lastmod>2020-07-31T23:47:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/dns-server/</loc>
+    <lastmod>2020-07-31T23:47:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/iep.ee/</loc>
+    <lastmod>2020-07-31T23:47:46+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/devposts/iep_ee/</loc>
     <lastmod>2020-07-31T23:47:46+09:00</lastmod>
   </url>
   
   <url>
+    <loc>https://blog.billo.io/tags/lvh.me/</loc>
+    <lastmod>2020-07-31T23:47:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/github-pages/</loc>
+    <lastmod>2019-11-23T22:27:33+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/devposts/blog_github_page/</loc>
     <lastmod>2019-11-23T22:27:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/hugo/</loc>
+    <lastmod>2019-11-23T22:27:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/domain/</loc>
+    <lastmod>2019-11-08T02:37:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/domain-backorder/</loc>
+    <lastmod>2019-11-08T02:37:11+09:00</lastmod>
   </url>
   
   <url>
@@ -53,12 +148,37 @@
   </url>
   
   <url>
+    <loc>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84-%ED%8E%98%EC%8A%A4%ED%83%80/</loc>
+    <lastmod>2019-10-13T05:46:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/%ED%8E%98%EC%8A%A4%ED%83%80/</loc>
+    <lastmod>2019-10-13T05:46:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/subdomain/</loc>
+    <lastmod>2019-09-19T21:56:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/devposts/local_subdomain/</loc>
     <lastmod>2019-09-19T21:56:25+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.billo.io/devposts/go_struct_validation/</loc>
+    <lastmod>2019-09-16T23:06:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/struct-tag/</loc>
+    <lastmod>2019-09-16T23:06:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/validation/</loc>
     <lastmod>2019-09-16T23:06:52+09:00</lastmod>
   </url>
   
@@ -72,10 +192,6 @@
   
   <url>
     <loc>https://blog.billo.io/series/</loc>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/</loc>
   </url>
   
 </urlset>

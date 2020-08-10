@@ -10,23 +10,11 @@
     <meta name="keywords" content="blog,developer,boardgame">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go언어에서 nullable한 값 잘 처리하기"/>
-<meta name="twitter:description" content="Go언어에는 zero value 라는 것이 있다. 변수를 선언할 때, 따로 특정 값을 할당하지 않으면 자동으로 부여되는 값을 zero value 라고 한다.
-string의 경우에는 &quot;&quot;,
-boolean은 false,
-숫자형은 0,
-함수, 포인터, 인터페이스, slice, 채널, 맵은 nil
-이 zero value이다.
-보면 알다시피 string, boolean, 숫자 모두 nil (다른 언어에서의 null)이 아닌 다른값들이 zero value로 선언되어 있기 때문에, 따로 초기화 하지 않아도 Nil Pointer Exception 이 나지 않는다. 이런 장점이 있는 반면, 값의 존재여부를 가지고 로직이 짜여있는 경우, 문제가 생길 수 있다."/>
+<meta name="twitter:title" content="Golang에서 nullable한 값 잘 처리하기"/>
+<meta name="twitter:description" content="golang에서 nullable한 값을 다룰 수 있는 방법"/>
 
-    <meta property="og:title" content="Go언어에서 nullable한 값 잘 처리하기" />
-<meta property="og:description" content="Go언어에는 zero value 라는 것이 있다. 변수를 선언할 때, 따로 특정 값을 할당하지 않으면 자동으로 부여되는 값을 zero value 라고 한다.
-string의 경우에는 &quot;&quot;,
-boolean은 false,
-숫자형은 0,
-함수, 포인터, 인터페이스, slice, 채널, 맵은 nil
-이 zero value이다.
-보면 알다시피 string, boolean, 숫자 모두 nil (다른 언어에서의 null)이 아닌 다른값들이 zero value로 선언되어 있기 때문에, 따로 초기화 하지 않아도 Nil Pointer Exception 이 나지 않는다. 이런 장점이 있는 반면, 값의 존재여부를 가지고 로직이 짜여있는 경우, 문제가 생길 수 있다." />
+    <meta property="og:title" content="Golang에서 nullable한 값 잘 처리하기" />
+<meta property="og:description" content="golang에서 nullable한 값을 다룰 수 있는 방법" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.billo.io/devposts/nil_for_go/" />
 <meta property="article:published_time" content="2020-08-08T00:11:15+09:00" />
@@ -37,7 +25,7 @@ boolean은 false,
       <base href="https://blog.billo.io/devposts/nil_for_go/">
     
     <title>
-  Go언어에서 nullable한 값 잘 처리하기 · Billo Park
+  Golang에서 nullable한 값 잘 처리하기 · Billo Park
 </title>
 
     
@@ -111,7 +99,7 @@ boolean은 false,
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Go언어에서 nullable한 값 잘 처리하기</h1>
+          <h1 class="title">Golang에서 nullable한 값 잘 처리하기</h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -127,7 +115,14 @@ boolean은 false,
             </span>
           </div>
           
-          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://blog.billo.io/tags/golang/">golang</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/nil/">nil</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/zero-value/">zero value</a></div>
+
         </div>
       </header>
 

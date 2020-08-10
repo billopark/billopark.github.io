@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lvh.me on Billo Park</title>
+    <link>https://blog.billo.io/tags/lvh.me/</link>
+    <description>Recent content in lvh.me on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 31 Jul 2020 23:47:46 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/lvh.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IEPEE 서비스 개발후기</title>
+      <link>https://blog.billo.io/devposts/iep_ee/</link>
+      <pubDate>Fri, 31 Jul 2020 23:47:46 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/iep_ee/</guid>
+      <description>이 글을 읽기 전에 로컬 환경에서 Subdomain 테스트하기 를 읽어보시는 것을 추천드린다.  요약하면, lvh.me 서비스는 lvh.me 의 A레코드를 127.0.0.1로 매핑해주는게 다인 서비스이다. 이 서비스를 써보니, 나도 만들어 보고 싶어졌다. 떠올려보면 어려울 게 없어 보였다. 도메인을 하나 사서, A레코드만 잘 등록해주면 될 일 아닌가.
+비슷한 서비스인 nip.io 를 보니, 1.2.3.4.nip.io 처럼 매핑하고 싶은 IP를 서브도메인으로 받아서 A레코드로 서비스 하는 곳도 있었다. 이것까지도 쉬워 보였다. 해당 도메인의 DNS 서버를 만들면 되는 일이었다.</description>
+    </item>
+    
+    <item>
+      <title>로컬 환경에서 Subdomain 테스트하기</title>
+      <link>https://blog.billo.io/devposts/local_subdomain/</link>
+      <pubDate>Thu, 19 Sep 2019 21:56:25 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/local_subdomain/</guid>
+      <description>서버 환경을 로컬에서 테스트 할 때는 localhost라는 호스트네임을 사용한다. localhost는 일반적인 경우 아무 문제없이 테스트에 사용할 수 있다. 하지만 localhost의 경우, 도메인에 대한 validation이 있는 프로젝트의 경우 예외적으로 처리해줘야 할 수도 있으며 subdomain을 테스트 할 수 없다는 문제가 있다.
+일반적으로 이 문제를 해결하기 위해서는 /etc/hosts을 수정한다. /etc/hosts파일은 호스트네임과 IP를 매핑할 때 사용하는 파일이다. 이 파일을 이용해서 원하는 서브도메인을 포함한 호스트네임을 127.0.0.1과 같은 루프백 주소로 매핑을 하면, 서브도메인을 로컬에서 정상적으로 테스트 할 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

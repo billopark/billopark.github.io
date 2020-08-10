@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nil on Billo Park</title>
+    <link>https://blog.billo.io/tags/nil/</link>
+    <description>Recent content in nil on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Sat, 08 Aug 2020 00:11:15 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/nil/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang에서 nullable한 값 잘 처리하기</title>
+      <link>https://blog.billo.io/devposts/nil_for_go/</link>
+      <pubDate>Sat, 08 Aug 2020 00:11:15 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/nil_for_go/</guid>
+      <description>Go언어에는 zero value 라는 것이 있다. 변수를 선언할 때, 따로 특정 값을 할당하지 않으면 자동으로 부여되는 값을 zero value 라고 한다.
+string의 경우에는 &amp;quot;&amp;quot;,
+boolean은 false,
+숫자형은 0,
+함수, 포인터, 인터페이스, slice, 채널, 맵은 nil
+이 zero value이다.
+보면 알다시피 string, boolean, 숫자 모두 nil (다른 언어에서의 null)이 아닌 다른값들이 zero value로 선언되어 있기 때문에, 따로 초기화 하지 않아도 Nil Pointer Exception 이 나지 않는다. 이런 장점이 있는 반면, 값의 존재여부를 가지고 로직이 짜여있는 경우, 문제가 생길 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>
