@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>free on Billo Park</title>
+    <link>https://blog.billo.io/tags/free/</link>
+    <description>Recent content in free on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 17 Aug 2020 20:37:52 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/free/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dooray로 내 도메인 메일 무료로 운영하기</title>
+      <link>https://blog.billo.io/devposts/dooray_free_mail/</link>
+      <pubDate>Mon, 17 Aug 2020 20:37:52 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/dooray_free_mail/</guid>
+      <description>내 도메인으로 메일을 운영해보자 신박한 서비스를 위해, 아니면 개인 PR을 위해, 혹은 그냥 예뻐보여서 도메인을 산 당신. 멋드러지게 꾸민 사이트 하단에
+contact me: example@gmail.com 적혀진 이메일 주소가 gmail이라면? 흠.. 뭔가 아쉽다. 도메인도 산 김에, 구매한 도메인으로 된 메일이 있으면 외우기도 쉽고, 더 전문적으로 보일 것 같다.
+그래서 도메인을 위한 메일 서버를 직접 운영하기로 마음먹고 방법을 찾아본다면? 생각보다 쉽지 않을것이다. Postfix며 Dovecot이며 알아야 할 것도 엄청 많고, 설정 파일도 잘 수정해야 한다.</description>
+    </item>
+    
+  </channel>
+</rss>
