@@ -11,12 +11,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PSQL TIMESTAMP/AT TIME ZONE 바로 알기"/>
-<meta name="twitter:description" content="회사에서 PSQL 쿼리문을 작성하던 동료분이 이상한 부분이 있다며 불렀다. AT TIME ZONE &#39;Asia/Seoul&#39; 을 사용했을 때와 AT TIME ZONE &#39;UTC&#43;9&#39; 를 사용했을 때 결과가 18시간이나 차이난다고 했다.
-postgres=# SHOW timezone; TimeZone ------------  Asia/Seoul (1 row) postgres=# SELECT TIMESTAMP &#39;2020-08-06 12:00:00&#39; AT TIME ZONE &#39;Asia/Seoul&#39;; timezone ---------------------  2020-08-06 12:00:00&#43;09 (1 row) postgres=# SELECT TIMESTAMP &#39;2020-08-06 12:00:00&#39; AT TIME ZONE &#39;UTC&#43;9&#39;; timezone ------------------------  2020-08-07 06:00:00&#43;09 (1 row) 음.. 상식대로라면 둘의 결과가 같아야 할 것 같은데, 왜 다른건지, 뭐가 맞는건지 궁금해졌다."/>
+<meta name="twitter:description" content="PSQL에서 AT TIME ZONE과 TIMESTAMP의 전반적인 개념에 관한 글"/>
 
     <meta property="og:title" content="PSQL TIMESTAMP/AT TIME ZONE 바로 알기" />
-<meta property="og:description" content="회사에서 PSQL 쿼리문을 작성하던 동료분이 이상한 부분이 있다며 불렀다. AT TIME ZONE &#39;Asia/Seoul&#39; 을 사용했을 때와 AT TIME ZONE &#39;UTC&#43;9&#39; 를 사용했을 때 결과가 18시간이나 차이난다고 했다.
-postgres=# SHOW timezone; TimeZone ------------  Asia/Seoul (1 row) postgres=# SELECT TIMESTAMP &#39;2020-08-06 12:00:00&#39; AT TIME ZONE &#39;Asia/Seoul&#39;; timezone ---------------------  2020-08-06 12:00:00&#43;09 (1 row) postgres=# SELECT TIMESTAMP &#39;2020-08-06 12:00:00&#39; AT TIME ZONE &#39;UTC&#43;9&#39;; timezone ------------------------  2020-08-07 06:00:00&#43;09 (1 row) 음.. 상식대로라면 둘의 결과가 같아야 할 것 같은데, 왜 다른건지, 뭐가 맞는건지 궁금해졌다." />
+<meta property="og:description" content="PSQL에서 AT TIME ZONE과 TIMESTAMP의 전반적인 개념에 관한 글" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.billo.io/devposts/psql_at_time_zone/" />
 <meta property="article:published_time" content="2020-08-06T00:26:48+09:00" />
@@ -164,7 +162,9 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
 (<span style="color:#ff0;font-weight:bold">3</span> <span style="color:#fff;font-weight:bold">rows</span>)
 </code></pre></div><p><code>Asia/Seoul</code>은 9시간으로 정상적으로 등록 되어있었다. 혼란스러웠다. 그래서 이번에 문제의 원인을 찾는 김에 대충 알고 쓰고있었던 timestamp 관련 내용을 좀 찾아보기로 했다.</p>
 <hr>
-<p>우선, Postgres에서 시간을 저장하는 두가지 타입에 대해서 찾아보았다. 바로 <code>TIMESTAMP [WITHOUT TIME ZONE]</code> 와  <code>TIMESTAMP  WITH TIME ZONE</code> 이다. <code>TIMESTAMP</code> 타입은 <code>TIMESTAMP '2020-08-06 12:00:00'</code> 형태처럼 timezone 값을 따로 명시하지 않고 사용하는 값을 말한다.  <code>TIMESTAMP WITHOUT TIME ZONE</code>은 <code>TIMESTAMP</code> 로 줄여서 사용할 수 있다. <code>TIMESTAMP WITH TIME ZONE</code> 타입은 <code> TIMESTAMP WITH TIME ZONE '2020-08-06 12:00:00+10'</code> 형태처럼 뒤에 어느 타임존에서의 timestamp인지를 나타낸 timestamp 값을 이야기한다. 이때, <code>TIMESTAMP WITH TIME ZONE</code>이라도 저장할 때 time zone 정보를 같이 저장하지 않는다. 값은 UTC 기준 timestamp로 변환되어 저장되고, 출력할 일이 있을 때 시스템의 time zone으로 출력하게 된다. (<code>SHOW TIMEZONE</code> 커멘드로 PSQL에서 사용하는 시스템의 time zone을 알 수 있다. )</p>
+<p>우선, Postgres에서 시간을 저장하는 두가지 타입에 대해서 찾아보았다. 바로 <code>TIMESTAMP [WITHOUT TIME ZONE]</code> 와  <code>TIMESTAMP  WITH TIME ZONE</code> 이다.</p>
+<p><code>TIMESTAMP</code> 타입은 <code>TIMESTAMP '2020-08-06 12:00:00'</code> 형태처럼 timezone 값을 따로 명시하지 않고 사용하는 값을 말한다.  <code>TIMESTAMP WITHOUT TIME ZONE</code>은 <code>TIMESTAMP</code> 로 줄여서 사용할 수 있다.</p>
+<p><code>TIMESTAMP WITH TIME ZONE</code> 타입은 <code> TIMESTAMP WITH TIME ZONE '2020-08-06 12:00:00+10'</code> 형태처럼 뒤에 어느 타임존에서의 timestamp인지를 나타낸 timestamp 값을 이야기한다. 이때, <code>TIMESTAMP WITH TIME ZONE</code>이라도 저장할 때 time zone 정보를 같이 저장하지 않는다. 값은 UTC 기준 timestamp로 변환되어 저장되고, 출력할 일이 있을 때 시스템의 time zone으로 출력하게 된다. (<code>SHOW TIMEZONE</code> 커멘드로 PSQL에서 사용하는 시스템의 time zone을 알 수 있다. )</p>
 <p>예를 들어보자. <code>SELECT TIMESTAMP WITH TIME ZONE '2020-08-06 12:00:00+10';</code> 을 <code>Asia/Seoul</code>에서 실행하게 되면 어떻게 될까?</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#fff;font-weight:bold">WITH</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00+10&#39;</span>;
       timestamptz
@@ -211,7 +211,7 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
 <ol>
 <li><code>Asia/Seoul</code>형태의 Timezone full name</li>
 <li><code>PST</code>형태의 줄임말</li>
-<li>POSIX-Style의 Timezone 표기법인 <code>STDoffset</code>, <code>STDoffsetDST</code> (DST는 일광절약시간) 형태. e.g.  <code>KST5</code> <code>EDT5DST</code></li>
+<li>POSIX-Style의 Timezone 표기법인 <code>STDoffset</code>, <code>STDoffsetDST</code> (DST는 일광절약시간) 형태. e.g.  <code>KST5</code>, <code>EDT5DST</code></li>
 </ol>
 <p>문제는 3번에 있었다. 우리가 UTC+9 형태로 표시하면 3번에 해당하게 되는데, 이 POSIX-Style에서 offset을 일반적으로 세는 방향과 반대인 <code>numeric offset in hours west from UTC</code> 즉 <code>UTC로부터 서쪽으로 시간상 얼마나 떨어져 있는지</code>를 세고 있던 것이다. 우리가 알고있는 UTC+9의 형태는 동쪽으로 계산한 값이다. 따라서 <code>AT TIME ZONE 'UTC+9'</code> 는 우리나라랑은 그리니치 천문대 기준으로 대칭적인 위치의 시간대에 해당하는 값이어서, 값이 이상하게 나왔던 것이다.</p>
 <hr>
