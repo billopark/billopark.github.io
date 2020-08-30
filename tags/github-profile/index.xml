@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github profile on Billo Park</title>
+    <link>https://blog.billo.io/tags/github-profile/</link>
+    <description>Recent content in github profile on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Sun, 30 Aug 2020 23:44:16 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/github-profile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github Profile에 자기소개 노출하기</title>
+      <link>https://blog.billo.io/devposts/github_profile_repo/</link>
+      <pubDate>Sun, 30 Aug 2020 23:44:16 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/github_profile_repo/</guid>
+      <description>최근 깃헙에 추가된 기능중에, 자기 프로필에 README 노출하기 기능이 있다.
+ 위의 사진처럼, 내 깃헙 프로필에 내가 노출하고 싶은 내용을 마크다운으로 노출할 수 있다.
+이를 하는 방법은 상당히 간단하다.
+바로 자신의 깃헙 닉네임과 같은 이름의 레포지토리를 만들고, 거기에 README.md 파일을 만들면 된다.
+위의 프로필에 사용된 레포를 들어가서 보면 프로필에 노출되는 것과 같은 내용이 보인다.
+ 이 특수 레포지토리를 활용하면, 개성있게 자신의 프로필을 꾸밀 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>
