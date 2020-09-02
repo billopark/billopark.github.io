@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.billo.io/bgposts/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/tabletop-simulator/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/tts/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/%EC%98%A8%EB%9D%BC%EC%9D%B8/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/bgposts/table_top_simulator/</loc>
+    <lastmod>2020-09-02T19:19:54+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/devposts/</loc>
     <lastmod>2020-08-30T23:44:16+09:00</lastmod>
   </url>
@@ -19,16 +59,6 @@
   
   <url>
     <loc>https://blog.billo.io/devposts/github_profile_repo/</loc>
-    <lastmod>2020-08-30T23:44:16+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/</loc>
-    <lastmod>2020-08-30T23:44:16+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/</loc>
     <lastmod>2020-08-30T23:44:16+09:00</lastmod>
   </url>
   
@@ -214,11 +244,6 @@
   
   <url>
     <loc>https://blog.billo.io/bgposts/19_fall_festa/</loc>
-    <lastmod>2019-10-13T05:46:25+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/bgposts/</loc>
     <lastmod>2019-10-13T05:46:25+09:00</lastmod>
   </url>
   

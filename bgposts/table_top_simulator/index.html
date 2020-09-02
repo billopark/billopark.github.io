@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Billo Park">
+    <meta name="description" content="Hello! I&#39;m Billo">
+    <meta name="keywords" content="blog,developer,boardgame">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="온라인 보드게임 플랫폼: Tabletop Simulator"/>
+<meta name="twitter:description" content="이 글을 쓰는 시점에서는 코로나19가 대 유행이다. 바깥에 나가는 것을 자제해야하고, 어디를 가든 마스크를 꼭 써야 한다. 보드게임도 마찬가지이다. 외출을 자제하기에 보드게임방에 가기도 부담스럽고, 보드게임을 하면서도 밀접하게 접촉이 일어나므로 찝찝하다. 이럴 때 온라인 보드게임 은 아주 좋은 대안이다. 밖에 나가지 않아도 되고, 확진자가 다녀갔을지 마음조리지 않아도 되는, 온라인 보드게임 플랫폼 테이블탑 시뮬레이터 를 소개한다.
+ 테이블탑 시뮬레이터는 스팀에서 다운로드 받을 수 있는 게임 플랫폼이다. 테이블탑 시뮬레이터를 실행시키고, 플레이 할 보드게임을 선택하고, 해당 보드게임을 즐기는, 그런 구조이다."/>
+
+    <meta property="og:title" content="온라인 보드게임 플랫폼: Tabletop Simulator" />
+<meta property="og:description" content="이 글을 쓰는 시점에서는 코로나19가 대 유행이다. 바깥에 나가는 것을 자제해야하고, 어디를 가든 마스크를 꼭 써야 한다. 보드게임도 마찬가지이다. 외출을 자제하기에 보드게임방에 가기도 부담스럽고, 보드게임을 하면서도 밀접하게 접촉이 일어나므로 찝찝하다. 이럴 때 온라인 보드게임 은 아주 좋은 대안이다. 밖에 나가지 않아도 되고, 확진자가 다녀갔을지 마음조리지 않아도 되는, 온라인 보드게임 플랫폼 테이블탑 시뮬레이터 를 소개한다.
+ 테이블탑 시뮬레이터는 스팀에서 다운로드 받을 수 있는 게임 플랫폼이다. 테이블탑 시뮬레이터를 실행시키고, 플레이 할 보드게임을 선택하고, 해당 보드게임을 즐기는, 그런 구조이다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.billo.io/bgposts/table_top_simulator/" />
+<meta property="article:published_time" content="2020-09-02T19:19:54+09:00" />
+<meta property="article:modified_time" content="2020-09-02T19:19:54+09:00" />
+
+
+    
+      <base href="https://blog.billo.io/bgposts/table_top_simulator/">
+    
+    <title>
+  온라인 보드게임 플랫폼: Tabletop Simulator · Billo Park
+</title>
+
+    
+      <link rel="canonical" href="https://blog.billo.io/bgposts/table_top_simulator/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.9f4f034f4b47e43195a49a37078c3bc350d0120e736bb2a4e102d116d7db2363.css" integrity="sha256-n08DT0tH5DGVpJo3B4w7w1DQEg5za7Kk4QLRFtfbI2M=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.74.3" />
+
+    <meta name="naver-site-verification" content="5b490ef47eccda7787df74fa69f27db1949fe77b" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://blog.billo.io/">
+      Billo Park
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/devposts/">Development</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/bgposts/">Boardgame</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">온라인 보드게임 플랫폼: Tabletop Simulator</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-09-02T19:19:54&#43;09:00'>
+                September 2, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1분
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://blog.billo.io/tags/tabletop-simulator/">tabletop simulator</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/tts/">tts</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84/">보드게임</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/%EC%98%A8%EB%9D%BC%EC%9D%B8/">온라인</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <p>이 글을 쓰는 시점에서는 코로나19가 대 유행이다. 바깥에 나가는 것을 자제해야하고, 어디를 가든 마스크를 꼭 써야 한다. 보드게임도 마찬가지이다. 외출을 자제하기에 보드게임방에 가기도 부담스럽고, 보드게임을 하면서도 밀접하게 접촉이 일어나므로 찝찝하다. 이럴 때 <strong>온라인 보드게임</strong> 은 아주 좋은 대안이다. 밖에 나가지 않아도 되고, 확진자가 다녀갔을지 마음조리지 않아도 되는, 온라인 보드게임 플랫폼 <strong>테이블탑 시뮬레이터</strong> 를 소개한다.</p>
+<hr>
+<p><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/">테이블탑 시뮬레이터</a>는 스팀에서 다운로드 받을 수 있는 게임 플랫폼이다. 테이블탑 시뮬레이터를 실행시키고, 플레이 할 보드게임을 선택하고, 해당 보드게임을 즐기는, 그런 구조이다. 실행하면 가상 공간에 놓인 테이블 위에 보드게임이 세팅되어 있고, 마우스로 카드를 집거나, 카드를 섞거나, 물체를 옮기거나, 심지어 테이블을 엎는 등 실제 만나서 보드게임을 하는 것과 유사한 UI를 가지고 있다.</p>
+
+<figure >
+        <img src="https://blog-static.billo.io/images/table_top_simulator/tt.spng" />
+</figure>
+
+<p>보드게임을 하는 것이기 때문에, 다른 사람들과의 멀티플레이를 당연히 지원한다. 스팀 친구라면 초대할 수 있고, 방 정보를 가지고 들어올 수 도 있다. 혹은 public 으로 모든 사람들이 들어올 수 있게도 할 수 있다.</p>
+<p>테이블탑 시뮬레이터에서는 DLC 형태로 좀비사이드, 사이쓰 등 다양한 보드게임을 팔고 있지만, 메인은 창작마당이다. 테이블탑 시뮬레이터의 창작마당에 가 보면, 유저들이 잘 알려진 다양한 보드게임들을 만들어 놓은 것을 볼 수 있다. 창작마당에서 잘 만들어진 보드게임을 다운받아, 플레이 할 수 있는 것이 테이블탑 시뮬레이터의 매력이다.</p>
+<p>언어는 영어밖에 안되지만, 창작마당에는 한글로 된 다양한 보드게임을 찾을 수 있다.</p>
+<hr>
+<p>정가는 21000원이고, 4명 팩을 사면 65000원이로 1인당 16250원이다. 추석과 같이 할인하는 시기에 4명팩으로 사는 것을 추천한다. 4명을 모으기 힘들다면 <a href="https://boardlife.co.kr">보드라이프</a>에서 파티원을 모집을 해보면 좋다.</p>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "billoblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Billo Park</p>
+      
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-147957269-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

@@ -6,10 +6,20 @@
     <description>Recent content in BOARDGAME on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 13 Oct 2019 05:46:25 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 19:19:54 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/bgposts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>온라인 보드게임 플랫폼: Tabletop Simulator</title>
+      <link>https://blog.billo.io/bgposts/table_top_simulator/</link>
+      <pubDate>Wed, 02 Sep 2020 19:19:54 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/bgposts/table_top_simulator/</guid>
+      <description>이 글을 쓰는 시점에서는 코로나19가 대 유행이다. 바깥에 나가는 것을 자제해야하고, 어디를 가든 마스크를 꼭 써야 한다. 보드게임도 마찬가지이다. 외출을 자제하기에 보드게임방에 가기도 부담스럽고, 보드게임을 하면서도 밀접하게 접촉이 일어나므로 찝찝하다. 이럴 때 온라인 보드게임 은 아주 좋은 대안이다. 밖에 나가지 않아도 되고, 확진자가 다녀갔을지 마음조리지 않아도 되는, 온라인 보드게임 플랫폼 테이블탑 시뮬레이터 를 소개한다.
+ 테이블탑 시뮬레이터는 스팀에서 다운로드 받을 수 있는 게임 플랫폼이다. 테이블탑 시뮬레이터를 실행시키고, 플레이 할 보드게임을 선택하고, 해당 보드게임을 즐기는, 그런 구조이다.</description>
+    </item>
     
     <item>
       <title>19년도 가을 페스타 후기</title>
