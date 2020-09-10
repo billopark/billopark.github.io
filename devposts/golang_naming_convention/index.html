@@ -157,6 +157,7 @@
 <p>상수의 경우에는 타 언어에서는 MAX_VALUE 와 같이 SCREAMING_SNAKE_CASE 를 사용하는 경우가 많다. 하지만 Go에서는 일반 변수 짓는 것과 같이 변수를 짓는다. <sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">const</span> maxValue <span style="color:#fff;font-weight:bold">int</span> = <span style="color:#ff0;font-weight:bold">5</span>
 </code></pre></div><p>위와 같이 일반 mixedCaps 형태로 사용하므로, 혼란이 없어야 겠다.</p>
+<p>그리고 함수 이름이 Must로 시작하는 것과 관련된 규칙이 하나 있다. 함수 이름이 Must로 시작한다면, 해당 동작을 실행 할 수 없을 때 panic을 내야 한다는 규칙이다. 예를 들면 <code>regexp.MustCompile</code> 이 있는데, 이는 <code>regexp.Compile</code> 함수와 비슷하나, expression이 파싱 될 수 없으면 panic을 뱉는다. 이는 공식적인 가이드는 아니나, 많은 standard library에서 찾아 볼 수 있다.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
 <hr>
 <p>Go에서도 export를 결정하는 대/소문자 규칙을 제외하고는 네이밍 컨벤션을 따르지 않아도 같게 동작한다. 작업하는 팀에서 그들만의 네이밍 컨벤션이 있는 경우를 제외한다면, 많은 사람들과 함께 작업 할 때, 코드를 오픈소스화 해야 할 때 등은 Go의 네이밍 컨벤션을 지키는 것이 더 관리 잘 되는 코드를 만들 수 있을 것이다.</p>
 <section class="footnotes" role="doc-endnotes">
@@ -188,6 +189,9 @@
 </li>
 <li id="fn:9" role="doc-endnote">
 <p><a href="https://stackoverflow.com/a/22688926">https://stackoverflow.com/a/22688926</a> <a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10" role="doc-endnote">
+<p><a href="https://stackoverflow.com/questions/39590458/golang-guard-assert-functions-naming-convention">https://stackoverflow.com/questions/39590458/golang-guard-assert-functions-naming-convention</a> <a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
