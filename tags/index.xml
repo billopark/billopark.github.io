@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 02 Sep 2020 19:19:54 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 21:23:47 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>go</title>
+      <link>https://blog.billo.io/tags/go/</link>
+      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://blog.billo.io/tags/golang/</link>
+      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go언어</title>
+      <link>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</link>
+      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>naming</title>
+      <link>https://blog.billo.io/tags/naming/</link>
+      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/naming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>naming convention</title>
+      <link>https://blog.billo.io/tags/naming-convention/</link>
+      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/naming-convention/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>명명 규칙</title>
+      <link>https://blog.billo.io/tags/%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99/</link>
+      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>tabletop simulator</title>
@@ -170,15 +224,6 @@
       <pubDate>Mon, 17 Aug 2020 20:37:52 +0900</pubDate>
       
       <guid>https://blog.billo.io/tags/%EB%AC%B4%EB%A3%8C/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://blog.billo.io/tags/golang/</link>
-      <pubDate>Sat, 08 Aug 2020 00:11:15 +0900</pubDate>
-      
-      <guid>https://blog.billo.io/tags/golang/</guid>
       <description></description>
     </item>
     

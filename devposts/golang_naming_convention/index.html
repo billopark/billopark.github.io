@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Billo Park">
+    <meta name="description" content="Hello! I&#39;m Billo">
+    <meta name="keywords" content="blog,developer,boardgame">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang 에서의 명명 규칙"/>
+<meta name="twitter:description" content="Go언어에서 사용되는 명명 규칙을 알아본다"/>
+
+    <meta property="og:title" content="Golang 에서의 명명 규칙" />
+<meta property="og:description" content="Go언어에서 사용되는 명명 규칙을 알아본다" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.billo.io/devposts/golang_naming_convention/" />
+<meta property="article:published_time" content="2020-09-08T21:23:47+09:00" />
+<meta property="article:modified_time" content="2020-09-08T21:23:47+09:00" />
+
+
+    
+      <base href="https://blog.billo.io/devposts/golang_naming_convention/">
+    
+    <title>
+  Golang 에서의 명명 규칙 · Billo Park
+</title>
+
+    
+      <link rel="canonical" href="https://blog.billo.io/devposts/golang_naming_convention/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.9f4f034f4b47e43195a49a37078c3bc350d0120e736bb2a4e102d116d7db2363.css" integrity="sha256-n08DT0tH5DGVpJo3B4w7w1DQEg5za7Kk4QLRFtfbI2M=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.74.3" />
+
+    <meta name="naver-site-verification" content="5b490ef47eccda7787df74fa69f27db1949fe77b" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://blog.billo.io/">
+      Billo Park
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/devposts/">Development</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://blog.billo.io/bgposts/">Boardgame</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Golang 에서의 명명 규칙</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-09-08T21:23:47&#43;09:00'>
+                September 8, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3분
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://blog.billo.io/tags/golang/">golang</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/go/">go</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/naming/">naming</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/naming-convention/">naming convention</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99/">명명 규칙</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/">go언어</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <p>무언가에 이름을 지을 때는 우리가 공통적으로 짓는 규칙들이 있다. 한국에서는 사람 이름을 대부분 세글자로 짓는다던지, 멍멍이와 같이 반려견의 이름으로 사용되는 것들은 피한다던지, 발음하기 어려운 단어를 피한다던지 하는 것들이다. 이렇게 규칙을 가지고 이름을 짓게 되면, 나중에 어떤 이름을 보아도 이게 사람 이름인지, 반려견 이름인지, 회사 이름인지 어느정도 구분이 가능하다.</p>
+<p>프로그래밍의 세계에서 이름짓기도 마찬가지다. 우리는 이를 명명규칙이라고 하는데, 이름을 지을 때 공통적으로 지키는 규칙들을 이야기한다. 언어마다 일반적으로 가이드 되는 패턴들이 있고, 대부분 이에 맞춰서 사용하는 것을 추천한다. 명명 규칙을 따라 작성한다면, 표준 라이브러리와 같이 다른 사람이 작성한 코드를 가져다 쓸때에도 통일성이 있어 관리가 편하며, 특정 명명 방법에는 기능적인 의미가 부여되어 있어서 코드를 읽지 않아도 이해가 되도록 도울 수 있다. 예를 들어 Go에서는 대문자로 된 변수명은 패키지 외부에서 사용 할 수 있다라는 기능적 의미를 가지고 있어서 사용자가 이해하기 쉬운 측면이 있다.</p>
+<p>아래에서는 Go에서 가이드하는 명명 규칙을 알아보려고 한다. Go에서 명명규칙과 관련해서 알 수 있는 문서는 2가지인데, 하나는 <a href="https://golang.org/doc/effective_go.html#names">Effective Go</a> 에 이름 짓기와 관련된 파트가 있고, Go Wiki의 <a href="https://github.com/golang/go/wiki/CodeReviewComments">Code Review Comment</a>에 명명법과 관련된 일부분이다.</p>
+<hr>
+<p>기본적으로, Go에서 두 단어 이상이 결합할 때에는 MixedCaps 혹은 mixedCaps 형태로 붙여서 사용한다. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 만약 URL, IP, NATO 처럼 이니셜이나 줄임말로 이루어진 단어들의 경우에는 <em>consistent case</em>, 즉 대문자나 소문자로 일정하게 사용해야 한다. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 즉 IP도 되고, ip도 되지만 Ip처럼 사용하지는 말라는 뜻이다.</p>
+<p>그리고 위에서 잠시 말했지만, Go에서 함수나 변수, 구조체 등의 이름 첫 글자는 매우 중요하다. 이 첫 글자가 대문자면, 패키지 외부에서 사용할 수 있다 라는 뜻이다.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">package</span> main
+
+<span style="color:#fff;font-weight:bold">var</span> internalValue <span style="color:#fff;font-weight:bold">int</span>
+<span style="color:#fff;font-weight:bold">var</span> ExternalValue <span style="color:#fff;font-weight:bold">int</span>
+
+<span style="color:#fff;font-weight:bold">func</span> internalFunc() <span style="color:#fff;font-weight:bold">int</span> {
+  ...
+}
+
+<span style="color:#fff;font-weight:bold">func</span> ExternalFunc() <span style="color:#fff;font-weight:bold">int</span> {
+  
+}
+</code></pre></div><p>위의 코드에서, <code>internalValue</code> 와 <code>internalFunc</code>는 해당 패키지 내부에서만 호출이 가능하나, <code>ExternalValue</code> 와 <code>ExternalFunc</code>는 패키지 외부에서도 호출이 가능하다. 다른 언어의 <code>public</code> <code>private</code>개념을 대소문자를 가지고 구분 한 것이다. Go에서는 변수나 함수 이름에 특정 유니코드 문자를 지원하는데<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>, &ldquo;카운트&rdquo;, &ldquo;인덱스&rdquo; 와 같은 단어를 변수나 함수 명으로 사용할 수 있다는 뜻이다. 이런 경우일때는 대/소문자가 없다. 그러면 외부에서 호출이 가능할까 불가능할까? 위에서 말 했던 것처럼, <em>첫 글자가 대문자면, 패키지 외부에서 사용 가능하기</em> 때문에, 첫 글자가 대문자가 아니므로, 패키지 외부에서는 사용이 불가능하다. 이 경우에는, &ldquo;T카운트&rdquo; 처럼 앞에 영 대문자를 붙여야 한다.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<hr>
+<p>또한 패키지 명을 지을 때도 일정한 규칙이 있다. 소문자로, 한 단어로 패키지 명을 지어야한다. 그리고 패키지 명은 소스 디렉터리의 basename 이어야 한다. <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>basename이란 디렉터리의 가장 끝에 있는 이름을 말한다.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> 즉, <code>src/encoding/base64</code> 는 <code>&quot;encoding/base64&quot;</code>로 import 되지만, 패키지명은 <code>&quot;base64&quot;</code>여야 한다.  또 패키지 안의 내용은 <em>동어 반복을 삼가야한다</em>. <code>bufio</code> 패키지 안의 <code>Reader</code>는 <code>bufio.Reader</code>로 이름지어야 하지, <code>bufio.BufReader</code>와 같이 사용해서는 안된다.</p>
+<p>인터페이스에도 규칙이 하나 있다. interface가 메서드 하나 만을 가질 떄, 메서드의 이름에 + er을 붙여 인터페이스를 짓는다.<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> 즉 Read 함수 하나만을 가지는 인터페이스를 Reader, Close 함수 하나만을 가지는 인터페이스를 Closer 라고 명명한다. 많은 Go의 standard library들이 해당 형식으로 interface를 사용한다.</p>
+<p>상수의 경우에는 타 언어에서는 MAX_VALUE 와 같이 SCREAMING_SNAKE_CASE 를 사용하는 경우가 많다. 하지만 Go에서는 일반 변수 짓는 것과 같이 변수를 짓는다. <sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">const</span> maxValue <span style="color:#fff;font-weight:bold">int</span> = <span style="color:#ff0;font-weight:bold">5</span>
+</code></pre></div><p>위와 같이 일반 mixedCaps 형태로 사용하므로, 혼란이 없어야 겠다.</p>
+<hr>
+<p>Go에서도 export를 결정하는 대/소문자 규칙을 제외하고는 네이밍 컨벤션을 따르지 않아도 같게 동작한다. 작업하는 팀에서 그들만의 네이밍 컨벤션이 있는 경우를 제외한다면, 많은 사람들과 함께 작업 할 때, 코드를 오픈소스화 해야 할 때 등은 Go의 네이밍 컨벤션을 지키는 것이 더 관리 잘 되는 코드를 만들 수 있을 것이다.</p>
+<hr>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://golang.org/doc/effective_go.html#mixed-caps">https://golang.org/doc/effective_go.html#mixed-caps</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://github.com/golang/go/wiki/CodeReviewComments#initialisms">https://github.com/golang/go/wiki/CodeReviewComments#initialisms</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://golang.org/doc/effective_go.html#names">https://golang.org/doc/effective_go.html#names</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p><a href="https://golang.org/ref/spec#Identifiers">https://golang.org/ref/spec#Identifiers</a> <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p><a href="https://golang.org/doc/faq#unicode_identifiers">https://golang.org/doc/faq#unicode_identifiers</a> <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p><a href="https://golang.org/doc/effective_go.html#package-names">https://golang.org/doc/effective_go.html#package-names</a> <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p><a href="https://en.wikipedia.org/wiki/Basename">https://en.wikipedia.org/wiki/Basename</a> <a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8" role="doc-endnote">
+<p><a href="https://golang.org/doc/effective_go.html#interface-names">https://golang.org/doc/effective_go.html#interface-names</a> <a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9" role="doc-endnote">
+<p><a href="https://stackoverflow.com/a/22688926">https://stackoverflow.com/a/22688926</a> <a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "billoblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Billo Park</p>
+      
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-147957269-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>naming convention on Billo Park</title>
+    <link>https://blog.billo.io/tags/naming-convention/</link>
+    <description>Recent content in naming convention on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Tue, 08 Sep 2020 21:23:47 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/naming-convention/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang 에서의 명명 규칙</title>
+      <link>https://blog.billo.io/devposts/golang_naming_convention/</link>
+      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/golang_naming_convention/</guid>
+      <description>무언가에 이름을 지을 때는 우리가 공통적으로 짓는 규칙들이 있다. 한국에서는 사람 이름을 대부분 세글자로 짓는다던지, 멍멍이와 같이 반려견의 이름으로 사용되는 것들은 피한다던지, 발음하기 어려운 단어를 피한다던지 하는 것들이다. 이렇게 규칙을 가지고 이름을 짓게 되면, 나중에 어떤 이름을 보아도 이게 사람 이름인지, 반려견 이름인지, 회사 이름인지 어느정도 구분이 가능하다.
+프로그래밍의 세계에서 이름짓기도 마찬가지다. 우리는 이를 명명규칙이라고 하는데, 이름을 지을 때 공통적으로 지키는 규칙들을 이야기한다. 언어마다 일반적으로 가이드 되는 패턴들이 있고, 대부분 이에 맞춰서 사용하는 것을 추천한다.</description>
+    </item>
+    
+  </channel>
+</rss>
