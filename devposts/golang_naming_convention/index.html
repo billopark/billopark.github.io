@@ -148,7 +148,7 @@
 }
 
 <span style="color:#fff;font-weight:bold">func</span> ExternalFunc() <span style="color:#fff;font-weight:bold">int</span> {
-  
+  ...
 }
 </code></pre></div><p>위의 코드에서, <code>internalValue</code> 와 <code>internalFunc</code>는 해당 패키지 내부에서만 호출이 가능하나, <code>ExternalValue</code> 와 <code>ExternalFunc</code>는 패키지 외부에서도 호출이 가능하다. 다른 언어의 <code>public</code> <code>private</code>개념을 대소문자를 가지고 구분 한 것이다. Go에서는 변수나 함수 이름에 특정 유니코드 문자를 지원하는데<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>, &ldquo;카운트&rdquo;, &ldquo;인덱스&rdquo; 와 같은 단어를 변수나 함수 명으로 사용할 수 있다는 뜻이다. 이런 경우일때는 대/소문자가 없다. 그러면 외부에서 호출이 가능할까 불가능할까? 위에서 말 했던 것처럼, <em>첫 글자가 대문자면, 패키지 외부에서 사용 가능하기</em> 때문에, 첫 글자가 대문자가 아니므로, 패키지 외부에서는 사용이 불가능하다. 이 경우에는, &ldquo;T카운트&rdquo; 처럼 앞에 영 대문자를 붙여야 한다.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
 <hr>
@@ -159,7 +159,6 @@
 </code></pre></div><p>위와 같이 일반 mixedCaps 형태로 사용하므로, 혼란이 없어야 겠다.</p>
 <hr>
 <p>Go에서도 export를 결정하는 대/소문자 규칙을 제외하고는 네이밍 컨벤션을 따르지 않아도 같게 동작한다. 작업하는 팀에서 그들만의 네이밍 컨벤션이 있는 경우를 제외한다면, 많은 사람들과 함께 작업 할 때, 코드를 오픈소스화 해야 할 때 등은 Go의 네이밍 컨벤션을 지키는 것이 더 관리 잘 되는 코드를 만들 수 있을 것이다.</p>
-<hr>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
