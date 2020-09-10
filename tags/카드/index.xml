@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>카드 on Billo Park</title>
+    <link>https://blog.billo.io/tags/%EC%B9%B4%EB%93%9C/</link>
+    <description>Recent content in 카드 on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Thu, 10 Sep 2020 23:08:08 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/%EC%B9%B4%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>보드게이머가 플레잉 카드를 고를 때 중요한 점</title>
+      <link>https://blog.billo.io/bgposts/playing_card_design_tip/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/bgposts/playing_card_design_tip/</guid>
+      <description>플레잉 카드, 즉 트럼프 카드는 생각보다 많은 수가 만들어진다. 펀딩 사이트인 텀블벅 사이트에서는 중복을 포함하여 성공한 펀딩만 28개, 와디즈에서는 5개가 존재한다. 펀딩이 아닌 방식으로 제작되는 경우를 포함하면, 꽤 많은 수의 트럼프 카드가 만들어진다. 이렇게 많은 플레잉 카드들은 디자이너들이 판매할 아트웍으로써, 홍보하기 위한 수단등 다양한 목적으로 만들어진다. 개발자인 나로서는 AWS(아마존 웹 서비스) 에서 주최하는 행사인 AWS Summit Seoul에서 굿즈로 AWS 플레잉 카드를 받은 적이 있다.
+이렇게 많이 만들어진 플레잉 카드들은 누가 사는걸까?</description>
+    </item>
+    
+  </channel>
+</rss>

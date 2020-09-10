@@ -6,10 +6,82 @@
     <description>Recent content in Tags on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 08 Sep 2020 21:23:47 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 23:08:08 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>card</title>
+      <link>https://blog.billo.io/tags/card/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/card/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>playing card</title>
+      <link>https://blog.billo.io/tags/playing-card/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/playing-card/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tichu</title>
+      <link>https://blog.billo.io/tags/tichu/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/tichu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tumblbug</title>
+      <link>https://blog.billo.io/tags/tumblbug/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/tumblbug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wadiz</title>
+      <link>https://blog.billo.io/tags/wadiz/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/wadiz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>보드게이머</title>
+      <link>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9D%B4%EB%A8%B8/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9D%B4%EB%A8%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>카드</title>
+      <link>https://blog.billo.io/tags/%EC%B9%B4%EB%93%9C/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/%EC%B9%B4%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>티츄</title>
+      <link>https://blog.billo.io/tags/%ED%8B%B0%EC%B8%84/</link>
+      <pubDate>Thu, 10 Sep 2020 23:08:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/%ED%8B%B0%EC%B8%84/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>go</title>
