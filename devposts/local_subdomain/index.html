@@ -4,10 +4,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="ko">
 
     <meta name="author" content="Billo Park">
-    <meta name="description" content="Hello! I&#39;m Billo">
+    <meta name="description" content="서버 환경을 로컬에서 테스트 할 때는 localhost라는 호스트네임을 사용한다. localhost는 일반적인 경우 아무 문제없이 테스트에 사용할 수 있다. 하지만 localhost의 경우, 도메인에 대한 validation이 있는 프로젝트의 경우 예외적으로 처리해줘야 할 수도 있으며 subdomain을 테스트 할 수 없다는 문제가 있다.
+일반적으로 이 문제를 해결하기 위해서는 /etc/hosts을 수정한다. /etc/hosts파일은 호스트네임과 IP를 매핑할 때 사용하는 파일이다. 이 파일을 이용해서 원하는 서브도메인을 포함한 호스트네임을 127.0.0.1과 같은 루프백 주소로 매핑을 하면, 서브도메인을 로컬에서 정상적으로 테스트 할 수 있다.">
     <meta name="keywords" content="blog,developer,boardgame">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="로컬 환경에서 Subdomain 테스트하기"/>
@@ -34,34 +40,49 @@
       <link rel="canonical" href="https://blog.billo.io/devposts/local_subdomain/">
     
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
     
       
       
-      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.9f4f034f4b47e43195a49a37078c3bc350d0120e736bb2a4e102d116d7db2363.css" integrity="sha256-n08DT0tH5DGVpJo3B4w7w1DQEg5za7Kk4QLRFtfbI2M=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.3754876c4753ddb02f4efd37021541bb92179a947a561568e66f91c1d026dbae.css" integrity="sha256-N1SHbEdT3bAvTv03AhVBu5IXmpR6VhVo5m&#43;RwdAm264=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://blog.billo.io/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
+      
     
 
     
 
     
 
-    
-
-    
-    
     <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.74.3" />
+    <link rel="apple-touch-icon" href="https://blog.billo.io/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon"  sizes="180x180" href="https://blog.billo.io/images/apple-touch-icon.png">
 
+    
     <meta name="naver-site-verification" content="dcd74279d8766b1eb11bf3c826dbdc112dec682b" />
+    
+    <meta name="generator" content="Hugo 0.74.3" />
   </head>
-
-  <body class=" ">
+  
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
@@ -69,26 +90,34 @@
       Billo Park
     </a>
     
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+      <span id="dark-mode-toggle" class="float-right">
+        <i class="fas fa-adjust fa-fw"></i>
+      </span>
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fas fa-bars fa-fw"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://blog.billo.io/about/">About</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://blog.billo.io/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://blog.billo.io/devposts/">Development</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://blog.billo.io/bgposts/">Boardgame</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://blog.billo.io/devposts/">Development</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://blog.billo.io/bgposts/">Boardgame</a>
-          </li>
-        
-      
-      
-    </ul>
+        <li class="navigation-item separator">
+          <span>|</span>
+        </li>
+      </ul>
     
   </section>
 </nav>
@@ -128,6 +157,7 @@
       </header>
 
       <div>
+        
         <p>서버 환경을 로컬에서 테스트 할 때는 localhost라는 호스트네임을 사용한다. localhost는 일반적인 경우 아무 문제없이 테스트에 사용할 수 있다. 하지만 localhost의 경우, 도메인에 대한 validation이 있는 프로젝트의 경우 예외적으로 처리해줘야 할 수도 있으며 <strong>subdomain</strong>을 테스트 할 수 없다는 문제가 있다.</p>
 <p>일반적으로 이 문제를 해결하기 위해서는 /etc/hosts을 수정한다. /etc/hosts파일은 호스트네임과 IP를 매핑할 때 사용하는 파일이다. 이 파일을 이용해서 원하는 서브도메인을 포함한 호스트네임을 127.0.0.1과 같은 루프백 주소로 매핑을 하면, 서브도메인을 로컬에서 정상적으로 테스트 할 수 있다. 하지만 이 방법은 프로젝트 외부의 세팅에 의존해야 하며, 여러 프로젝트를 테스트하기에 적합하지 않고, 테스트에 사용한 도메인을 실제 접속 할 때 파일을 다시 수정해주어야 하는 단점이 있다.</p>
 <p>따라서 이 방법 대신 새로운 방법을 소개하려고 한다. 바로 lvh.me 도메인을 사용하는 것이다. 따로 세팅해야 할 것 없이, localhost 대신 lvh.me 도메인을 사용하면 된다. 즉, 서버를 <code>localhost:8080</code> 에 띄워뒀다면 <code>lvh.me:8080</code>으로도 접속할 수 있다. 특히 이 주소는 서브도메인에서도 잘 동작한다.</p>
@@ -140,6 +170,7 @@
 <p>이 방법을 이용하면 /etc/hosts 파일을 수정할 필요 없이 로컬에서 쉽게 도메인 Validation이 들어간 테스트 혹은 서브도메인을 포함한 테스트를 진행할 수 있다.</p>
 
       </div>
+
 
       <footer>
         
@@ -190,6 +221,13 @@
     </main>
 
     
+      
+      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+    
+
+    
+
+    
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -203,6 +241,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
   </body>
 
