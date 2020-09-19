@@ -6,10 +6,118 @@
     <description>Recent content in Tags on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 15 Sep 2020 20:19:25 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2020 02:29:03 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>data layer</title>
+      <link>https://blog.billo.io/tags/data-layer/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/data-layer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>entgo</title>
+      <link>https://blog.billo.io/tags/entgo/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/entgo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go-pg</title>
+      <link>https://blog.billo.io/tags/go-pg/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/go-pg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://blog.billo.io/tags/golang/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gorm</title>
+      <link>https://blog.billo.io/tags/gorm/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/gorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>orm</title>
+      <link>https://blog.billo.io/tags/orm/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/orm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqlboiler</title>
+      <link>https://blog.billo.io/tags/sqlboiler/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/sqlboiler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqlc</title>
+      <link>https://blog.billo.io/tags/sqlc/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/sqlc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqlx</title>
+      <link>https://blog.billo.io/tags/sqlx/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/sqlx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>squirrel</title>
+      <link>https://blog.billo.io/tags/squirrel/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/squirrel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>upper.io</title>
+      <link>https://blog.billo.io/tags/upper.io/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/upper.io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xorm</title>
+      <link>https://blog.billo.io/tags/xorm/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/xorm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>2020 보드게임콘</title>
@@ -134,15 +242,6 @@
       <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
       
       <guid>https://blog.billo.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://blog.billo.io/tags/golang/</link>
-      <pubDate>Tue, 08 Sep 2020 21:23:47 +0900</pubDate>
-      
-      <guid>https://blog.billo.io/tags/golang/</guid>
       <description></description>
     </item>
     
@@ -530,6 +629,24 @@
       <pubDate>Mon, 16 Sep 2019 23:06:52 +0900</pubDate>
       
       <guid>https://blog.billo.io/tags/validation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>database/sql</title>
+      <link>https://blog.billo.io/tags/database/sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.billo.io/tags/database/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xo/xo</title>
+      <link>https://blog.billo.io/tags/xo/xo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.billo.io/tags/xo/xo/</guid>
       <description></description>
     </item>
     

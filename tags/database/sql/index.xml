@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database/sql on Billo Park</title>
+    <link>https://blog.billo.io/tags/database/sql/</link>
+    <description>Recent content in database/sql on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    
+	<atom:link href="https://blog.billo.io/tags/database/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang ORM, 무엇이 좋을까?</title>
+      <link>https://blog.billo.io/devposts/go_orm_recommandation/</link>
+      <pubDate>Sun, 20 Sep 2020 02:29:03 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/go_orm_recommandation/</guid>
+      <description>Go언어로 프로그램을 작성하다 보면 가장 고민스러운 부분 중 하나가 Data Layer 구성 일것이다. 웹 서버를 구성할 때 대부분 DB와 통신을 할 텐데, 아직 go-ish 하면서, 많은 star를 가지고, 잘 maintain되는 killer library가 없기 떄문이다. 시중에는 참 많은 대안들은 존재한다. 쉽고 강력한 full-featured ORM 기능을 제공하는 gorm, xorm은 runtime에 타입을 비교하여 go-ish 하지 못하고, 표준 라이브러리 database/sql 이나 sqlx는 너무 low-level interface라 많은 어플리케이션 코드를 직접 짜야 하는 단점 등 내 마음에 딱 맞는 라이브러리는 찾기가 어려웠다.</description>
+    </item>
+    
+  </channel>
+</rss>
