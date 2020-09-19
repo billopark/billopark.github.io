@@ -187,13 +187,13 @@
 
       <div>
         
-        <p>Go언어로 프로그램을 작성하다 보면 가장 고민스러운 부분 중 하나가 Data Layer 구성 일것이다. 웹 서버를 구성할 때 대부분 DB와 통신을 할 텐데, 아직 go-ish 하면서, 많은 star를 가지고, 잘 maintain되는 killer library가 없기 떄문이다. 시중에는 참 많은 대안들은 존재한다. 쉽고 강력한 full-featured ORM 기능을 제공하는 <code>gorm</code>, <code>xorm</code>은 runtime에 타입을 비교하여 go-ish 하지 못하고, 표준 라이브러리 <code>database/sql</code> 이나 <code>sqlx</code>는 너무 low-level interface라 많은 어플리케이션 코드를 직접 짜야 하는 단점 등 내 마음에 딱 맞는 라이브러리는 찾기가 어려웠다. 내가 생각하기에 이상적인 Data layer 조건은</p>
+        <p>Go언어로 프로그램을 작성하다 보면 가장 고민스러운 부분 중 하나가 Data Layer 구성 일것이다. 웹 서버를 구성할 때 대부분 DB와 통신을 할 텐데, 아직 type-safe 하면서, 많은 star를 가지고, 잘 maintain되는 killer library가 없기 때문이다. 시중에는 참 많은 대안들은 존재한다. 쉽고 강력한 full-featured ORM 기능을 제공하는 <code>gorm</code>, <code>xorm</code>은 runtime에 타입을 비교하여 type-safe 하지 못하고, 표준 라이브러리 <code>database/sql</code> 이나 <code>sqlx</code>는 너무 low-level interface라 많은 어플리케이션 코드를 직접 짜야 하는 단점 등 내 마음에 딱 맞는 라이브러리는 찾기가 어려웠다. 내가 생각하기에 이상적인 Data layer 조건은</p>
 <ul>
 <li>기본적인 DB Operation은 표준 라이브러리 <code>database/sql</code> 과 호환이 가능해야 한다. 그렇지 않으면 라이브러리를 교체하기가 상당히 어려울 것이다.</li>
 <li>라이브러리가 일정 궤도에 올라있어야 한다. GitHub 기준 1000개의 스타가 넘어 사용자 풀이 단단해야 하고, 라이브러리가 액티브하게 관리되고 있어야 한다.</li>
 <li>Database First. Database First는 데이터베이스의 필드를 기준으로 코드에 적용시키는 방법이고, Code First는 Go code를 먼저 작성하면 그에 맞추어서 DB가 변경되는 방식이다. Code Frist는 마이그레이션을 자동으로 해주어 위험하며, 어떻게 동작할 지 정확하게 이해하지 않으면 서버만 띄워도 DB가 변조될 수 있어서 Database First 방식이어야 한다.</li>
 <li>Domain 모델을 더럽히지 않아야 한다. Domain 모델에 struct tag나 기타 method를 강제해서는 안된다. Domain 모델이 더러워지면 확장성이 떨어지고, side effect가 생길 수 있다.</li>
-<li>No magic. 정적으로 코드가 작성되어 컴파일 레벨에서 디버그 가능해야 한다. 런타임에서 생길 수 있는 오류를 최소화 해야 한다.</li>
+<li>No magic. 정적으로 코드가 작성되어 type-safe하며 컴파일 레벨에서 디버그 가능해야 한다. 런타임에서 생길 수 있는 오류를 최소화 해야 한다.</li>
 <li>DB의 테이블 구조를 변경할 때 마다 따로 작성해야 하는 코드를 최소화하기. DB에 테이블을 추가하거나, 필드에 변화를 줬을 때 따라서 같이 변경해주어야 하는 게 너무 많으면 놓칠 수 있기 때문에 관리포인트를 줄이기 위해 수동 코드작업은 최소화되어야 한다.</li>
 <li>여러 DB 종류를 지원해야 한다. 최소 MySQL과 PostgreSQL을 지원하여, RDBMS 종류만 바꿨음에도 코드를 싹 갈아엎어야 하는 상황은 최소화되어야 한다.</li>
 </ul>
