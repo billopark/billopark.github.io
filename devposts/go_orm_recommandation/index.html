@@ -230,7 +230,7 @@
 </figure>
 
 <p>이외에도 <a href="https://pg.uptrace.dev/"><code>go-pg</code></a>, <a href="https://github.com/Masterminds/squirrel"><code>squirrel</code></a> 등 더 많은 라이브러리를 리서치하였지만, <code>go-pg</code>처럼 특정 RDBMS만 지원하거나 <code>squirrel</code>처럼 inactive 상태인 라이브러리들은 위 목록에서 제외하였다.</p>
-<p>이렇게 찾아본 후, 내가 최종적으로 선택한 것은 <code>sqlx</code>와 <code>sqlboiler</code>이다. 두개인 이유는 <code>sqlx</code>는 DB 커넥션, 트랜잭션 등의 low-level 파트를 맡고, <code>sqlboiler</code>는 high-level 파트를 맡아서 사용하고 있다. 아직 많이 사용해보지는 않았지만, 이 둘의 조합으로 Data layer를 원하는 조건에 맞추어서 사용해보고 있다. 위의 리서치가 여러분의 Go언어 ORM 라이브러리를 고르는데 도움이 되었기를 바란다.</p>
+<p>이렇게 찾아본 후, 내가 최종적으로 선택한 것은 <code>sqlx</code>와 <code>sqlboiler</code>이다. 두개인 이유는 <code>sqlx</code>는 DB 커넥션, 트랜잭션 등의 low-level 파트를 맡고, <code>sqlboiler</code>는 high-level 파트를 맡아서 사용하고 있다. 아직 많이 사용해보지는 않았지만, 이 둘의 조합으로 Data layer를 원하는 조건에 맞추어서 사용해보기로 결정했다. 아직 많이 사용해보지는 않아서 후기는 따로 없지만, 위의 리서치가 여러분의 Go언어 ORM 라이브러리를 고르는데 도움이 되었기를 바란다.</p>
 
       </div>
 
