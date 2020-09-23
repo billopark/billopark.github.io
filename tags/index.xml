@@ -6,10 +6,55 @@
     <description>Recent content in Tags on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 20 Sep 2020 02:29:03 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2020 16:34:08 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hugo</title>
+      <link>https://blog.billo.io/tags/hugo/</link>
+      <pubDate>Wed, 23 Sep 2020 16:34:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>related</title>
+      <link>https://blog.billo.io/tags/related/</link>
+      <pubDate>Wed, 23 Sep 2020 16:34:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/related/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>see also</title>
+      <link>https://blog.billo.io/tags/see-also/</link>
+      <pubDate>Wed, 23 Sep 2020 16:34:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/see-also/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>static site generator</title>
+      <link>https://blog.billo.io/tags/static-site-generator/</link>
+      <pubDate>Wed, 23 Sep 2020 16:34:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/static-site-generator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>관련된 포스트</title>
+      <link>https://blog.billo.io/tags/%EA%B4%80%EB%A0%A8%EB%90%9C-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</link>
+      <pubDate>Wed, 23 Sep 2020 16:34:08 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/%EA%B4%80%EB%A0%A8%EB%90%9C-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>data layer</title>
@@ -566,15 +611,6 @@
       <pubDate>Sat, 23 Nov 2019 22:27:33 +0900</pubDate>
       
       <guid>https://blog.billo.io/tags/github-pages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://blog.billo.io/tags/hugo/</link>
-      <pubDate>Sat, 23 Nov 2019 22:27:33 +0900</pubDate>
-      
-      <guid>https://blog.billo.io/tags/hugo/</guid>
       <description></description>
     </item>
     
