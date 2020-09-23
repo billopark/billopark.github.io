@@ -184,7 +184,7 @@
 
         </div>
       </header>
-si
+
       <div>
         
         <p>Go언어로 프로그램을 작성하다 보면 가장 고민스러운 부분 중 하나가 Data Layer 구성 일것이다. 웹 서버를 구성할 때 대부분 DB와 통신을 할 텐데, 아직 type-safe 하면서, 많은 star를 가지고, 잘 maintain되는 killer library가 없기 때문이다. 시중에는 참 많은 대안들은 존재한다. 쉽고 강력한 full-featured ORM 기능을 제공하는 <code>gorm</code>, <code>xorm</code>은 runtime에 타입을 비교하여 type-safe 하지 못하고, 표준 라이브러리 <code>database/sql</code> 이나 <code>sqlx</code>는 너무 low-level interface라 많은 어플리케이션 코드를 직접 짜야 하는 단점 등 내 마음에 딱 맞는 라이브러리는 찾기가 어려웠다. 내가 생각하기에 이상적인 Data layer 조건은</p>
