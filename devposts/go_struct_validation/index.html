@@ -185,7 +185,7 @@
     }
 </code></pre></div><p>작은 규모의 프로젝트일 때는 이렇게 하나하나 검증을 해줄 수 있지만, 프로젝트가 커지고 struct가 복잡해질 수록 이 방법은 감당하기 어려워 질 것이다.</p>
 <hr>
-<p>이보다 조금 더 나은 Approach를 제공하는것이 <a href="https://github.com/go-ozzo/ozzo-validation">go-ozzo/ozzo-validation</a> 라이브러리다. 이 라이브러리에서는 위의 방법을 그들이 제공하는 기본함수들을 통해서 조금 더 쉽게 Validation을 할 수 있도록 돕는다.</p>
+<p>이보다 조금 더 나은 Approach를 제공하는것이 <a href="https://github.com/go-ozzo/ozzo-validation" title="ozzo-validation 깃허브 레포">go-ozzo/ozzo-validation</a> 라이브러리다. 이 라이브러리에서는 위의 방법을 그들이 제공하는 기본함수들을 통해서 조금 더 쉽게 Validation을 할 수 있도록 돕는다.</p>
 <p>아래는 ozzo-validation의 Readme 에 적혀있는 예제 코드이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">    <span style="color:#fff;font-weight:bold">package</span> main
 
@@ -233,7 +233,7 @@
 </code></pre></div><p>이와 같은 라이브러리를 사용하여 검증하는 것은 첫번째 <code>IsValid()</code> 함수를 사용하는 것과 비슷하나, <strong>Validation 관리</strong>가 용이하며 <strong>기본적인 기능은 바퀴를 다시 만들지 않아도 된다는 점</strong> 등의 강점을 가진다.</p>
 <hr>
 <p>또한 Golang의 struct tag를 활용한 방식도 널리 쓰인다. struct tag란 struct의 field마다 일종의 annotation을 달 수 있는 방식인데, 이 struct tag는 Reflection을 통해 Runtime에 tag정보를 불러올 수 있다는 장점이 있다. 이 방식은 struct를 json Marshal/Unmarshal 할 때 json에서의 필드명 등을 정의할 때 쉽게 볼 수 있다.</p>
-<p>아래는 struct tag방식을 활용하여 Validation을 도와주는 <a href="https://github.com/go-playground/validator">go-playground/validator.v9</a> 패키지의 struct 예시이다.</p>
+<p>아래는 struct tag방식을 활용하여 Validation을 도와주는 <a href="https://github.com/go-playground/validator" title="validator 깃허브 레포">go-playground/validator.v9</a> 패키지의 struct 예시이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#007f7f">// User contains user information
 </span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">type</span> User <span style="color:#fff;font-weight:bold">struct</span> {
 	FirstName      <span style="color:#fff;font-weight:bold">string</span>     <span style="color:#0ff;font-weight:bold">`json:&#34;fname&#34;`</span>
@@ -267,7 +267,7 @@
 </span><span style="color:#007f7f"></span>	err := validate.Struct(user)
 	<span style="color:#fff;font-weight:bold">if</span> err != <span style="color:#fff;font-weight:bold">nil</span> {
         ...
-</code></pre></div><p>struct tag를 활용한 Validation의 경우 java의 Annotation을 사용하듯 손쉽게 Validation을 진행할 수 있다는 장점이 있다. 이와 비슷한 방식의 Validation 라이브러리로는 <a href="https://github.com/asaskevich/govalidator">asaskevich/govalidator</a>, <a href="https://github.com/go-validator/validator">go-validator/validator</a> 등이 있다.</p>
+</code></pre></div><p>struct tag를 활용한 Validation의 경우 java의 Annotation을 사용하듯 손쉽게 Validation을 진행할 수 있다는 장점이 있다. 이와 비슷한 방식의 Validation 라이브러리로는 <a href="https://github.com/asaskevich/govalidator" title="govalidator 깃허브 레포">asaskevich/govalidator</a>, <a href="https://github.com/go-validator/validator" title="validator 깃허브 레포">go-validator/validator</a> 등이 있다.</p>
 <p>하지만 이 방법은 꽤 Magical하다. Magical이란 프로그래밍 플로우를 따라가면서 보기에 명시적이지 않은 부분이 있음을 의미한다. 이 방식의 경우 struct tag에 적은 내용이 어떻게 Validate 되는지가 라이브러리 레벨로 묶여 있어 해당사항을 알기 어렵다. 차라리 go generate등을 통해서 struct를 Validation해줄 함수를 만드는 라이브러리가 있었다면 더 <strong>Go스럽지</strong>않았을까</p>
 <p>struct를 Validation하는 것을 소홀히 하다가는 잘못된 input으로 인해 큰 피해를 입을 수 있음을 명심하고 위의 방법들로 Validation을 진행하는 것이 좋을 것 같다.</p>
 

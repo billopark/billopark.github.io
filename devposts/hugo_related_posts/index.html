@@ -167,8 +167,8 @@
 
       <div>
         
-        <p>네이버에 블로그를 사이트 등록하고, 사이트에 대한 분석을 읽어보았더니, 내부 링크 관리가 잘 안되고 있다고 적혀있었다. 이를 개선하기 위해서 블로그에 See Also 란을 새로 만들어보기로 결정했다. 내가 사용하고 있는 블로그 플랫폼은 Hugo라서, Hugo에서 연관 포스트를 노출하는 방법을 찾아보았다. Hugo에서는 <a href="https://gohugo.io/content-management/related/#readout">Related Contents</a> 라고 부르는 개념이었다. 개요는 간단했다. 노출할 <code>연관된 글 목록</code> 코드를 작성하고, 블로그 글에 해당되는 레이아웃에 원하는 위치에 해당 코드를 불러주는게 끝이였다. 관련된 설정은 <code>config 파일</code>에서 가능했다.</p>
-<p>하나씩 확인해보면, 우선 <code>연관된 글</code> 을 보여줄 코드를 작성해야 한다. 여기서는 짧게 <code>See Also</code> 코드라고 칭하겠다. Hugo의 <a href="https://gohugo.io/content-management/related/#readout">Related Contents</a> 글에서 미리 짜져있는 코드가 있으므로, 이대로 사용하였다.</p>
+        <p>네이버에 블로그를 사이트 등록하고, 사이트에 대한 분석을 읽어보았더니, 내부 링크 관리가 잘 안되고 있다고 적혀있었다. 이를 개선하기 위해서 블로그에 See Also 란을 새로 만들어보기로 결정했다. 내가 사용하고 있는 블로그 플랫폼은 Hugo라서, Hugo에서 연관 포스트를 노출하는 방법을 찾아보았다. Hugo에서는 <a href="https://gohugo.io/content-management/related/#readout" title="hugo related content 문서">Related Contents</a> 라고 부르는 개념이었다. 개요는 간단했다. 노출할 <code>연관된 글 목록</code> 코드를 작성하고, 블로그 글에 해당되는 레이아웃에 원하는 위치에 해당 코드를 불러주는게 끝이였다. 관련된 설정은 <code>config 파일</code>에서 가능했다.</p>
+<p>하나씩 확인해보면, 우선 <code>연관된 글</code> 을 보여줄 코드를 작성해야 한다. 여기서는 짧게 <code>See Also</code> 코드라고 칭하겠다. Hugo의 <a href="https://gohugo.io/content-management/related/#readout" title="hugo related content 문서">Related Contents</a> 글에서 미리 짜져있는 코드가 있으므로, 이대로 사용하였다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ $related := .Site.RegularPages.Related . | first 5 }}
 {{ with $related }}
 &lt;<span style="font-weight:bold">h3</span>&gt;See Also&lt;/<span style="font-weight:bold">h3</span>&gt;
@@ -212,7 +212,7 @@
   [[related.indices]]
     name = <span style="color:#0ff;font-weight:bold">&#34;date&#34;</span>
     weight = <span style="color:#ff0;font-weight:bold">10</span>
-</code></pre></div><p>등장한 여러 변수에 대한 설명은 <a href="https://gohugo.io/content-management/related/#readout">Related Contents</a> 에서 찾아볼 수 있으니 참고하기 바란다. (어렵지 않다) 여기서 이해해야 하는 부분이 <code>related.indices</code>이다. 이는 <code>related</code> 정도를 게산하는 척도로, 각 블로그 글 마크다운 파일의 상단에 등장하는 필드들이 계산 대상이다. 예를 들어 나의 경우 아래와 같은 헤더를 가지고있는데,</p>
+</code></pre></div><p>등장한 여러 변수에 대한 설명은 <a href="https://gohugo.io/content-management/related/#readout" title="hugo related contents 문서">Related Contents</a> 에서 찾아볼 수 있으니 참고하기 바란다. (어렵지 않다) 여기서 이해해야 하는 부분이 <code>related.indices</code>이다. 이는 <code>related</code> 정도를 게산하는 척도로, 각 블로그 글 마크다운 파일의 상단에 등장하는 필드들이 계산 대상이다. 예를 들어 나의 경우 아래와 같은 헤더를 가지고있는데,</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/hugo_related_posts/post_headers.png" />

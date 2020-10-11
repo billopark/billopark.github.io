@@ -180,30 +180,30 @@
 <p>우선, 첫번째 조건에 의해서 동적 사이트보다는 정적 사이트를 선호하게 되었다.</p>
 <p>일반적으로 웹에서 쉽게 만나볼 수 있는 블로그들은 <strong>동적 사이트</strong>이다. <strong>동적 사이트</strong>란, 사이트 내부에 DB가 존재해서 사이트를 접속하는 시점에 DB에 있는 정보를 읽어와서 접속 시점마다 내용이 다를 수 있는, 그런 형태의 사이트를 의미한다. 네이버 블로그, 티스토리 블로그, 워드프레스 모두 이런 형태의 서비스들이다.</p>
 <p>반면 정적 사이트는 서버에 있는 미리 저장된 파일들이 그저 서버를 통해 제공되기만 하는 형태의 사이트를 말한다. 정적 사이트는 동적 사이트에 비해서 실시간성이 떨어지지만, 속도가 빠르고 관리가 수월하며, 값싸게 제공될 수 있고 Caching이 가능하다는 장점이 있다.</p>
-<p>정적 사이트의 경우, 정적 사이트를 만들어주는 뛰어난 툴들이 많이 존재한다. 이를 Static Site Generator 라고 하는데, 대표적으로 <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://gohugo.io">Hugo</a>, <a href="https://www.gatsbyjs.org/">Gatsby</a> 등이 있다. 방금 언급한 모든 툴들은 이미 많은 사람들이 사용하고 있을 정도로 검증되었으며, 쉽게 커스터마이징 할 수 있도록 가이드를 제공한다. 따라서 이중 어느것을 선택해도 괜찮다. 내가 선택한 것은 <a href="https://gohugo.io/">Hugo</a> 이다. 이유는 평소 내가 좋아하는 Golang으로 구성된 프로젝트이고, 오픈소스 테마중 원하는 테마가 있어서였다.</p>
-<p>이렇게 프레임워크를 정한 후, 어떻게 사이트를 퍼블리싱 할 것인지를 고민하기 시작했다. 이때 내가 선택한 것은 <a href="https://pages.github.com/">Github Pages</a> 였다.</p>
+<p>정적 사이트의 경우, 정적 사이트를 만들어주는 뛰어난 툴들이 많이 존재한다. 이를 Static Site Generator 라고 하는데, 대표적으로 <a href="https://jekyllrb.com/" title="jekyll official site">Jekyll</a>, <a href="https://gohugo.io" title="hugo official site">Hugo</a>, <a href="https://www.gatsbyjs.org/" title="gatsby official site">Gatsby</a> 등이 있다. 방금 언급한 모든 툴들은 이미 많은 사람들이 사용하고 있을 정도로 검증되었으며, 쉽게 커스터마이징 할 수 있도록 가이드를 제공한다. 따라서 이중 어느것을 선택해도 괜찮다. 내가 선택한 것은 <a href="https://gohugo.io/" title="hugo official site">Hugo</a> 이다. 이유는 평소 내가 좋아하는 Golang으로 구성된 프로젝트이고, 오픈소스 테마중 원하는 테마가 있어서였다.</p>
+<p>이렇게 프레임워크를 정한 후, 어떻게 사이트를 퍼블리싱 할 것인지를 고민하기 시작했다. 이때 내가 선택한 것은 <a href="https://pages.github.com/" title="github pages">Github Pages</a> 였다.</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/blog_github_page/github_page_site.png" />
 </figure>
 
-<p>Github Pages란 <a href="https://github.com">Github</a> 에 특별한 Repository를 만들면 자신의 Github ID를 이용해서 <code>(내 github ID).github.io</code> 형태로 정적 사이트를 제공해주는 서비스이다. Github Pages 를 이용하게 된 이유는</p>
+<p>Github Pages란 <a href="https://github.com" title="github">Github</a> 에 특별한 Repository를 만들면 자신의 Github ID를 이용해서 <code>(내 github ID).github.io</code> 형태로 정적 사이트를 제공해주는 서비스이다. Github Pages 를 이용하게 된 이유는</p>
 <ol>
 <li>호스팅에 대해서 따로 고민하지 않아도 된다.</li>
 <li>코드관리도 Github에서 할 것이므로 편하다.</li>
 <li>무료다.</li>
 </ol>
 <p>였다. 이렇게 편하게 관리해주는데 사용하지 않을 이유가 없었다.</p>
-<p>현재 이 블로그는  를 이용해 구성되어 있고, <a href="https://pages.github.com/">Github Pages</a> 를 이용해 호스팅 되고 있다.</p>
+<p>현재 이 블로그는  를 이용해 구성되어 있고, <a href="https://pages.github.com/" title="github pages">Github Pages</a> 를 이용해 호스팅 되고 있다.</p>
 <h2 id="프로젝트-세팅">프로젝트 세팅</h2>
-<p>Hugo의 경우, <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Github에 호스팅하기</a> 페이지에서 엄청 자세히 잘 나와있어 이대로 프로젝트를 셋업했다. 나의 경우 User/Organizations Page 의 가이드 대로 셋업했다. 간단하게 설명하면 깃헙 레포지토리를 <strong>2개</strong> 만들게되는데, 하나는 프로젝트 전체를 저장하는 프라이빗 레포지토리이고, 나머지는 <code>(내 github ID).github.io</code> 이름의 레포지토리로 여기는 공개된 사이트의 코드를 담고있는 레포지토리이다.</p>
+<p>Hugo의 경우, <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/" title="github에 호스팅 하기 위한 hugo 문서">Github에 호스팅하기</a> 페이지에서 엄청 자세히 잘 나와있어 이대로 프로젝트를 셋업했다. 나의 경우 User/Organizations Page 의 가이드 대로 셋업했다. 간단하게 설명하면 깃헙 레포지토리를 <strong>2개</strong> 만들게되는데, 하나는 프로젝트 전체를 저장하는 프라이빗 레포지토리이고, 나머지는 <code>(내 github ID).github.io</code> 이름의 레포지토리로 여기는 공개된 사이트의 코드를 담고있는 레포지토리이다.</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/blog_github_page/github_repos.png" />
 </figure>
 
 <h2 id="블로그-기본-정보-설정하기">블로그 기본 정보 설정하기</h2>
-<p>이렇게 설정한 후, 기본적인 블로그 설정에 나섰다. 가장 먼저 했던 것은 테마 고르기였다. 아까 말했듯 <a href="https://gohugo.io">Hugo</a>와 같은 서비스들은 테마 종류가 정말 많다. 이들은 <a href="https://themes.gohugo.io/">Hugo Theme 페이지</a> 에서 고를 수 있다. 내가 선택한 테마는 <a href="https://themes.gohugo.io/hugo-coder/">Coder</a> 이다.</p>
+<p>이렇게 설정한 후, 기본적인 블로그 설정에 나섰다. 가장 먼저 했던 것은 테마 고르기였다. 아까 말했듯 <a href="https://gohugo.io" title="hugo 공식 사이트">Hugo</a>와 같은 서비스들은 테마 종류가 정말 많다. 이들은 <a href="https://themes.gohugo.io/" title="hugo 테마 페이지">Hugo Theme 페이지</a> 에서 고를 수 있다. 내가 선택한 테마는 <a href="https://themes.gohugo.io/hugo-coder/" title="hugo coder 테마">Coder</a> 이다.</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/blog_github_page/hugo_coder_theme.png" />
@@ -242,7 +242,7 @@
 <p>첫 보드게임 관련 글을 쓰고, 이미지 로드가 <strong>심각하게</strong> 느리다는 것을 확인했다. Github에서 무료로 호스팅을 제공해주니 만큼, 좋은 스피드를 기대하는 것은 무리였다.</p>
 <p>그래서 나는 <strong>CDN</strong> 서비스를 이용하기로 했다. CDN이란 Content Delivery Network의 약자로서 유저들이 자료를 접속할 때 위치에 따라서 적절히 컨텐츠를 전달하는 것을 의미한다. 이 CDN서비스의 중요한 피쳐중 하나가 <strong>캐싱</strong>이다. 이미지를 <strong>캐싱</strong>하여 전달받으면, 훨씬 빠른 속도로 이미지를 로드할 수 있다.</p>
 <p>내 블로그에서 이미지를 가져올 때, 그냥 Github에서 주는 이미지를 그대로 내려주는 것이 아니고, CDN 네트워크에서 이미지를 가져오도록 했다. 이를 위해 내가 했던 세팅을 공유하고자 한다.</p>
-<p>모든 클라우드 서비스들은 CDN서비스를 제공하는데, 나는 내가 쓰는 <a href="https://cloud.google.com/">GCP</a>의 Cloud CDN 기능을 이용하기로 했다. GCP는 다른 클라우드 서비스와 다르게 <strong>Remote Origin</strong> 을 지원하지 않는다. 이말은 GCP에 올라와있지 않은 데이터는 CDN을 통해서 제공할 수 없다는 의미이다.</p>
+<p>모든 클라우드 서비스들은 CDN서비스를 제공하는데, 나는 내가 쓰는 <a href="https://cloud.google.com/" title="구글 클라우드 플랫폼">GCP</a>의 Cloud CDN 기능을 이용하기로 했다. GCP는 다른 클라우드 서비스와 다르게 <strong>Remote Origin</strong> 을 지원하지 않는다. 이말은 GCP에 올라와있지 않은 데이터는 CDN을 통해서 제공할 수 없다는 의미이다.</p>
 <p>따라서 내가 했던 작업은 크게</p>
 <ol>
 <li>GCP bucket(스토리지)에 CDN 연결하기</li>
@@ -250,14 +250,14 @@
 <li>Post에 이미지 삽입시 CDN의 이미지를 가져오도록 설정하기</li>
 </ol>
 <p>로 나눌 수 있다.</p>
-<p>1번 설정은 과정이 길어, 내가 참고했던 <a href="https://medium.com/@jwlee98/gcp-dns-%EB%B6%80%ED%84%B0-%ED%95%98%EB%82%98%EC%94%A9-%ED%95%B4%EB%B3%B4%EB%8A%94-google-cloud-%EB%A1%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%ED%95%B4%EB%B3%B4%EA%B8%B0-3%ED%83%84-cloud-cdn-1b861e40f72a">미디움 링크</a> 를 남기는 것으로 갈음하고자 한다.</p>
+<p>1번 설정은 과정이 길어, 내가 참고했던 <a href="https://medium.com/@jwlee98/gcp-dns-%EB%B6%80%ED%84%B0-%ED%95%98%EB%82%98%EC%94%A9-%ED%95%B4%EB%B3%B4%EB%8A%94-google-cloud-%EB%A1%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%ED%95%B4%EB%B3%B4%EA%B8%B0-3%ED%83%84-cloud-cdn-1b861e40f72a" title="GCP 버킷에 CDN 연결하는 방법에 관한 미디움 링크">미디움 링크</a> 를 남기는 것으로 갈음하고자 한다.</p>
 <p>2번의 경우, GCP의 rsync 기능을 이용했다. rsync란 특정 directory/GCP bucket간을 동기화 시켜주는 기능이다. 이 기능을 이용해 블로그의 이미지들이 올라가는 directory인 static directory 와 CDN이 연결된 bucket을 sync 해주기로 했다.</p>
 <p>우선, gcloud 라는 커맨드라인 프로그램을 설치하고, <code>gcloud auth login</code>을 통해서 로그인한다.</p>
 <p>그리고, 디플로이 스크립트에 아래 커맨드를 추가한다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gsutil rsync -r static gs://{{버킷-id}}
 </code></pre></div><p>이렇게 해주면, 매 배포시 마다 static directory의 파일들을 해당 버킷에 동기화시키게 된다.</p>
 <p>3번의 기능적 요구조건을 떠올려보자. 로컬환경에서 블로그를 띄워서 확인할 때에는 CDN의 이미지를 가져오면 안되고 로컬의 값을 가져와야 한다. 그리고 배포된 환경에서는 CDN의 이미지를 가져와야 한다. 이렇게 이미지의 주소를 실행하는 환경에 따라서 Dynamic하게 가져오려면 Hugo의 일반 image 삽입방법으로는 커버할 수 없다.</p>
-<p>그래서 생각해낸 방법은 Hugo의 <a href="https://gohugo.io/content-management/shortcodes/"><strong>shortcode</strong></a> 기능이다. shortcode란 컨텐츠 파일에서 사용할 수 있는 간단한 코드를 말한다. 우선, Hugo의 환경변수 기능을 사용해서, Hugo 실행시 어떤 환경인지 알 수 있게 했다. 그리고 환경변수에 따라서 path를 다르게 가져오기 위해 각 실행환경 별로 config 파일을 만들고, config파일에 <code>staticpath</code>라는 파라미터를 추가했다.</p>
+<p>그래서 생각해낸 방법은 Hugo의 <a href="https://gohugo.io/content-management/shortcodes/" title="hugo에 shortcode 관련 문서"><strong>shortcode</strong></a> 기능이다. shortcode란 컨텐츠 파일에서 사용할 수 있는 간단한 코드를 말한다. 우선, Hugo의 환경변수 기능을 사용해서, Hugo 실행시 어떤 환경인지 알 수 있게 했다. 그리고 환경변수에 따라서 path를 다르게 가져오기 위해 각 실행환경 별로 config 파일을 만들고, config파일에 <code>staticpath</code>라는 파라미터를 추가했다.</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/blog_github_page/config_folder.png" />

@@ -169,10 +169,10 @@
       <div>
         
         <ul>
-<li>이 글을 읽기 전에 <a href="https://blog.billo.io/devposts/local_subdomain">로컬 환경에서 Subdomain 테스트하기</a> 를 읽어보시는 것을 추천드린다.</li>
+<li>이 글을 읽기 전에 <a href="https://blog.billo.io/devposts/local_subdomain" title="로컬 환경에서 subdomain 테스트하기 블로그 글">로컬 환경에서 Subdomain 테스트하기</a> 를 읽어보시는 것을 추천드린다.</li>
 </ul>
 <p>요약하면, lvh.me 서비스는 lvh.me 의 A레코드를 127.0.0.1로 매핑해주는게 다인 서비스이다. 이 서비스를 써보니, 나도 만들어 보고 싶어졌다. 떠올려보면 어려울 게 없어 보였다. 도메인을 하나 사서, A레코드만 잘 등록해주면 될 일 아닌가.</p>
-<p>비슷한 서비스인 <a href="https://nip.io">nip.io</a> 를 보니, 1.2.3.4.nip.io 처럼 매핑하고 싶은 IP를 서브도메인으로 받아서 A레코드로 서비스 하는 곳도 있었다. 이것까지도 쉬워 보였다. 해당 도메인의 DNS 서버를 만들면 되는 일이었다. DNS서버는 그저 A 레코드를 잘 뱉어주면 되는, 그런 간단한 일이었다.</p>
+<p>비슷한 서비스인 <a href="https://nip.io" title="nip.io 공식 사이트">nip.io</a> 를 보니, 1.2.3.4.nip.io 처럼 매핑하고 싶은 IP를 서브도메인으로 받아서 A레코드로 서비스 하는 곳도 있었다. 이것까지도 쉬워 보였다. 해당 도메인의 DNS 서버를 만들면 되는 일이었다. DNS서버는 그저 A 레코드를 잘 뱉어주면 되는, 그런 간단한 일이었다.</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/iep_ee/nip_io.png" />
@@ -180,11 +180,11 @@
 
 <hr>
 <h3 id="하지만-그렇게-쉬울리-없지">하지만 그렇게 쉬울리 없지</h3>
-<p>우선 오픈소스로 코드가 공개되어 있는 nip.io 서비스의 <a href="https://github.com/exentriquesolutions/nip.io/blob/master/nipio/backend.py">코드</a>를 읽어보았다. <code>음... 안읽히네?</code> 여기부터 쎄한 기분이 들었다. 여기서는 PowerDNS 라는 서비스를 이용했는데, 내가 이 서비스를 잘 몰라서 그런가보다 했다. <code>어짜피 어려운 서비스도 아니고, 그냥 서브도메인 파싱만 잘 하면 되니까 맨땅에 처음부터 해보지뭐</code> 의 생각으로, 내가 다시짜기로 결심했다.</p>
-<p>서브프로젝트의 시작은 도메인 구매라고 했다. 당장에 달려가서 도메인 부터 샀다. 직관적이고, 기억에 잘 박히는 도메인을 원했다. IP를 잘 매핑해주는거니까 IP와 발음이 비슷한 <a href="http://iep.ee">iep.ee</a> 도메인을 겟했다. 프로젝트를 시작한 것 같은, 행복감이 들었다.</p>
-<p>이제 남은건 DNS서버 뿐. 언어는 Go로 하기로 생각했던 상황이라, 라이브러리를 찾아보니  2가지 옵션이 있었다. <a href="https://github.com/miekg/dns">dns</a> 라는, low-level server library로 서버를 짜거나, <a href="https://coredns.io/">CoreDNS</a> 라는 high-level server의 Plugin을 개발하거나 두가지이다. CoreDNS를 보니, <a href="https://coredns.io/explugins/ipecho/">ipecho</a>라는, 내가 정확히 하고 싶은 기능을 구현한 플러그인이 있었다. 그래서 <code>어짜피 짜보는데 의의가 있으니까..</code> 라는 생각으로 dns 라이브러리를 사용해보았다.</p>
+<p>우선 오픈소스로 코드가 공개되어 있는 nip.io 서비스의 <a href="https://github.com/exentriquesolutions/nip.io/blob/master/nipio/backend.py" title="nip.io backend 코드">코드</a>를 읽어보았다. <code>음... 안읽히네?</code> 여기부터 쎄한 기분이 들었다. 여기서는 PowerDNS 라는 서비스를 이용했는데, 내가 이 서비스를 잘 몰라서 그런가보다 했다. <code>어짜피 어려운 서비스도 아니고, 그냥 서브도메인 파싱만 잘 하면 되니까 맨땅에 처음부터 해보지뭐</code> 의 생각으로, 내가 다시짜기로 결심했다.</p>
+<p>서브프로젝트의 시작은 도메인 구매라고 했다. 당장에 달려가서 도메인 부터 샀다. 직관적이고, 기억에 잘 박히는 도메인을 원했다. IP를 잘 매핑해주는거니까 IP와 발음이 비슷한 <a href="http://iep.ee" title="iep.ee 사이트">iep.ee</a> 도메인을 겟했다. 프로젝트를 시작한 것 같은, 행복감이 들었다.</p>
+<p>이제 남은건 DNS서버 뿐. 언어는 Go로 하기로 생각했던 상황이라, 라이브러리를 찾아보니  2가지 옵션이 있었다. <a href="https://github.com/miekg/dns" title="dns 깃허브 레포">dns</a> 라는, low-level server library로 서버를 짜거나, <a href="https://coredns.io/" title="coredns 공식 사이트">CoreDNS</a> 라는 high-level server의 Plugin을 개발하거나 두가지이다. CoreDNS를 보니, <a href="https://coredns.io/explugins/ipecho/" title="coredns의 ipecho라는 플러그인 소개">ipecho</a>라는, 내가 정확히 하고 싶은 기능을 구현한 플러그인이 있었다. 그래서 <code>어짜피 짜보는데 의의가 있으니까..</code> 라는 생각으로 dns 라이브러리를 사용해보았다.</p>
 <p>하지만, 생각보다 쉽지 않았다. 제일 처음 겪은 문제는, <code>네임서버의 IP는 어떻게 얻어지는걸까?</code> 였다. example.com를 관리하는 네임서버를 생각해보자. 네임서버 레코드는 일반적으로 nsX.example.com 형태로 사용한다. 오잉, nsX.example.com의 IP를 알아야 네임서버에 접속할 수 있는데, 이 IP를 얻을려면 네임서버에게 물어봐야하고&hellip; 어? 이상한 순환참조가 생긴다. 이 포인트를 찾다 보니 glue record가 이를 해결해준다고 한다. glue record란, 네임서버의 IP를 같이 내려줘서 네임서버 순환참조를 없애주는 레코드라고 한다.</p>
-<p>그리고나서 A레코드만 서빙하도록 서버를 만들고나니, DNS Lookup이 잘 되지 않았다. 뭐가문제일까, 하고 봤더니 SOA라는게 필요했다. SOA Record란 쉽게말해서 <code>이 도메인 포함 하위도메인들의 관리는 이렇습니다</code> 를 설명하는 레코드이다. Master 네임서버, 네임서버 버전정보(시리얼), TTL, 관리자 메일 등 도메인의 DNS 관리정책을 정해주는 레코드이다. 이 레코드를 넣으니 드디어 기본동작을 하기 시작했다. <a href="https://toolbox.googleapps.com/apps/dig/#A/10.0.0.1.iep.ee">해보기</a></p>
+<p>그리고나서 A레코드만 서빙하도록 서버를 만들고나니, DNS Lookup이 잘 되지 않았다. 뭐가문제일까, 하고 봤더니 SOA라는게 필요했다. SOA Record란 쉽게말해서 <code>이 도메인 포함 하위도메인들의 관리는 이렇습니다</code> 를 설명하는 레코드이다. Master 네임서버, 네임서버 버전정보(시리얼), TTL, 관리자 메일 등 도메인의 DNS 관리정책을 정해주는 레코드이다. 이 레코드를 넣으니 드디어 기본동작을 하기 시작했다. <a href="https://toolbox.googleapps.com/apps/dig/#A/10.0.0.1.iep.ee" title="온라인으로 해당 주소를 dig하는 사이트">해보기</a></p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/iep_ee/iep_ee_dig.png" />
@@ -200,7 +200,7 @@
 <li>잘 정리된 기술 문서가 있다면 읽어보면 좋다. 프랙티컬하게 배울때와는 다른 디테일을 알 수 있다.</li>
 </ul>
 <p>정도가 있다. 확실히 업무로 프로젝트 할때와는 다른 포인트를 느낄 수 있었다.</p>
-<p>혹시 같이 인사이트를 느껴보고 싶다면, 주저말고 <a href="https://github.com/billopark/iep.ee">github</a> 에 남겨주시라 :-) contribution은 언제나 환영!</p>
+<p>혹시 같이 인사이트를 느껴보고 싶다면, 주저말고 <a href="https://github.com/billopark/iep.ee" title="iep.ee 깃허브 레포">github</a> 에 남겨주시라 :-) contribution은 언제나 환영!</p>
 
       </div>
 

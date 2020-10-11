@@ -216,7 +216,7 @@ ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대
 <p>맞다. 아무렇게나 30개 뽑아주는거랑 같은 것 이다.</p>
 <p>그래서 실제로 저렇게 실행하게 되면, 아무런 순서없이 최대 30개를 반환하게 된다.</p>
 <p><code>그러면 이거 버그아닌가?</code> 라고 생각할 수 있다.</p>
-<p>하지만 <a href="https://www.postgresql.org/docs/current/queries-limit.html">PostgreSQL</a>에 의하면, 그저 SQL의 본질적인 특성인 <code>ORDER BY 없으면 실행결과의 순서는 보장하지 않는다</code> 의 결과라, 버그가 아니다 라는 입장이다.</p>
+<p>하지만 <a href="https://www.postgresql.org/docs/current/queries-limit.html" title="psql limit 관련 공식 문서">PostgreSQL</a>에 의하면, 그저 SQL의 본질적인 특성인 <code>ORDER BY 없으면 실행결과의 순서는 보장하지 않는다</code> 의 결과라, 버그가 아니다 라는 입장이다.</p>
 <p>따라서 <code>LIMIT</code>과 <code>OFFSET</code> 을 사용한다면, 사용자가 꼭 <code>ORDER BY</code> 를 빼먹지 않도록 체크하자.</p>
 
       </div>

@@ -209,7 +209,7 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
 (<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
 </code></pre></div><p><code>Asia/Seoul</code> time zone 형태로 표시된 해당 시간을 얻을 수 있다.</p>
 <hr>
-<p>우리가 알고싶었던 <code>AT TIME ZONE</code> 은 사실 3가지 역할을 하는데, (<a href="https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-ZONECONVERT">문서</a>)</p>
+<p>우리가 알고싶었던 <code>AT TIME ZONE</code> 은 사실 3가지 역할을 하는데, (<a href="https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-ZONECONVERT" title="psql 에서 at time zone 관련 공식 문서">문서</a>)</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/psql_at_time_zone/at_time_zone_doc.png" />
@@ -238,7 +238,7 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
 </code></pre></div><p>멜버른에서 정오일때 서울은 11시이므로, 위처럼 나오게 된다.</p>
 <hr>
 <p>위의 배경지식을 갖고 볼 때, 기존에 궁금했던 <code>SELECT TIMESTAMP '2020-08-06 12:00:00' AT TIME ZONE 'Asia/Seoul';</code> 와 <code>SELECT TIMESTAMP '2020-08-06 12:00:00' AT TIME ZONE 'UTC+9';</code> 의 결과 중에서는 첫번째 결과가 맞다는 것을 알 수 있었다. 그 다음 의심해 봐야 하는 것은 TIME ZONE을 어떻게 표기하느냐에 관한 것이다.</p>
-<p>PSQL에서는 timezone을 3가지 방법으로 표시할 수 있는데, (<a href="https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-TIMEZONES">문서</a>)</p>
+<p>PSQL에서는 timezone을 3가지 방법으로 표시할 수 있는데, (<a href="https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-TIMEZONES" title="psql에서 timezone 관련 공식 문서">문서</a>)</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/psql_at_time_zone/time_zone_doc.png" />
