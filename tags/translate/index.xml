@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>github on Billo Park</title>
-    <link>https://blog.billo.io/tags/github/</link>
-    <description>Recent content in github on Billo Park</description>
+    <title>translate on Billo Park</title>
+    <link>https://blog.billo.io/tags/translate/</link>
+    <description>Recent content in translate on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
     <lastBuildDate>Thu, 12 Nov 2020 14:35:05 +0900</lastBuildDate>
     
-	<atom:link href="https://blog.billo.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.billo.io/tags/translate/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,20 +19,6 @@
       <guid>https://blog.billo.io/devposts/translate_dev_doc/</guid>
       <description>go언어로 프로젝트를 구상하려고 하면 가장 먼저 막히는 부분은 프로젝트를 어떻게 구성해야 하지? 일 것이다. go언어는 정해진 프로젝트 구조가 없다. 어떻게 폴더 구조를 만들 것인지, 어떻게 패키지 구조를 구성할지는 Circular import를 하지 않는다면 아주 자유롭다. 자유롭다는 것은 항상 좋을 것 같지만 막상 직접 구조를 고민하다보면 꼭 좋은 것 만은 아니라는 것을 알 수 있다.
 이럴 때 필요한 것이 레퍼런스. Go로 된 다른 프로젝트들의 구조를 찾아보면, 놀랍도록 다양하다는 것을 알 수 있다. 프로젝트의 root에 모든 파일을 다 늘어놓은 프로젝트부터, 나름대로 철학을 가지고 구조화한 프로젝트 까지 아주 다양하다.</description>
-    </item>
-    
-    <item>
-      <title>Github Profile에 자기소개 노출하기</title>
-      <link>https://blog.billo.io/devposts/github_profile_repo/</link>
-      <pubDate>Sun, 30 Aug 2020 23:44:16 +0900</pubDate>
-      
-      <guid>https://blog.billo.io/devposts/github_profile_repo/</guid>
-      <description>최근 깃헙에 추가된 기능중에, 자기 프로필에 README 노출하기 기능이 있다.
- 위의 사진처럼, 내 깃헙 프로필에 내가 노출하고 싶은 내용을 마크다운으로 노출할 수 있다.
-이를 하는 방법은 상당히 간단하다.
-바로 자신의 깃헙 닉네임과 같은 이름의 레포지토리를 만들고, 거기에 README.md 파일을 만들면 된다.
-위의 프로필에 사용된 레포를 들어가서 보면 프로필에 노출되는 것과 같은 내용이 보인다.
- 이 특수 레포지토리를 활용하면, 개성있게 자신의 프로필을 꾸밀 수 있다.</description>
     </item>
     
   </channel>

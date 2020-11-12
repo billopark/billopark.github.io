@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.billo.io/tags/github/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/go/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/golang/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/translate/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/tags/%EB%B2%88%EC%97%AD/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.billo.io/devposts/translate_dev_doc/</loc>
+    <lastmod>2020-11-12T15:23:30+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.billo.io/tags/hugo/</loc>
     <lastmod>2020-10-12T01:44:17+09:00</lastmod>
   </url>
@@ -28,11 +68,6 @@
   </url>
   
   <url>
-    <loc>https://blog.billo.io/tags/</loc>
-    <lastmod>2020-10-12T01:44:17+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.billo.io/tags/%EA%B4%80%EB%A0%A8%EB%90%9C-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
   </url>
@@ -49,11 +84,6 @@
   
   <url>
     <loc>https://blog.billo.io/tags/go-pg/</loc>
-    <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/golang/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
   </url>
   
@@ -178,17 +208,7 @@
   </url>
   
   <url>
-    <loc>https://blog.billo.io/tags/go/</loc>
-    <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.billo.io/devposts/golang_naming_convention/</loc>
-    <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
   </url>
   
@@ -229,11 +249,6 @@
   
   <url>
     <loc>https://blog.billo.io/bgposts/table_top_simulator/</loc>
-    <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/github/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
   </url>
   

@@ -6,10 +6,20 @@
     <description>Recent content in go언어 on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 08 Sep 2020 21:23:47 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2020 14:35:05 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>스타 19k 받은 기술 문서 번역하기</title>
+      <link>https://blog.billo.io/devposts/translate_dev_doc/</link>
+      <pubDate>Thu, 12 Nov 2020 14:35:05 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/translate_dev_doc/</guid>
+      <description>go언어로 프로젝트를 구상하려고 하면 가장 먼저 막히는 부분은 프로젝트를 어떻게 구성해야 하지? 일 것이다. go언어는 정해진 프로젝트 구조가 없다. 어떻게 폴더 구조를 만들 것인지, 어떻게 패키지 구조를 구성할지는 Circular import를 하지 않는다면 아주 자유롭다. 자유롭다는 것은 항상 좋을 것 같지만 막상 직접 구조를 고민하다보면 꼭 좋은 것 만은 아니라는 것을 알 수 있다.
+이럴 때 필요한 것이 레퍼런스. Go로 된 다른 프로젝트들의 구조를 찾아보면, 놀랍도록 다양하다는 것을 알 수 있다. 프로젝트의 root에 모든 파일을 다 늘어놓은 프로젝트부터, 나름대로 철학을 가지고 구조화한 프로젝트 까지 아주 다양하다.</description>
+    </item>
     
     <item>
       <title>Golang 에서의 명명 규칙</title>

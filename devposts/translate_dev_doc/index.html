@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="ko">
+
+    <meta name="author" content="Billo Park">
+    <meta name="description" content="스타 18000개를 받은 기술 문서를 번역했던 경험을 공유합니다">
+    <meta name="keywords" content="blog,developer,boardgame">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="스타 19k 받은 기술 문서 번역하기"/>
+<meta name="twitter:description" content="스타 18000개를 받은 기술 문서를 번역했던 경험을 공유합니다"/>
+
+    <meta property="og:title" content="스타 19k 받은 기술 문서 번역하기" />
+<meta property="og:description" content="스타 18000개를 받은 기술 문서를 번역했던 경험을 공유합니다" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.billo.io/devposts/translate_dev_doc/" />
+<meta property="article:published_time" content="2020-11-12T14:35:05+09:00" />
+<meta property="article:modified_time" content="2020-11-12T15:23:30+09:00" />
+
+
+    
+      <base href="https://blog.billo.io/devposts/translate_dev_doc/">
+    
+    <title>
+  스타 19k 받은 기술 문서 번역하기 · Billo Park
+</title>
+
+    
+      <link rel="canonical" href="https://blog.billo.io/devposts/translate_dev_doc/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://blog.billo.io/css/coder.min.3754876c4753ddb02f4efd37021541bb92179a947a561568e66f91c1d026dbae.css" integrity="sha256-N1SHbEdT3bAvTv03AhVBu5IXmpR6VhVo5m&#43;RwdAm264=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://blog.billo.io/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://blog.billo.io/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://blog.billo.io/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon"  sizes="180x180" href="https://blog.billo.io/images/apple-touch-icon.png">
+
+    
+    <meta name="naver-site-verification" content="dcd74279d8766b1eb11bf3c826dbdc112dec682b" />
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+      if(!wcs_add) var wcs_add = {};
+      wcs_add["wa"] = "51e24976228ea0";
+      if(window.wcs) {
+        wcs_do();
+      }
+    </script>
+    
+    <meta name="generator" content="Hugo 0.74.3" />
+  </head>
+  
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://blog.billo.io/">
+      Billo Park
+    </a>
+    
+      <span id="dark-mode-toggle" class="float-right">
+        <i class="fas fa-adjust fa-fw"></i>
+      </span>
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fas fa-bars fa-fw"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://blog.billo.io/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://blog.billo.io/devposts/">Development</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://blog.billo.io/bgposts/">Boardgame</a>
+            </li>
+          
+        
+        
+        <li class="navigation-item separator">
+          <span>|</span>
+        </li>
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">스타 19k 받은 기술 문서 번역하기</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-11-12T14:35:05&#43;09:00'>
+                November 12, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3분
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://blog.billo.io/tags/github/">github</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/golang/">golang</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/">go언어</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/go/">go</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/translate/">translate</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/%EB%B2%88%EC%97%AD/">번역</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>go언어로 프로젝트를 구상하려고 하면 가장 먼저 막히는 부분은 <code>프로젝트를 어떻게 구성해야 하지?</code> 일 것이다. go언어는 정해진 프로젝트 구조가 없다. 어떻게 폴더 구조를 만들 것인지, 어떻게 패키지 구조를 구성할지는 Circular import를 하지 않는다면 아주 자유롭다. 자유롭다는 것은 항상 좋을 것 같지만 막상 직접 구조를 고민하다보면 꼭 좋은 것 만은 아니라는 것을 알 수 있다.</p>
+<p>이럴 때 필요한 것이 레퍼런스. Go로 된 다른 프로젝트들의 구조를 찾아보면, 놀랍도록 다양하다는 것을 알 수 있다. 프로젝트의 root에 모든 파일을 다 늘어놓은 프로젝트부터, 나름대로 철학을 가지고 구조화한 프로젝트 까지 아주 다양하다. 이렇게 여러 프로젝트들의 구조를 관찰하여 일반적인 프로젝트 레이아웃 패턴을 정리한 <a href="https://github.com/golang-standards/project-layout">기술 문서</a> 가 있다. 이 문서는 작성하는 오늘 기준으로 19k의 스타를 받은 만큼, Go언어에서 해당 부분으로 많은 사람들이 고민을 하고 있다는 방증이다.</p>
+
+<figure >
+        <img src="https://blog-static.billo.io/images/translate_dev_doc/repo.png" />
+</figure>
+
+<p>나도 이 프로젝트가 나에게 프로젝트 구조화에 큰 도움을 준 만큼, 이 문서에 기여하고 싶었다. 마침 이 문서에 누군가 중국어 번역을 추가했기에, 한국어도 같이 추가하여 다른 한국어 Go언어 사용자도 참고하였으면 좋을 것 같아 번역하게 되었다.</p>
+<p>거의 처음으로 번역을 해보는 일이다보니 생각보다 몰랐던 점들이 많았다. 처음 번역한 문장을 쓰려는 순간, 직역을 하는 것이 좋을지, 의역을 하는 것이 좋을지가 헷갈렸다. 직역 기법을 활용한 기술 문서들을 읽었을 때는 항상 눈에 안읽혀서 힘들었고, 의역 기법을 활용한 문서들은 기술 문서라 의역한 부분이 잘못된 내용을 전달하는 것은 아닐지 고민이 들었다. 마침 학교에서 글쓰기 수업을 듣고 있던 터라 교수님께 여쭤보았을 때, 직역과 의역 중 한 가지의 기법을 활용하기 보다 상황에 맞추어 적절하게 활용하라는 답변을 들었다. 그에 맞춰 문서에서 전달하고 싶은 내용을 최대한 살리는 방향으로 직역과 의역을 섞어서 번역을 시작했다.</p>
+<p>눈으로 문서를 읽는 것 자체는 그리 긴 시간이 걸리지 않았으나, 번역을 하는 것은 생각보다 오래걸리는 작업이었다. 중의적 문장을 해석해야 하는 일도 있어서 고민을 오래 했던 때도 있었고, 영어에서만 사용되는 단어를 한국어로 어떻게 번역하는 게 좋을 지 고민했던 때도 있었다. 예를 들어, opinionated 라는 단어를 번역해야 하는 일이 있었다. 단어 자체의 의미를 직역하면 <code>독선적인</code> 이라는 의미이나, 해당 단어가 등장한 맥락이 문서 자체가 중립적으로 작성 되어져 오던 상황이라 <code>중립적이라기 보다는 작성자의 의견이 조금 더 들어가있는</code> 의 뜻을 전달해야 하는 상황이었다. 이 때 문장의 가독성을 해치지 않으면서 해당 내용을 전달하려면 어떻게 해야 할 지 고민이 많이 들었다. 결국은 <code>더 의견이 담긴</code> 이라는 어구로 번역하였지만, 아직도 전체 문장을 읽었을 때 매끄럽지는 못하다고 생각한다. (더 나은 번역이 있다면, 제안 받습니다 :))</p>
+<p>약 4일 정도, 총 10여시간 정도 걸려서 전체 문서를 번역할 수 있었다. 하루 날 잡고 번역하려고 했는데, 체력을 크게 소모하는 일이어서 쉽지 않았다. 이후 PR을 올렸는데, 따로 리뷰를 많이 받을 수 없어서 아쉬웠다. PR이 머지된 날, 굉장히 뿌듯했다. Go언어에서는 19k 정도의 스타를 받은 레포지토리는 극히 드문 일인데, 그렇게 사람들이 많이 보는 문서에 내가 번역한 글이 실려서 신기했다.</p>
+
+<figure >
+        <img src="https://blog-static.billo.io/images/translate_dev_doc/translated.png" />
+</figure>
+
+<p>물론 19k 스타를 받은 코드 레포지토리의 컨트리뷰터가 되면 더 좋았겠지만, 기술 문서로서도 기여할 수 있어서 기뻤다. 특히 쉽게 오픈소스에 기여할 수 있다는 것이 신기했다. 만약 자신이 크게 도움을 받은 문서가 있다면, 번역을 해보는 것도 좋을 것 같다. 이해도도 올라가고, 다른 사람들의 정보 접근성에도 기여할 수 있을 것이다.</p>
+
+<figure >
+        <img src="https://blog-static.billo.io/images/translate_dev_doc/contribution_ranking.png" />
+</figure>
+
+
+      </div>
+
+
+      <footer>
+        
+
+
+
+<h3>See Also</h3>
+<ul>
+    
+    <li><a href="https://blog.billo.io/devposts/golang_naming_convention/">Golang 에서의 명명 규칙</a></li>
+    
+    <li><a href="https://blog.billo.io/devposts/go_orm_recommandation/">Golang ORM, 무엇이 좋을까?</a></li>
+    
+    <li><a href="https://blog.billo.io/devposts/github_profile_repo/">Github Profile에 자기소개 노출하기</a></li>
+    
+    <li><a href="https://blog.billo.io/devposts/nil_for_go/">Golang에서 nullable한 값 잘 처리하기</a></li>
+    
+    <li><a href="https://blog.billo.io/devposts/go_struct_validation/">Golang에서 Structure Validation하기</a></li>
+    
+</ul>
+
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "billoblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Billo Park</p>
+      
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+      
+      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-147957269-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+  </body>
+
+</html>
