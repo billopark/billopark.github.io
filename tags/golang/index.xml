@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Go의 Typed Nil</title>
+      <title>Go에서 nil 비교할 때 주의해야 하는 점</title>
       <link>https://blog.billo.io/devposts/typed_nil_go/</link>
       <pubDate>Fri, 12 Mar 2021 16:19:19 +0900</pubDate>
       
