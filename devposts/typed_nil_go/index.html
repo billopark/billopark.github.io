@@ -7,18 +7,7 @@
     <meta http-equiv="Content-Language" content="ko">
 
     <meta name="author" content="Billo Park">
-    <meta name="description" content="여러분이 간단한 게시판을 하나 만들었다고 생각해보자.
-SELECT * FROM articles;
-를 하면 모든 게시글을 다 가져올 수 있을것이다.
-게시글이 많아져서, 게시판에 Pagination을 적용하려고 한다.
-한 페이지에 30개정도씩 보여주면 될 것이다.
-5페이지 게시글을 보여주려면
-SELECT * FROM articles LIMIT 30 OFFSET 120;
-을 하면 될 것 같다.
-음&hellip; 예상하지 못했던 게시글들이 보인다.
-뭐가 문제지..?
- 정답은 ORDER BY 절이 빠졌기 때문이다.
-ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대로 정렬해준다.">
+    <meta name="description" content="Go언어의 typed nil에 대해 설명합니다">
     <meta name="keywords" content="blog,developer,boardgame">
 
     
@@ -26,48 +15,26 @@ ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대
     
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="PostgreSQL에서 LIMIT/OFFSET 쓸 때 주의할 점"/>
-<meta name="twitter:description" content="여러분이 간단한 게시판을 하나 만들었다고 생각해보자.
-SELECT * FROM articles;
-를 하면 모든 게시글을 다 가져올 수 있을것이다.
-게시글이 많아져서, 게시판에 Pagination을 적용하려고 한다.
-한 페이지에 30개정도씩 보여주면 될 것이다.
-5페이지 게시글을 보여주려면
-SELECT * FROM articles LIMIT 30 OFFSET 120;
-을 하면 될 것 같다.
-음&hellip; 예상하지 못했던 게시글들이 보인다.
-뭐가 문제지..?
- 정답은 ORDER BY 절이 빠졌기 때문이다.
-ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대로 정렬해준다."/>
+<meta name="twitter:title" content="Go의 Typed Nil"/>
+<meta name="twitter:description" content="Go언어의 typed nil에 대해 설명합니다"/>
 
-    <meta property="og:title" content="PostgreSQL에서 LIMIT/OFFSET 쓸 때 주의할 점" />
-<meta property="og:description" content="여러분이 간단한 게시판을 하나 만들었다고 생각해보자.
-SELECT * FROM articles;
-를 하면 모든 게시글을 다 가져올 수 있을것이다.
-게시글이 많아져서, 게시판에 Pagination을 적용하려고 한다.
-한 페이지에 30개정도씩 보여주면 될 것이다.
-5페이지 게시글을 보여주려면
-SELECT * FROM articles LIMIT 30 OFFSET 120;
-을 하면 될 것 같다.
-음&hellip; 예상하지 못했던 게시글들이 보인다.
-뭐가 문제지..?
- 정답은 ORDER BY 절이 빠졌기 때문이다.
-ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대로 정렬해준다." />
+    <meta property="og:title" content="Go의 Typed Nil" />
+<meta property="og:description" content="Go언어의 typed nil에 대해 설명합니다" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.billo.io/devposts/psql_offset_wo_order_by/" />
-<meta property="article:published_time" content="2020-08-03T22:05:17+09:00" />
-<meta property="article:modified_time" content="2020-10-12T01:31:20+09:00" />
+<meta property="og:url" content="https://blog.billo.io/devposts/typed_nil_go/" />
+<meta property="article:published_time" content="2021-03-12T16:19:19+09:00" />
+<meta property="article:modified_time" content="2021-03-12T17:33:06+09:00" />
 
 
     
-      <base href="https://blog.billo.io/devposts/psql_offset_wo_order_by/">
+      <base href="https://blog.billo.io/devposts/typed_nil_go/">
     
     <title>
-  PostgreSQL에서 LIMIT/OFFSET 쓸 때 주의할 점 · Billo Park
+  Go의 Typed Nil · Billo Park
 </title>
 
     
-      <link rel="canonical" href="https://blog.billo.io/devposts/psql_offset_wo_order_by/">
+      <link rel="canonical" href="https://blog.billo.io/devposts/typed_nil_go/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -163,57 +130,84 @@ ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">PostgreSQL에서 LIMIT/OFFSET 쓸 때 주의할 점</h1>
+          <h1 class="title">Go의 Typed Nil</h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2020-08-03T22:05:17&#43;09:00'>
-                August 3, 2020
+              <time datetime='2021-03-12T16:19:19&#43;09:00'>
+                March 12, 2021
               </time>
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              1분
+              2분
             </span>
           </div>
           
           <div class="tags">
   <i class="fa fa-tag" aria-hidden="true"></i>
-    <a href="https://blog.billo.io/tags/psql/">psql</a>
+    <a href="https://blog.billo.io/tags/typed/">typed</a>
       <span class="separator">•</span>
-    <a href="https://blog.billo.io/tags/postgres/">postgres</a>
+    <a href="https://blog.billo.io/tags/nil/">nil</a>
       <span class="separator">•</span>
-    <a href="https://blog.billo.io/tags/postgresql/">postgresql</a>
+    <a href="https://blog.billo.io/tags/go/">go</a>
       <span class="separator">•</span>
-    <a href="https://blog.billo.io/tags/order-by/">order by</a></div>
+    <a href="https://blog.billo.io/tags/golang/">golang</a>
+      <span class="separator">•</span>
+    <a href="https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/">go언어</a></div>
 
         </div>
       </header>
 
       <div>
         
-        <p>여러분이 간단한 게시판을 하나 만들었다고 생각해보자.</p>
-<p><code>SELECT * FROM articles;</code></p>
-<p>를 하면 모든 게시글을 다 가져올 수 있을것이다.</p>
-<p>게시글이 많아져서, 게시판에 Pagination을 적용하려고 한다.</p>
-<p>한 페이지에 30개정도씩 보여주면 될 것이다.</p>
-<p>5페이지 게시글을 보여주려면</p>
-<p><code>SELECT * FROM articles LIMIT 30 OFFSET 120;</code></p>
-<p>을 하면 될 것 같다.</p>
-<p>음&hellip; 예상하지 못했던 게시글들이 보인다.</p>
-<p>뭐가 문제지..?</p>
+        <p><code>nil != nil</code></p>
+<p>누구나 이 명제를 보면 항상 거짓이라고 생각할 것이다. 하지만 놀랍게도, Go에서는 참이 되는 <code>경우</code>도 있다.</p>
+<p>아래의 상황을 보자</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">package</span> main
+
+<span style="color:#fff;font-weight:bold">import</span> (
+	<span style="color:#0ff;font-weight:bold">&#34;fmt&#34;</span>
+)
+
+<span style="color:#fff;font-weight:bold">type</span> A <span style="color:#fff;font-weight:bold">struct</span> {}
+<span style="color:#fff;font-weight:bold">var</span> condition = <span style="color:#fff;font-weight:bold">false</span>
+
+<span style="color:#fff;font-weight:bold">func</span> billo() <span style="color:#fff;font-weight:bold">interface</span>{} {
+	<span style="color:#fff;font-weight:bold">var</span> a *A = <span style="color:#fff;font-weight:bold">nil</span>
+	<span style="color:#fff;font-weight:bold">if</span> condition {
+		a = &amp;A{}
+	}
+	<span style="color:#fff;font-weight:bold">return</span> a
+}
+
+<span style="color:#fff;font-weight:bold">func</span> main() {
+	fmt.Println(billo() == <span style="color:#fff;font-weight:bold">nil</span>)
+}
+</code></pre></div><p>이 경우에 출력값을 잠시 고민해보자.</p>
+<p>많은 분들이 <code>true</code>라고 생각하겠지만, 사실은 <code>false</code> 이다. <a href="https://play.golang.org/p/wnf67kjrlmb">실행하기</a></p>
+<p><code>billo()</code>를 수행한 결과값이 <code>nil</code> 이라, <code>billo() == nil</code> 은 <code>nil == nil</code> 인데, 왜 <code>false</code>가 나오는 지 궁금할 것이다.</p>
+<p>이 현상은 <code>interface</code>의 특징에서 기인한다 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. <code>interface</code>는 타입을 저장하는 <code>T</code>와 값을 저장하는 <code>V</code> 두가지로 나누어 저장된다. 예를 들어, &ldquo;hello&rdquo; 라는 string value를 interface에 저장한다면, <code>T</code>에는 <code>string</code>이, <code>V</code>에는 <code>&quot;hello&quot;</code> 가 들어가는 식이다.</p>
+<p>이를 이해하고, 위의 함수를 보자. <code>billo()</code> 의 아웃풋으로 리턴되는 <code>a</code> 의 경우, 값은 <code>nil</code> 일 지라도, 타입은 <code>*A</code>임을 알 수 있다. 비교대상이 되는 <code>nil</code>의 경우에는 타입도 <code>nil</code>, 값도 <code>nil</code>이다.</p>
+<p>실제 <code>billo()</code> 함수의 타입과 값을 출력해보면, <code>reflect.ValueOf(billo())</code> 는 <code>&lt;nil&gt;</code>,
+<code>reflect.TypeOf(billo())</code> 는 <code>*main.A</code> 임을 알 수 있다. 이런 값은 <code>typed nil</code> 이라고 불린다.</p>
+<p>이제 Go언어 spec에서 비교를 정의한 부분을 보자. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> interface와 non-interface를 비교한 부분은 아래처럼 정의되어 있다.</p>
+<p><code>A value x of non-interface type X and a value t of interface type T are comparable when values of type X are comparable and X implements T. They are equal if t's dynamic type is identical to X and t's dynamic value is equal to x.</code></p>
+<p>인터페이스의 내부에 저장된 타입과 실제 데이터의 타입까지 모두 같아야만 같다고 정의되어 있다. nil 인 경우는 위의 내용에서 명확하게 이해하기는 어려우나, 비교 기작을 살펴 보았을 때 우리의 상황에서는 데이터 타입이 다르기 때문에 false가 나오게 됨을 이해할 수 있다.</p>
+<p>이런 실수는 interface를 이용하다 보면 꼭 만나게 되는 문제이기도 하다. 따라서 nil을 리턴해야 하는 상황일 때는 <code>return nil</code> 형태를 사용하여 오해소지를 없애는 편이 좋을 것 같다.</p>
+<section class="footnotes" role="doc-endnotes">
 <hr>
-<p>정답은 <code>ORDER BY</code> 절이 빠졌기 때문이다.</p>
-<p><code>ORDER BY</code> 절은 <code>ORDER BY</code> 이후에 표시된 컬럼들을 기준으로 순서대로 정렬해준다.</p>
-<p>이 <code>ORDER BY</code> 절이 없다면, 쿼리는 일정한 순서 보장 없이, 아무렇게나 순서를 정해 결과를 전해주게 된다.</p>
-<p>즉, 위에 예시에서 보면  <code>articles</code> 테이블의 데이터를 아무렇게나 줄세운 후, 앞에 120개는 버리고 최대 30개의 글만 리턴하게 된다.</p>
-<p>맞다. 아무렇게나 30개 뽑아주는거랑 같은 것 이다.</p>
-<p>그래서 실제로 저렇게 실행하게 되면, 아무런 순서없이 최대 30개를 반환하게 된다.</p>
-<p><code>그러면 이거 버그아닌가?</code> 라고 생각할 수 있다.</p>
-<p>하지만 <a href="https://www.postgresql.org/docs/current/queries-limit.html" title="psql limit 관련 공식 문서">PostgreSQL</a>에 의하면, 그저 SQL의 본질적인 특성인 <code>ORDER BY 없으면 실행결과의 순서는 보장하지 않는다</code> 의 결과라, 버그가 아니다 라는 입장이다.</p>
-<p>따라서 <code>LIMIT</code>과 <code>OFFSET</code> 을 사용한다면, 사용자가 꼭 <code>ORDER BY</code> 를 빼먹지 않도록 체크하자.</p>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>(<a href="https://golang.org/doc/faq#nil_error">https://golang.org/doc/faq#nil_error</a>) <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>(<a href="https://golang.org/ref/spec#Comparison_operators">https://golang.org/ref/spec#Comparison_operators</a>) <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
       </div>
 
@@ -226,15 +220,15 @@ ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대
 <h3>See Also</h3>
 <ul>
     
-    <li><a href="https://blog.billo.io/devposts/psql_at_time_zone/">PSQL TIMESTAMP/AT TIME ZONE 바로 알기</a></li>
-    
-    <li><a href="https://blog.billo.io/devposts/typed_nil_go/">Go의 Typed Nil</a></li>
-    
     <li><a href="https://blog.billo.io/devposts/translate_dev_doc/">스타 19k 받은 기술 문서 번역하기</a></li>
     
-    <li><a href="https://blog.billo.io/devposts/hugo_related_posts/">Hugo 블로그에 관련된 글 노출하기</a></li>
+    <li><a href="https://blog.billo.io/devposts/golang_naming_convention/">Golang 에서의 명명 규칙</a></li>
+    
+    <li><a href="https://blog.billo.io/devposts/nil_for_go/">Golang에서 nullable한 값 잘 처리하기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/go_orm_recommandation/">Golang ORM, 무엇이 좋을까?</a></li>
+    
+    <li><a href="https://blog.billo.io/devposts/go_struct_validation/">Golang에서 Structure Validation하기</a></li>
     
 </ul>
 

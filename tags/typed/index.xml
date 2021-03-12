@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typed on Billo Park</title>
+    <link>https://blog.billo.io/tags/typed/</link>
+    <description>Recent content in typed on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 12 Mar 2021 16:19:19 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.billo.io/tags/typed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go의 Typed Nil</title>
+      <link>https://blog.billo.io/devposts/typed_nil_go/</link>
+      <pubDate>Fri, 12 Mar 2021 16:19:19 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/typed_nil_go/</guid>
+      <description>nil != nil
+누구나 이 명제를 보면 항상 거짓이라고 생각할 것이다. 하지만 놀랍게도, Go에서는 참이 되는 경우도 있다.
+아래의 상황을 보자
+package main import ( &amp;#34;fmt&amp;#34; ) type A struct {} var condition = false func billo() interface{} { var a *A = nil if condition { a = &amp;amp;A{} } return a } func main() { fmt.Println(billo() == nil) } 이 경우에 출력값을 잠시 고민해보자.
+많은 분들이 true라고 생각하겠지만, 사실은 false 이다.</description>
+    </item>
+    
+  </channel>
+</rss>
