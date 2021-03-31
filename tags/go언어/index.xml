@@ -6,19 +6,10 @@
     <description>Recent content in go언어 on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 31 Mar 2021 14:16:41 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 12 Mar 2021 16:19:19 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Go언어 ... 자세히 알아보기</title>
-      <link>https://blog.billo.io/devposts/golang_ellipsis_deep_dive/</link>
-      <pubDate>Wed, 31 Mar 2021 14:16:41 +0900</pubDate>
-      
-      <guid>https://blog.billo.io/devposts/golang_ellipsis_deep_dive/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Go에서 nil 비교할 때 주의해야 하는 점</title>

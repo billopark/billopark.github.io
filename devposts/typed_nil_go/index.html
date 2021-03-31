@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.billo.io/devposts/typed_nil_go/" />
 <meta property="article:published_time" content="2021-03-12T16:19:19+09:00" />
-<meta property="article:modified_time" content="2021-03-12T17:43:32+09:00" />
+<meta property="article:modified_time" content="2021-03-31T14:25:51+09:00" />
 
 
     
@@ -197,9 +197,9 @@
 <p><code>A value x of non-interface type X and a value t of interface type T are comparable when values of type X are comparable and X implements T. They are equal if t's dynamic type is identical to X and t's dynamic value is equal to x.</code></p>
 <p>인터페이스의 내부에 저장된 타입과 실제 데이터의 타입까지 모두 같아야만 같다고 정의되어 있다. nil 인 경우는 위의 내용에서 명확하게 이해하기는 어려우나, 비교 기작을 살펴 보았을 때 우리의 상황에서는 데이터 타입이 다르기 때문에 false가 나오게 됨을 이해할 수 있다.</p>
 <p>이런 실수는 interface를 이용하다 보면 꼭 만나게 되는 문제이기도 하다. 따라서 nil을 리턴해야 하는 상황일 때는 <code>return nil</code> 형태를 사용하여 오해소지를 없애는 편이 좋을 것 같다.</p>
-<p>Reference:
-(<a href="https://medium.com/golangspec/equality-in-golang-ff44da79b7f1">https://medium.com/golangspec/equality-in-golang-ff44da79b7f1</a>)
-(<a href="https://dave.cheney.net/2017/08/09/typed-nils-in-go-2">https://dave.cheney.net/2017/08/09/typed-nils-in-go-2</a>)</p>
+<p>Reference:</p>
+<p>(<a href="https://medium.com/golangspec/equality-in-golang-ff44da79b7f1">https://medium.com/golangspec/equality-in-golang-ff44da79b7f1</a>)</p>
+<p>(<a href="https://dave.cheney.net/2017/08/09/typed-nils-in-go-2">https://dave.cheney.net/2017/08/09/typed-nils-in-go-2</a>)</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -227,11 +227,11 @@
     
     <li><a href="https://blog.billo.io/devposts/golang_naming_convention/">Golang 에서의 명명 규칙</a></li>
     
-    <li><a href="https://blog.billo.io/devposts/golang_ellipsis_deep_dive/">Go언어 ... 자세히 알아보기</a></li>
-    
     <li><a href="https://blog.billo.io/devposts/nil_for_go/">Golang에서 nullable한 값 잘 처리하기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/go_orm_recommandation/">Golang ORM, 무엇이 좋을까?</a></li>
+    
+    <li><a href="https://blog.billo.io/devposts/go_struct_validation/">Golang에서 Structure Validation하기</a></li>
     
 </ul>
 
