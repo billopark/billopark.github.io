@@ -6,24 +6,24 @@
     <description>Recent content in Tags on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 12 Mar 2021 16:19:19 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 31 Mar 2021 14:16:41 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.billo.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>go</title>
-      <link>https://blog.billo.io/tags/go/</link>
-      <pubDate>Fri, 12 Mar 2021 16:19:19 +0900</pubDate>
+      <title>ellipsis</title>
+      <link>https://blog.billo.io/tags/ellipsis/</link>
+      <pubDate>Wed, 31 Mar 2021 14:16:41 +0900</pubDate>
       
-      <guid>https://blog.billo.io/tags/go/</guid>
+      <guid>https://blog.billo.io/tags/ellipsis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
       <link>https://blog.billo.io/tags/golang/</link>
-      <pubDate>Fri, 12 Mar 2021 16:19:19 +0900</pubDate>
+      <pubDate>Wed, 31 Mar 2021 14:16:41 +0900</pubDate>
       
       <guid>https://blog.billo.io/tags/golang/</guid>
       <description></description>
@@ -32,9 +32,27 @@
     <item>
       <title>go언어</title>
       <link>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</link>
-      <pubDate>Fri, 12 Mar 2021 16:19:19 +0900</pubDate>
+      <pubDate>Wed, 31 Mar 2021 14:16:41 +0900</pubDate>
       
       <guid>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>three dots</title>
+      <link>https://blog.billo.io/tags/three-dots/</link>
+      <pubDate>Wed, 31 Mar 2021 14:16:41 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/three-dots/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://blog.billo.io/tags/go/</link>
+      <pubDate>Fri, 12 Mar 2021 16:19:19 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/tags/go/</guid>
       <description></description>
     </item>
     
