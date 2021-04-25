@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.billo.io/devposts/golang_ellipsis_deep_dive/" />
 <meta property="article:published_time" content="2021-03-31T14:16:41+09:00" />
-<meta property="article:modified_time" content="2021-04-23T21:14:53+09:00" />
+<meta property="article:modified_time" content="2021-04-25T15:47:48+09:00" />
 
 
     
@@ -142,7 +142,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              2분
+              3분
             </span>
           </div>
           
@@ -179,12 +179,12 @@
 	<span style="color:#fff;font-weight:bold">return</span> Fprintf(os.Stdout, format, a...)
 }
 </code></pre></div><p>위 코드는 <code>fmt.Printf</code> 함수의 정의부분이다. 주목해야 하는 부분은 <code>a ...interface{}</code> 이다. <code>fmt.Printf</code>에 첫번째로 format string을 넘기고, 그 이후에 등장하는 변수들은 모두 a라는 변수에 <code>interface{} slice</code>형태로 담기게 된다. 쉽게 말해, 파라미터로 format string 이후 1개의 값을 넘기면 길이 1짜리 <code>interface{} slice</code>이 되고, 3개의 값을 넘기면 길이 3짜리 <code>interface{} slice</code>이 된다는 뜻이다. 이는 slice기때문에 go에서 slice 사용하듯 사용하면 된다. 만약 가변 인자 부분에 값을 하나도 넘기지 않으면(e.g. <code>fmt.Printf(&quot;hi!&quot;)</code>) 가변 인자의 값은 <code>nil</code>이 된다.</p>
-<p>위 함수 예제의 <code>return</code> 문을 보면 <code>a...</code> 형태를 볼 수 있다. 이는 a안에 있는 내용을 풀어서 사용한다는 의미이다. 이를 이용해서 slice에 담겨있는 값을 풀어서 가변인자로 넘겨줄 수 있다. 특히 <code>a...</code> 형태로 가변 함수를 호출할 경우, 함수의 가변 인자에 할당 가능한 파라미터라면 새 변수를 만들지않는다.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 예를 들어,</p>
+<p>위 함수 예제의 <code>return</code> 문을 보면 <code>a...</code> 형태를 볼 수 있다. 이는 a안에 있는 내용을 풀어서 사용한다는 의미이다. 이를 이용해서 slice에 담겨있는 값을 풀어서 가변인자로 넘겨줄 수 있다. 특히 <code>a...</code> 형태로 가변 함수를 호출할 경우, 함수의 가변 인자에 할당 가능한 파라미터라면 새 변수를 만들지 않는다.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 예를 들어,</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">func</span> Greeting(prefix <span style="color:#fff;font-weight:bold">string</span>, who ...<span style="color:#fff;font-weight:bold">string</span>)
 s := []<span style="color:#fff;font-weight:bold">string</span>{<span style="color:#0ff;font-weight:bold">&#34;James&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;Jasmine&#34;</span>}
 Greeting(<span style="color:#0ff;font-weight:bold">&#34;goodbye:&#34;</span>, s...)
 </code></pre></div><p>이 상황에서 <code>Greeting</code> 함수 안에서 <code>s</code>는 재사용된다.</p>
-<p>좀 더 심화적으로 파고들면, 조심해야 하는 부분이 하나 있다. 아래와 같은 상황이다.</p>
+<p>이 재사용은 메모리 allocation을 줄일 수 있기에 효과적이지만, 조심을 해야 하는 상황이 있다. 바로 아래와 같은 상황이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">package</span> main
 
 <span style="color:#fff;font-weight:bold">func</span> billo(a ...<span style="color:#fff;font-weight:bold">interface</span>{}) <span style="color:#fff;font-weight:bold">string</span> {
@@ -195,9 +195,9 @@ Greeting(<span style="color:#0ff;font-weight:bold">&#34;goodbye:&#34;</span>, s.
 	s := []<span style="color:#fff;font-weight:bold">string</span>{<span style="color:#0ff;font-weight:bold">&#34;hi&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;hi2&#34;</span>}
 	billo(s...)
 }
-</code></pre></div><p>이 상황에서, 이상적으로 이 함수 호출에는 문제가 없어야 할 것 같다. string은 interface{} 로 간주할 수 있기 때문이다. 하지만, 이는 잘 작동하지 않는다. <a href="https://play.golang.org/p/DLAIPfqbrTH">실행해보기</a></p>
+</code></pre></div><p>이 상황에서, 이상적으로 이 함수 호출에는 문제가 없어야 할 것 같다. <code>string</code>은 <code>interface{}</code> 로 간주할 수 있기 때문에, <code>s</code>를 전개하여 파라미터로 전달하고, <code>billo</code> 함수가 인자를 받을 때 각 <code>string</code>을 <code>interface{}</code>로 처리하면 작동할 것 같다. 하지만, 이는 잘 작동하지 않는다. 바로 재사용 때문이다. <a href="https://play.golang.org/p/DLAIPfqbrTH">실행해보기</a></p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">./prog.go:9:7: cannot use s (type []string) as type []interface {} in argument to billo
-</code></pre></div><p>에러를 직역해보면 <code>[]interface{} 자리에 []string을 쓸 수 없어요</code> 이다. 상황을 해석해보자. 정의된 <code>s</code> 변수가 재사용되어, <code>a</code> 자리에 <code>[]string</code>이 들어간다. <code>interface{}</code>자리에 <code>string</code>이 호출되는 것은 상관없으나, <code>[]interface{}</code> 자리에는 <code>[]string</code>이 들어갈 수 없기 때문에 에러가 나게 된다. 변수가 재사용 되기 때문에, 기존에 정의된 타입정의를 그대로 사용하여 생기는 문제로 보인다. 위의 상황을 해결하려면, <code>s</code>를 바로 사용하는 대신 <code>[]interface{}</code> 타입의 slice을 새로 선언하여 <code>s</code>의 내용을 넣어주어서 사용하면 된다. 쉽게 실수할 수 있는 만큼, 주의가 필요 해 보인다.</p>
+</code></pre></div><p>코드를 실행하면 위와 같은 에러를 볼 수 있다. 에러를 직역해보면 <code>[]interface{} 자리에 []string을 쓸 수 없어요</code> 이다. 상황을 해석해보자. 우리가 기대했던 것 처럼 <code>s</code>의 모든 값이 풀어진 이후 <code>billo</code>함수의 인자로 넘어갈 때 모아지는 것이 아닌, 변수가 재사용된다. 정의된 <code>s</code> 변수가 재사용되어, <code>a</code> 자리에 <code>[]string</code>이 들어간다. <code>interface{}</code>자리에 <code>string</code>이 호출되는 것이 아닌, <code>[]interface{}</code> 자리에는 <code>[]string</code>이 들어가는 것은 불가능하기에 에러가 나게 된다. 변수가 재사용 되기 때문에, 기존에 정의된 타입정의를 그대로 사용하여 생기는 문제로 보인다. 위의 상황을 해결하려면, <code>s</code>를 바로 사용하는 대신 <code>[]interface{}</code> 타입의 slice을 새로 선언하여 <code>s</code>의 내용을 넣어주어서 사용하면 된다. 쉽게 실수할 수 있는 만큼, 주의가 필요 해 보인다.</p>
 <hr>
 <p>추가로, <code>...</code> 가 등장하는 사례를 소개한다. 바로 배열 정의에 사용하는 방법이다.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">a := [...]<span style="color:#fff;font-weight:bold">string</span>{<span style="color:#0ff;font-weight:bold">&#34;a&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;b&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;c&#34;</span>}
