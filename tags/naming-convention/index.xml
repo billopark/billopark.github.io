@@ -6,11 +6,7 @@
     <description>Recent content in naming convention on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 08 Sep 2020 21:23:47 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.billo.io/tags/naming-convention/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 08 Sep 2020 21:23:47 +0900</lastBuildDate><atom:link href="https://blog.billo.io/tags/naming-convention/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang 에서의 명명 규칙</title>
       <link>https://blog.billo.io/devposts/golang_naming_convention/</link>

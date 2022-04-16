@@ -5,10 +5,16 @@
     <link>https://blog.billo.io/</link>
     <description>Recent content in HOME on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    
-	<atom:link href="https://blog.billo.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <language>ko</language><atom:link href="https://blog.billo.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</title>
+      <link>https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/</link>
+      <pubDate>Sun, 17 Apr 2022 03:54:49 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/</guid>
+      <description>Go는 interface 구현을 duck-typing 으로 사용한다. 즉, Go에서는 어떤 클래스가 해당 인터페이스에 해당하는지를 체크할 때, &amp;lsquo;이 클래스는 해당 인터페이스를 구현해요&amp;rsquo; 라고 선언하는 것이 아닌, 해당 인터페이스에서 요청하는 모든 함수를 구현했을 때를 기준으로 한다는 것이다.
+이러한 특징으로 인해, 특정한 함수를 구현해놓으면, go언어의 기본 패키지에서 해당 함수를 사용해주는 일이 일어난다. go의 패키지 중에는 어떠한 인터페이스를 구현했는지를 보고, 구현되어 있으면 이를 먼저 사용하는 형식으로 구현을 하기 때문이다.&amp;rsquo; 그렇기 때문에, 몇몇 인터페이스를 잘 알고있으면, go의 주요 패키지에서 더 자연스럽게 결합되도록 프로그래밍 할 수 있을 것이다.</description>
+    </item>
     
     <item>
       <title>Go언어 &#39;...&#39; 자세히 알아보기</title>
@@ -29,8 +35,7 @@ Golang에서는 가변인자 함수를 어떻게 만들 수 있을까? 이 때 �
       <description>nil != nil
 누구나 이 명제를 보면 항상 거짓이라고 생각할 것이다. 하지만 놀랍게도, Go에서는 참이 되는 경우도 있다.
 아래의 상황을 보자
-package main import ( &amp;#34;fmt&amp;#34; ) type A struct {} var condition = false func billo() interface{} { var a *A = nil if condition { a = &amp;amp;A{} } return a } func main() { fmt.Println(billo() == nil) } 이 경우에 출력값을 잠시 고민해보자.
-많은 분들이 true라고 생각하겠지만, 사실은 false 이다.</description>
+package main  import ( 	&amp;#34;fmt&amp;#34; )  type A struct {} var condition = false  func billo() interface{} { 	var a *A = nil 	if condition { 	a = &amp;amp;A{} 	} 	return a }  func main() { 	fmt.Println(billo() == nil) } 이 경우에 출력값을 잠시 고민해보자.</description>
     </item>
     
     <item>
@@ -148,7 +153,7 @@ boolean은 false,
       
       <guid>https://blog.billo.io/devposts/psql_at_time_zone/</guid>
       <description>회사에서 PSQL 쿼리문을 작성하던 동료분이 이상한 부분이 있다며 불렀다. AT TIME ZONE &#39;Asia/Seoul&#39; 을 사용했을 때와 AT TIME ZONE &#39;UTC+9&#39; 를 사용했을 때 결과가 18시간이나 차이난다고 했다.
-postgres=# SHOW timezone; TimeZone ------------  Asia/Seoul (1 row) postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;Asia/Seoul&amp;#39;; timezone ---------------------  2020-08-06 12:00:00+09 (1 row) postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;UTC+9&amp;#39;; timezone ------------------------  2020-08-07 06:00:00+09 (1 row) 음.. 상식대로라면 둘의 결과가 같아야 할 것 같은데, 왜 다른건지, 뭐가 맞는건지 궁금해졌다.</description>
+postgres=# SHOW timezone;  TimeZone ------------  Asia/Seoul (1 row)  postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;Asia/Seoul&amp;#39;;  timezone ---------------------  2020-08-06 12:00:00+09  (1 row)  postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;UTC+9&amp;#39;;  timezone ------------------------  2020-08-07 06:00:00+09 (1 row) 음.</description>
     </item>
     
     <item>

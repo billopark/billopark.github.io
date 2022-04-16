@@ -5,11 +5,7 @@
     <link>https://blog.billo.io/tags/database/sql/</link>
     <description>Recent content in database/sql on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    
-	<atom:link href="https://blog.billo.io/tags/database/sql/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ko</language><atom:link href="https://blog.billo.io/tags/database/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang ORM, 무엇이 좋을까?</title>
       <link>https://blog.billo.io/devposts/go_orm_recommandation/</link>

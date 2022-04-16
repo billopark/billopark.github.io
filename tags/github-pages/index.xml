@@ -6,11 +6,7 @@
     <description>Recent content in github pages on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sat, 23 Nov 2019 22:27:33 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.billo.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 23 Nov 2019 22:27:33 +0900</lastBuildDate><atom:link href="https://blog.billo.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Pages &#43; Hugo를 사용한 블로그 구축기</title>
       <link>https://blog.billo.io/devposts/blog_github_page/</link>

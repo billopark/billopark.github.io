@@ -5,10 +5,6 @@
     <link>https://blog.billo.io/series/</link>
     <description>Recent content in Series on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    
-	<atom:link href="https://blog.billo.io/series/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ko</language><atom:link href="https://blog.billo.io/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

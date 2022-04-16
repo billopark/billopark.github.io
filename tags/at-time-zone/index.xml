@@ -6,11 +6,7 @@
     <description>Recent content in at time zone on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Thu, 06 Aug 2020 00:26:48 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.billo.io/tags/at-time-zone/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 Aug 2020 00:26:48 +0900</lastBuildDate><atom:link href="https://blog.billo.io/tags/at-time-zone/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PSQL TIMESTAMP/AT TIME ZONE 바로 알기</title>
       <link>https://blog.billo.io/devposts/psql_at_time_zone/</link>
@@ -18,7 +14,7 @@
       
       <guid>https://blog.billo.io/devposts/psql_at_time_zone/</guid>
       <description>회사에서 PSQL 쿼리문을 작성하던 동료분이 이상한 부분이 있다며 불렀다. AT TIME ZONE &#39;Asia/Seoul&#39; 을 사용했을 때와 AT TIME ZONE &#39;UTC+9&#39; 를 사용했을 때 결과가 18시간이나 차이난다고 했다.
-postgres=# SHOW timezone; TimeZone ------------  Asia/Seoul (1 row) postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;Asia/Seoul&amp;#39;; timezone ---------------------  2020-08-06 12:00:00+09 (1 row) postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;UTC+9&amp;#39;; timezone ------------------------  2020-08-07 06:00:00+09 (1 row) 음.. 상식대로라면 둘의 결과가 같아야 할 것 같은데, 왜 다른건지, 뭐가 맞는건지 궁금해졌다.</description>
+postgres=# SHOW timezone;  TimeZone ------------  Asia/Seoul (1 row)  postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;Asia/Seoul&amp;#39;;  timezone ---------------------  2020-08-06 12:00:00+09  (1 row)  postgres=# SELECT TIMESTAMP &amp;#39;2020-08-06 12:00:00&amp;#39; AT TIME ZONE &amp;#39;UTC+9&amp;#39;;  timezone ------------------------  2020-08-07 06:00:00+09 (1 row) 음.</description>
     </item>
     
   </channel>

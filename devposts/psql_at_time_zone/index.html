@@ -21,9 +21,10 @@
     <meta property="og:title" content="PSQL TIMESTAMP/AT TIME ZONE 바로 알기" />
 <meta property="og:description" content="PSQL에서 AT TIME ZONE과 TIMESTAMP의 전반적인 개념에 관한 글" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.billo.io/devposts/psql_at_time_zone/" />
+<meta property="og:url" content="https://blog.billo.io/devposts/psql_at_time_zone/" /><meta property="article:section" content="devposts" />
 <meta property="article:published_time" content="2020-08-06T00:26:48+09:00" />
 <meta property="article:modified_time" content="2020-10-12T01:31:20+09:00" />
+
 
 
     
@@ -80,7 +81,7 @@
 
     <script data-ad-client="ca-pub-5643825641989584" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.97.0" />
   </head>
   
   
@@ -166,44 +167,43 @@
       <div>
         
         <p>회사에서 PSQL 쿼리문을 작성하던 동료분이 이상한 부분이 있다며 불렀다. <code>AT TIME ZONE 'Asia/Seoul'</code> 을 사용했을 때와 <code>AT TIME ZONE 'UTC+9'</code> 를 사용했을 때 결과가 18시간이나 차이난다고 했다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">postgres=# <span style="color:#fff;font-weight:bold">SHOW</span> timezone;
-  TimeZone
-<span style="color:#007f7f">------------
-</span><span style="color:#007f7f"></span> Asia/Seoul
-(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
-
-postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;Asia/Seoul&#39;</span>;
-      timezone
-<span style="color:#007f7f">---------------------
-</span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">12</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
- (<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
-
-postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;UTC+9&#39;</span>;
-        timezone
-<span style="color:#007f7f">------------------------
-</span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">07</span> <span style="color:#ff0;font-weight:bold">06</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
-(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
-
-</code></pre></div><p>음.. 상식대로라면 둘의 결과가 같아야 할 것 같은데, 왜 다른건지, 뭐가 맞는건지 궁금해졌다. 구글링해봐도 별다른 답을 얻을 수는 없었다. 그리고 찾아보게 된 PSQL의  timezone table.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> * <span style="color:#fff;font-weight:bold">FROM</span> pg_timezone_names <span style="color:#fff;font-weight:bold">WHERE</span> abbrev=<span style="color:#0ff;font-weight:bold">&#39;KST&#39;</span>;
-      name      | abbrev | utc_offset | is_dst
-<span style="color:#007f7f">----------------+--------+------------+--------
-</span><span style="color:#007f7f"></span> Asia/Seoul     | KST    | <span style="color:#ff0;font-weight:bold">09</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>   | f
- Asia/Pyongyang | KST    | <span style="color:#ff0;font-weight:bold">09</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>   | f
- ROK            | KST    | <span style="color:#ff0;font-weight:bold">09</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>   | f
-(<span style="color:#ff0;font-weight:bold">3</span> <span style="color:#fff;font-weight:bold">rows</span>)
-</code></pre></div><p><code>Asia/Seoul</code>은 9시간으로 정상적으로 등록 되어있었다. 혼란스러웠다. 그래서 이번에 문제의 원인을 찾는 김에 대충 알고 쓰고있었던 timestamp 관련 내용을 좀 찾아보기로 했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>postgres=# <span style="color:#fff;font-weight:bold">SHOW</span> timezone;
+</span></span><span style="display:flex;"><span>  TimeZone
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">------------
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span> Asia/Seoul
+</span></span><span style="display:flex;"><span>(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;Asia/Seoul&#39;</span>;
+</span></span><span style="display:flex;"><span>      timezone
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">---------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">12</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
+</span></span><span style="display:flex;"><span> (<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;UTC+9&#39;</span>;
+</span></span><span style="display:flex;"><span>        timezone
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">07</span> <span style="color:#ff0;font-weight:bold">06</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
+</span></span></code></pre></div><p>음.. 상식대로라면 둘의 결과가 같아야 할 것 같은데, 왜 다른건지, 뭐가 맞는건지 궁금해졌다. 구글링해봐도 별다른 답을 얻을 수는 없었다. 그리고 찾아보게 된 PSQL의  timezone table.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> * <span style="color:#fff;font-weight:bold">FROM</span> pg_timezone_names <span style="color:#fff;font-weight:bold">WHERE</span> abbrev=<span style="color:#0ff;font-weight:bold">&#39;KST&#39;</span>;
+</span></span><span style="display:flex;"><span>      name      | abbrev | utc_offset | is_dst
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">----------------+--------+------------+--------
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span> Asia/Seoul     | KST    | <span style="color:#ff0;font-weight:bold">09</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>   | f
+</span></span><span style="display:flex;"><span> Asia/Pyongyang | KST    | <span style="color:#ff0;font-weight:bold">09</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>   | f
+</span></span><span style="display:flex;"><span> ROK            | KST    | <span style="color:#ff0;font-weight:bold">09</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>   | f
+</span></span><span style="display:flex;"><span>(<span style="color:#ff0;font-weight:bold">3</span> <span style="color:#fff;font-weight:bold">rows</span>)
+</span></span></code></pre></div><p><code>Asia/Seoul</code>은 9시간으로 정상적으로 등록 되어있었다. 혼란스러웠다. 그래서 이번에 문제의 원인을 찾는 김에 대충 알고 쓰고있었던 timestamp 관련 내용을 좀 찾아보기로 했다.</p>
 <hr>
 <p>우선, Postgres에서 시간을 저장하는 두가지 타입에 대해서 찾아보았다. 바로 <code>TIMESTAMP [WITHOUT TIME ZONE]</code> 와  <code>TIMESTAMP  WITH TIME ZONE</code> 이다.</p>
 <p><code>TIMESTAMP</code> 타입은 <code>TIMESTAMP '2020-08-06 12:00:00'</code> 형태처럼 timezone 값을 따로 명시하지 않고 사용하는 값을 말한다.  <code>TIMESTAMP WITHOUT TIME ZONE</code>은 <code>TIMESTAMP</code> 로 줄여서 사용할 수 있다.</p>
 <p><code>TIMESTAMP WITH TIME ZONE</code> 타입은 <code> TIMESTAMP WITH TIME ZONE '2020-08-06 12:00:00+10'</code> 형태처럼 뒤에 어느 타임존에서의 timestamp인지를 나타낸 timestamp 값을 이야기한다. 이때, <code>TIMESTAMP WITH TIME ZONE</code>이라도 저장할 때 time zone 정보를 같이 저장하지 않는다. 값은 UTC 기준 timestamp로 변환되어 저장되고, 출력할 일이 있을 때 시스템의 time zone으로 출력하게 된다. (<code>SHOW TIMEZONE</code> 커멘드로 PSQL에서 사용하는 시스템의 time zone을 알 수 있다. )</p>
 <p>예를 들어보자. <code>SELECT TIMESTAMP WITH TIME ZONE '2020-08-06 12:00:00+10';</code> 을 <code>Asia/Seoul</code>에서 실행하게 되면 어떻게 될까?</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#fff;font-weight:bold">WITH</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00+10&#39;</span>;
-      timestamptz
-<span style="color:#007f7f">------------------------
-</span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">11</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
-(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
-</code></pre></div><p><code>Asia/Seoul</code> time zone 형태로 표시된 해당 시간을 얻을 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#fff;font-weight:bold">WITH</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00+10&#39;</span>;
+</span></span><span style="display:flex;"><span>      timestamptz
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">11</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
+</span></span></code></pre></div><p><code>Asia/Seoul</code> time zone 형태로 표시된 해당 시간을 얻을 수 있다.</p>
 <hr>
 <p>우리가 알고싶었던 <code>AT TIME ZONE</code> 은 사실 3가지 역할을 하는데, (<a href="https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-ZONECONVERT" title="psql 에서 at time zone 관련 공식 문서">문서</a>)</p>
 
@@ -219,19 +219,19 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
 <p>하나씩 보자.</p>
 <p>1번은 <code>zone</code>에서 <code>TIMESTAMP WITHOUT TIME ZONE</code> 인 시각을 결과값으로 전달해준다는 이야기이다.  예시로, <code>SELECT TIMESTAMP '2020-08-06 12:00:00' AT TIME ZONE 'Australia/Melbourne';</code> 을 실행하면 어떻게 될까? 시스템 timezone은 <code>Asia/Seoul</code> 이고, <code>Australia/Melbourne</code>은 UTC+10이다.</p>
 <p>멜버른에서 <code>2020-08-06 12:00:00</code> 인 시각에 해당하는 <code>TIMESTAMP WITH TIME ZONE</code> 을 보여줄텐데, 이 때 <code>TIMESTAMP WITH TIME ZONE</code>은 시스템 timezone에 맞춰서 보여주므로,</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;Australia/Melbourne&#39;</span>;
-        timezone
-<span style="color:#007f7f">------------------------
-</span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">11</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
-(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
-</code></pre></div><p>위 처럼 보이게 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;Australia/Melbourne&#39;</span>;
+</span></span><span style="display:flex;"><span>        timezone
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">11</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>+<span style="color:#ff0;font-weight:bold">09</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
+</span></span></code></pre></div><p>위 처럼 보이게 된다.</p>
 <p>2번은 <code>TIMESTAMP WITH TIME ZONE</code> 을 <code>AT TIME ZONE zone</code>하면,  해당 시각일 때, <code>zone</code> 에서는 현재 어떤 시간을 표시하고 있을까? 를 반환한다는 이야기이다. 이 때는 <code>TIMESTAMP WITHOUT TIME ZONE</code>을 반환하게 된다. 예를 들어 <code>SELECT TIMESTAMP WITH TIME ZONE '2020-08-06 12:00:00+10' AT TIME ZONE 'Asia/Seoul';</code> 을 한다면 어떻게 될까?</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#fff;font-weight:bold">WITH</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00+10&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;Asia/Seoul&#39;</span>;
-      timezone
-<span style="color:#007f7f">---------------------
-</span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">11</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>
-(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
-</code></pre></div><p>멜버른에서 정오일때 서울은 11시이므로, 위처럼 나오게 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="color:#fff;font-weight:bold">TIMESTAMP</span> <span style="color:#fff;font-weight:bold">WITH</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;2020-08-06 12:00:00+10&#39;</span> <span style="color:#fff;font-weight:bold">AT</span> TIME <span style="color:#fff;font-weight:bold">ZONE</span> <span style="color:#0ff;font-weight:bold">&#39;Asia/Seoul&#39;</span>;
+</span></span><span style="display:flex;"><span>      timezone
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">---------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span> <span style="color:#ff0;font-weight:bold">2020</span>-<span style="color:#ff0;font-weight:bold">08</span>-<span style="color:#ff0;font-weight:bold">06</span> <span style="color:#ff0;font-weight:bold">11</span>:<span style="color:#ff0;font-weight:bold">00</span>:<span style="color:#ff0;font-weight:bold">00</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ff0;font-weight:bold">1</span> <span style="color:#fff;font-weight:bold">row</span>)
+</span></span></code></pre></div><p>멜버른에서 정오일때 서울은 11시이므로, 위처럼 나오게 된다.</p>
 <hr>
 <p>위의 배경지식을 갖고 볼 때, 기존에 궁금했던 <code>SELECT TIMESTAMP '2020-08-06 12:00:00' AT TIME ZONE 'Asia/Seoul';</code> 와 <code>SELECT TIMESTAMP '2020-08-06 12:00:00' AT TIME ZONE 'UTC+9';</code> 의 결과 중에서는 첫번째 결과가 맞다는 것을 알 수 있었다. 그 다음 의심해 봐야 하는 것은 TIME ZONE을 어떻게 표기하느냐에 관한 것이다.</p>
 <p>PSQL에서는 timezone을 3가지 방법으로 표시할 수 있는데, (<a href="https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-TIMEZONES" title="psql에서 timezone 관련 공식 문서">문서</a>)</p>
@@ -262,13 +262,13 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
     
     <li><a href="https://blog.billo.io/devposts/psql_offset_wo_order_by/">PostgreSQL에서 LIMIT/OFFSET 쓸 때 주의할 점</a></li>
     
+    <li><a href="https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/">Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</a></li>
+    
     <li><a href="https://blog.billo.io/devposts/golang_ellipsis_deep_dive/">Go언어 &#39;...&#39; 자세히 알아보기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/typed_nil_go/">Go에서 nil 비교할 때 주의해야 하는 점</a></li>
     
     <li><a href="https://blog.billo.io/devposts/translate_dev_doc/">스타 19k 받은 기술 문서 번역하기</a></li>
-    
-    <li><a href="https://blog.billo.io/devposts/hugo_related_posts/">Hugo 블로그에 관련된 글 노출하기</a></li>
     
 </ul>
 
@@ -277,7 +277,7 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -322,7 +322,7 @@ postgres=# <span style="color:#fff;font-weight:bold">SELECT</span> <span style="
 
     
       
-      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://blog.billo.io/js/dark-mode.min.1d139a81392167c6a37135df59f9fd95747abba988ba33c1a557c573776cb197.js"></script>
     
 
     
@@ -340,7 +340,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

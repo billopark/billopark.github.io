@@ -5,11 +5,7 @@
     <link>https://blog.billo.io/tags/golang-.../</link>
     <description>Recent content in golang ... on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    
-	<atom:link href="https://blog.billo.io/tags/golang-.../index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ko</language><atom:link href="https://blog.billo.io/tags/golang-.../index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go언어 &#39;...&#39; 자세히 알아보기</title>
       <link>https://blog.billo.io/devposts/golang_ellipsis_deep_dive/</link>

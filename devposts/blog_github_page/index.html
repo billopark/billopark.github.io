@@ -30,9 +30,10 @@
 우선, 첫번째 조건에 의해서 동적 사이트보다는 정적 사이트를 선호하게 되었다.
 일반적으로 웹에서 쉽게 만나볼 수 있는 블로그들은 동적 사이트이다. 동적 사이트란, 사이트 내부에 DB가 존재해서 사이트를 접속하는 시점에 DB에 있는 정보를 읽어와서 접속 시점마다 내용이 다를 수 있는, 그런 형태의 사이트를 의미한다." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.billo.io/devposts/blog_github_page/" />
+<meta property="og:url" content="https://blog.billo.io/devposts/blog_github_page/" /><meta property="article:section" content="devposts" />
 <meta property="article:published_time" content="2019-11-23T22:27:33+09:00" />
 <meta property="article:modified_time" content="2020-10-12T01:44:17+09:00" />
+
 
 
     
@@ -89,7 +90,7 @@
 
     <script data-ad-client="ca-pub-5643825641989584" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.97.0" />
   </head>
   
   
@@ -250,8 +251,8 @@
 <p>2번의 경우, GCP의 rsync 기능을 이용했다. rsync란 특정 directory/GCP bucket간을 동기화 시켜주는 기능이다. 이 기능을 이용해 블로그의 이미지들이 올라가는 directory인 static directory 와 CDN이 연결된 bucket을 sync 해주기로 했다.</p>
 <p>우선, gcloud 라는 커맨드라인 프로그램을 설치하고, <code>gcloud auth login</code>을 통해서 로그인한다.</p>
 <p>그리고, 디플로이 스크립트에 아래 커맨드를 추가한다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gsutil rsync -r static gs://{{버킷-id}}
-</code></pre></div><p>이렇게 해주면, 매 배포시 마다 static directory의 파일들을 해당 버킷에 동기화시키게 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gsutil rsync -r static gs://{{버킷-id}}
+</span></span></code></pre></div><p>이렇게 해주면, 매 배포시 마다 static directory의 파일들을 해당 버킷에 동기화시키게 된다.</p>
 <p>3번의 기능적 요구조건을 떠올려보자. 로컬환경에서 블로그를 띄워서 확인할 때에는 CDN의 이미지를 가져오면 안되고 로컬의 값을 가져와야 한다. 그리고 배포된 환경에서는 CDN의 이미지를 가져와야 한다. 이렇게 이미지의 주소를 실행하는 환경에 따라서 Dynamic하게 가져오려면 Hugo의 일반 image 삽입방법으로는 커버할 수 없다.</p>
 <p>그래서 생각해낸 방법은 Hugo의 <a href="https://gohugo.io/content-management/shortcodes/" title="hugo에 shortcode 관련 문서"><strong>shortcode</strong></a> 기능이다. shortcode란 컨텐츠 파일에서 사용할 수 있는 간단한 코드를 말한다. 우선, Hugo의 환경변수 기능을 사용해서, Hugo 실행시 어떤 환경인지 알 수 있게 했다. 그리고 환경변수에 따라서 path를 다르게 가져오기 위해 각 실행환경 별로 config 파일을 만들고, config파일에 <code>staticpath</code>라는 파라미터를 추가했다.</p>
 
@@ -260,19 +261,19 @@
 </figure>
 
 <p>_default/params.toml</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">staticpath = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>
-</code></pre></div><p>production/params.toml</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">staticpath = <span style="color:#0ff;font-weight:bold">&#34;https://blog-static.billo.io&#34;</span>
-</code></pre></div><p>그리고 img라는 이미지 shortcode를 만들었다. 이 shortcode는 HTML의 img 태그를 자동으로 만들어준다. 이 때 <code>img</code> 태그의 <code>src</code>를 넣을 때, <code>staticpath</code>를 자동으로 붙여주도록 했다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#007f7f">&lt;!-- image --&gt;</span>
-&lt;<span style="font-weight:bold">figure</span> <span style="color:#f00">{{</span> <span style="color:#007f7f">with</span> <span style="color:#f00">.</span><span style="color:#007f7f">Get</span> <span style="color:#f00">&#34;</span><span style="color:#007f7f">class</span><span style="color:#f00">&#34;</span> <span style="color:#f00">}}</span><span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;{{.}}&#34;</span><span style="color:#f00">{{</span> <span style="color:#007f7f">end</span> <span style="color:#f00">}}</span>&gt;
-        &lt;<span style="font-weight:bold">img</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ $.Page.Site.Params.staticpath }}{{ .Get &#34;</span><span style="color:#007f7f">src</span><span style="color:#f00">&#34;</span> <span style="color:#f00">}}&#34;</span> /&gt;
-&lt;/<span style="font-weight:bold">figure</span>&gt;
-<span style="color:#007f7f">&lt;!-- image --&gt;</span>
-</code></pre></div><p>이 shortcode는 <code>layouts/shortcodes</code> 밑에 html파일로 저장하면 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>staticpath = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>
+</span></span></code></pre></div><p>production/params.toml</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>staticpath = <span style="color:#0ff;font-weight:bold">&#34;https://blog-static.billo.io&#34;</span>
+</span></span></code></pre></div><p>그리고 img라는 이미지 shortcode를 만들었다. 이 shortcode는 HTML의 img 태그를 자동으로 만들어준다. 이 때 <code>img</code> 태그의 <code>src</code>를 넣을 때, <code>staticpath</code>를 자동으로 붙여주도록 했다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#007f7f">&lt;!-- image --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">figure</span> <span style="color:#f00">{{</span> <span style="color:#007f7f">with</span> <span style="color:#f00">.</span><span style="color:#007f7f">Get</span> <span style="color:#f00">&#34;</span><span style="color:#007f7f">class</span><span style="color:#f00">&#34;</span> <span style="color:#f00">}}</span><span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;{{.}}&#34;</span><span style="color:#f00">{{</span> <span style="color:#007f7f">end</span> <span style="color:#f00">}}</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="font-weight:bold">img</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ $.Page.Site.Params.staticpath }}{{ .Get &#34;</span><span style="color:#007f7f">src</span><span style="color:#f00">&#34;</span> <span style="color:#f00">}}&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="font-weight:bold">figure</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#007f7f">&lt;!-- image --&gt;</span>
+</span></span></code></pre></div><p>이 shortcode는 <code>layouts/shortcodes</code> 밑에 html파일로 저장하면 된다.</p>
 <p>그리고 배포 스크립트에서도 hugo를 빌드할 때 환경변수를 넘겨주도록 변경해주어야 한다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo -t hugo-coder --environment production
-</code></pre></div><p>이렇게 변경하면, 최종적으로 이미지 CDN 작업이 완료된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hugo -t hugo-coder --environment production
+</span></span></code></pre></div><p>이렇게 변경하면, 최종적으로 이미지 CDN 작업이 완료된다.</p>
 <h2 id="소회">소회</h2>
 <p>아직 만든지 얼마 안된 블로그라 해야할 작업들이 많이 남아있지만, 일차 사용할만 한 수준까지 오게 되어 글을 작성하게 되었다.</p>
 <p>생각보다 많은 기능을 Hugo가 제공해주어서 내가 스스로 작업한게 많지는 않다. 이렇게 작업된 블로그는 생각보다 사용해보면 <strong>편하다</strong>. 네이버 블로그나 티스토리를 사용하는 것 보다 쉬울수는 없겠으나, 로컬에서 포스트를 MD로 쓰는 것만 익숙해진다면 어렵지 않게 사용할 수 있는게 신기했다. 그리고 내가 필요한 기능을 내가 만드는 게 생각보다 재밌는 경험이라, 많은 분들께 블로그 하나 만들어 보시기를 추천드린다.</p>
@@ -290,13 +291,13 @@
     
     <li><a href="https://blog.billo.io/devposts/hugo_related_posts/">Hugo 블로그에 관련된 글 노출하기</a></li>
     
+    <li><a href="https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/">Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</a></li>
+    
     <li><a href="https://blog.billo.io/devposts/golang_ellipsis_deep_dive/">Go언어 &#39;...&#39; 자세히 알아보기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/typed_nil_go/">Go에서 nil 비교할 때 주의해야 하는 점</a></li>
     
     <li><a href="https://blog.billo.io/devposts/translate_dev_doc/">스타 19k 받은 기술 문서 번역하기</a></li>
-    
-    <li><a href="https://blog.billo.io/devposts/go_orm_recommandation/">Golang ORM, 무엇이 좋을까?</a></li>
     
 </ul>
 
@@ -305,7 +306,7 @@
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -350,7 +351,7 @@
 
     
       
-      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://blog.billo.io/js/dark-mode.min.1d139a81392167c6a37135df59f9fd95747abba988ba33c1a557c573776cb197.js"></script>
     
 
     
@@ -368,7 +369,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

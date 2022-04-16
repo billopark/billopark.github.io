@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>error wrap on Billo Park</title>
+    <link>https://blog.billo.io/tags/error-wrap/</link>
+    <description>Recent content in error wrap on Billo Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Sun, 17 Apr 2022 03:54:49 +0900</lastBuildDate><atom:link href="https://blog.billo.io/tags/error-wrap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</title>
+      <link>https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/</link>
+      <pubDate>Sun, 17 Apr 2022 03:54:49 +0900</pubDate>
+      
+      <guid>https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/</guid>
+      <description>Go는 interface 구현을 duck-typing 으로 사용한다. 즉, Go에서는 어떤 클래스가 해당 인터페이스에 해당하는지를 체크할 때, &amp;lsquo;이 클래스는 해당 인터페이스를 구현해요&amp;rsquo; 라고 선언하는 것이 아닌, 해당 인터페이스에서 요청하는 모든 함수를 구현했을 때를 기준으로 한다는 것이다.
+이러한 특징으로 인해, 특정한 함수를 구현해놓으면, go언어의 기본 패키지에서 해당 함수를 사용해주는 일이 일어난다. go의 패키지 중에는 어떠한 인터페이스를 구현했는지를 보고, 구현되어 있으면 이를 먼저 사용하는 형식으로 구현을 하기 때문이다.&amp;rsquo; 그렇기 때문에, 몇몇 인터페이스를 잘 알고있으면, go의 주요 패키지에서 더 자연스럽게 결합되도록 프로그래밍 할 수 있을 것이다.</description>
+    </item>
+    
+  </channel>
+</rss>

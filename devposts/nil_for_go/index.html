@@ -21,9 +21,10 @@
     <meta property="og:title" content="Golang에서 nullable한 값 잘 처리하기" />
 <meta property="og:description" content="golang에서 nullable한 값을 다룰 수 있는 방법" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.billo.io/devposts/nil_for_go/" />
+<meta property="og:url" content="https://blog.billo.io/devposts/nil_for_go/" /><meta property="article:section" content="devposts" />
 <meta property="article:published_time" content="2020-08-08T00:11:15+09:00" />
 <meta property="article:modified_time" content="2020-10-12T01:31:20+09:00" />
+
 
 
     
@@ -80,7 +81,7 @@
 
     <script data-ad-client="ca-pub-5643825641989584" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.97.0" />
   </head>
   
   
@@ -166,113 +167,112 @@
 <p>함수, 포인터, 인터페이스, slice, 채널, 맵은 <code>nil</code></p>
 <p>이 <code>zero value</code>이다.</p>
 <p>보면 알다시피 string, boolean, 숫자 모두 <code>nil</code> (다른 언어에서의 <code>null</code>)이 아닌 다른값들이 <code>zero value</code>로 선언되어 있기 때문에, 따로 초기화 하지 않아도 Nil Pointer Exception 이 나지 않는다. 이런 장점이 있는 반면, 값의 존재여부를 가지고 로직이 짜여있는 경우, 문제가 생길 수 있다. 대표적인 예로 DB가 있겠다. MySQL에 아래와 같은 값이 들어있다고 가정해보자.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#fff;font-weight:bold">SELECT</span> * <span style="color:#fff;font-weight:bold">FROM</span> students;
-
-| id |   name | math_score |
-|----|--------|------------|
-|  <span style="color:#ff0;font-weight:bold">1</span> |  billo |          <span style="color:#ff0;font-weight:bold">0</span> |
-|  <span style="color:#ff0;font-weight:bold">2</span> | (null) |     (null) |
-</code></pre></div><p>여기서 아래와 같은 struct에 불러온다고 했을 때</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
-	Id <span style="color:#fff;font-weight:bold">int32</span>
-	Name <span style="color:#fff;font-weight:bold">string</span>
-  MathScore <span style="color:#fff;font-weight:bold">int32</span>
-}
-</code></pre></div><p>첫번째 row는 쉽게 가져올 수 있을 것이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">SELECT</span> * <span style="color:#fff;font-weight:bold">FROM</span> students;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>| id |   name | math_score |
+</span></span><span style="display:flex;"><span>|----|--------|------------|
+</span></span><span style="display:flex;"><span>|  <span style="color:#ff0;font-weight:bold">1</span> |  billo |          <span style="color:#ff0;font-weight:bold">0</span> |
+</span></span><span style="display:flex;"><span>|  <span style="color:#ff0;font-weight:bold">2</span> | (null) |     (null) |
+</span></span></code></pre></div><p>여기서 아래와 같은 struct에 불러온다고 했을 때</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Id <span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>	Name <span style="color:#fff;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>  MathScore <span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>첫번째 row는 쉽게 가져올 수 있을 것이다.</p>
 <p>하지만 두번째 row를 가져와 struct에 넣었다고 생각해보자. <code>Name</code> 필드에는 <code>&quot;&quot;</code>값이 들어가있게 될 것이다. 이렇게 된다면, 실제로 &ldquo;&ldquo;을 입력한 값과 구분이 되지 않아 혼란이 생기게 된다. 숫자형 타입은 더 심각하다. 아직 <code>MathScore</code> 가 데이터베이스에 입력되지 않은 것인데, 0점으로 간주하고 로직이 돌아갈 수 도 있다.</p>
 <p>이런 혼란을 피하기 위한 방법을 소개하려고 한다.</p>
 <hr>
 <p>첫번째는 기본 자료형 대신 <code>database/sql</code> 패키지의 <code>Null*</code>자료형을 사용하는 것이다.</p>
 <p>예를 들어 위에 사용했던 struct는 아래처럼 재정의 할 수 있다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">import</span> (
-  <span style="color:#0ff;font-weight:bold">&#34;database/sql&#34;</span>
-)
-
-<span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
-	Id <span style="color:#fff;font-weight:bold">int32</span>
-	Name sql.NullString
-  MathScore sql.NullInt32
-}
-</code></pre></div><p>이 sql.Null* 자료형은 아래처럼 정의되어 있는데, (<a href="https://golang.org/pkg/database/sql/#NullString" title="database/sql의 NullString godoc">문서</a>)</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">type</span> NullString <span style="color:#fff;font-weight:bold">struct</span> {
-    String <span style="color:#fff;font-weight:bold">string</span>
-    Valid  <span style="color:#fff;font-weight:bold">bool</span> <span style="color:#007f7f">// Valid is true if String is not NULL
-</span><span style="color:#007f7f"></span>}
-</code></pre></div><p>여기의 Valid 필드가 NULL이 아닌지 여부를 들고 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#0ff;font-weight:bold">&#34;database/sql&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Id <span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>	Name sql.NullString
+</span></span><span style="display:flex;"><span>  MathScore sql.NullInt32
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이 sql.Null* 자료형은 아래처럼 정의되어 있는데, (<a href="https://golang.org/pkg/database/sql/#NullString" title="database/sql의 NullString godoc">문서</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">type</span> NullString <span style="color:#fff;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>    String <span style="color:#fff;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>    Valid  <span style="color:#fff;font-weight:bold">bool</span> <span style="color:#007f7f">// Valid is true if String is not NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>}
+</span></span></code></pre></div><p>여기의 Valid 필드가 NULL이 아닌지 여부를 들고 있다.</p>
 <p>따라서 아래처럼 사용하면 된다. (<a href="https://golang.org/pkg/database/sql/#NullString" title="database/sql의 NullString godoc">문서</a>)</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">var</span> s NullString
-err := db.QueryRow(<span style="color:#0ff;font-weight:bold">&#34;SELECT name FROM foo WHERE id=?&#34;</span>, id).Scan(&amp;s)
-...
-<span style="color:#fff;font-weight:bold">if</span> s.Valid {
-   <span style="color:#007f7f">// use s.String
-</span><span style="color:#007f7f"></span>} <span style="color:#fff;font-weight:bold">else</span> {
-   <span style="color:#007f7f">// NULL value
-</span><span style="color:#007f7f"></span>}
-</code></pre></div><p>이렇게 Valid 필드를 이용해서 null 분기를 탈 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> s NullString
+</span></span><span style="display:flex;"><span>err := db.QueryRow(<span style="color:#0ff;font-weight:bold">&#34;SELECT name FROM foo WHERE id=?&#34;</span>, id).Scan(&amp;s)
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">if</span> s.Valid {
+</span></span><span style="display:flex;"><span>   <span style="color:#007f7f">// use s.String
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>} <span style="color:#fff;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#007f7f">// NULL value
+</span></span></span><span style="display:flex;"><span><span style="color:#007f7f"></span>}
+</span></span></code></pre></div><p>이렇게 Valid 필드를 이용해서 null 분기를 탈 수 있다.</p>
 <hr>
 <p>또다른 방법은 포인터 타입을 이용하는 것이다.</p>
 <p>포인터의 <code>zero value</code>는 <code>nil</code> 인 점을 이용해서, 기본 자료형 대신 기본 자료형의 포인터를 쓰면 된다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
-	Id <span style="color:#fff;font-weight:bold">int32</span>
-	Name *<span style="color:#fff;font-weight:bold">string</span>
-  MathScore *<span style="color:#fff;font-weight:bold">int32</span>
-}
-</code></pre></div><p>이렇게 포인터로 정의를 하고, 포인터가 <code>nil</code> 인지를 비교하여 값을 존재유무를 판단하는 방식이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Id <span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>	Name *<span style="color:#fff;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>  MathScore *<span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이렇게 포인터로 정의를 하고, 포인터가 <code>nil</code> 인지를 비교하여 값을 존재유무를 판단하는 방식이다.</p>
 <p>이렇게 포인터로 정의를 하게 되면 해당 필드에 값을 넣을 때 주의해야 한다.</p>
 <p>아래의 예시를 보자. (<a href="https://play.golang.org/p/fIA1OVD58xG" title="위 코드를 실행할 수 있는 playground">Playground</a>)</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">package</span> main
-
-<span style="color:#fff;font-weight:bold">import</span> (
-	<span style="color:#0ff;font-weight:bold">&#34;fmt&#34;</span>
-)
-
-<span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
-	Id <span style="color:#fff;font-weight:bold">int32</span>
-	Name *<span style="color:#fff;font-weight:bold">string</span>
-	MathScore *<span style="color:#fff;font-weight:bold">int32</span>
-}
-
-<span style="color:#fff;font-weight:bold">func</span> main() {
-	student := Student{
-		Id: <span style="color:#ff0;font-weight:bold">1</span>,
-		Name: <span style="color:#fff;font-weight:bold">nil</span>,
-		MathScore: &amp;<span style="color:#fff;font-weight:bold">int32</span>(<span style="color:#ff0;font-weight:bold">10</span>),
-	};
-	fmt.Println(*student.MathScore);
-}
-
-</code></pre></div><p>문제 없는 코드처럼 보이지만, <code>&amp;int32(10)</code>(또는 <code>&amp;10</code>등 <code>&amp; + 값</code>) 은 잘못된 코드이다. 왜냐하면 &amp;는 <code>Addressable</code> 한 값에 대해서만 사용 가능한 연산자 이기 때문인데,  자세한 설명은 이 <a href="https://stackoverflow.com/questions/30716354/how-do-i-do-a-literal-int64-in-go" title="관련 stackoverflow 질문">질문</a> 으로 갈음한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#0ff;font-weight:bold">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Id <span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>	Name *<span style="color:#fff;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>	MathScore *<span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> main() {
+</span></span><span style="display:flex;"><span>	student := Student{
+</span></span><span style="display:flex;"><span>		Id: <span style="color:#ff0;font-weight:bold">1</span>,
+</span></span><span style="display:flex;"><span>		Name: <span style="color:#fff;font-weight:bold">nil</span>,
+</span></span><span style="display:flex;"><span>		MathScore: &amp;<span style="color:#fff;font-weight:bold">int32</span>(<span style="color:#ff0;font-weight:bold">10</span>),
+</span></span><span style="display:flex;"><span>	};
+</span></span><span style="display:flex;"><span>	fmt.Println(*student.MathScore);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>문제 없는 코드처럼 보이지만, <code>&amp;int32(10)</code>(또는 <code>&amp;10</code>등 <code>&amp; + 값</code>) 은 잘못된 코드이다. 왜냐하면 &amp;는 <code>Addressable</code> 한 값에 대해서만 사용 가능한 연산자 이기 때문인데,  자세한 설명은 이 <a href="https://stackoverflow.com/questions/30716354/how-do-i-do-a-literal-int64-in-go" title="관련 stackoverflow 질문">질문</a> 으로 갈음한다.</p>
 <p>이 문제를 해결하기 위해서 다양한 해결방법이 있고, 이는 위의 <a href="https://stackoverflow.com/questions/30716354/how-do-i-do-a-literal-int64-in-go" title="해결방법이 달려있는 stackoverflow 질문">질문</a> 에 대답으로 많이 달려있다. 나는 아래와 같은 helper function을 만드는 것을 추천한다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">func Int32(x int32) *int32 {
-	return &amp;x;
-}
-</code></pre></div><p>이 helper function 을 만들어 놓고 프로젝트에서 돌려 사용하면, 쉽게 포인터 형태의 value를 만들 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>func Int32(x int32) *int32 {
+</span></span><span style="display:flex;"><span>	return &amp;x;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이 helper function 을 만들어 놓고 프로젝트에서 돌려 사용하면, 쉽게 포인터 형태의 value를 만들 수 있다.</p>
 <p>위의 helper function을 사용하면 아래와 같다. (<a href="https://play.golang.org/p/Za4omSHqLhP" title="helper function 예제를 실행할 수 있는 playground">Playground</a>)</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">package</span> main
-
-<span style="color:#fff;font-weight:bold">import</span> (
-	<span style="color:#0ff;font-weight:bold">&#34;fmt&#34;</span>
-)
-
-<span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
-	Id <span style="color:#fff;font-weight:bold">int32</span>
-	Name *<span style="color:#fff;font-weight:bold">string</span>
-	MathScore *<span style="color:#fff;font-weight:bold">int32</span>
-}
-
-<span style="color:#fff;font-weight:bold">func</span> Int32(x <span style="color:#fff;font-weight:bold">int32</span>) *<span style="color:#fff;font-weight:bold">int32</span> {
-	<span style="color:#fff;font-weight:bold">return</span> &amp;x;
-}
-
-<span style="color:#fff;font-weight:bold">func</span> main() {
-	student := Student{
-		Id: <span style="color:#ff0;font-weight:bold">1</span>,
-		Name: <span style="color:#fff;font-weight:bold">nil</span>,
-		MathScore: Int32(<span style="color:#ff0;font-weight:bold">10</span>),
-	};
-	fmt.Println(*student.MathScore);
-}
-</code></pre></div><p>포인터를 이용한 방법은  <code>database/sql</code> 패키지를 쓰는 것에 비해서 쉽게 사용이 가능하다는 장점이 있지만, nil-safeness를 포기하게 되므로 trade-off가 있는 방법이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#0ff;font-weight:bold">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">type</span> Student <span style="color:#fff;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>	Id <span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>	Name *<span style="color:#fff;font-weight:bold">string</span>
+</span></span><span style="display:flex;"><span>	MathScore *<span style="color:#fff;font-weight:bold">int32</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> Int32(x <span style="color:#fff;font-weight:bold">int32</span>) *<span style="color:#fff;font-weight:bold">int32</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#fff;font-weight:bold">return</span> &amp;x;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> main() {
+</span></span><span style="display:flex;"><span>	student := Student{
+</span></span><span style="display:flex;"><span>		Id: <span style="color:#ff0;font-weight:bold">1</span>,
+</span></span><span style="display:flex;"><span>		Name: <span style="color:#fff;font-weight:bold">nil</span>,
+</span></span><span style="display:flex;"><span>		MathScore: Int32(<span style="color:#ff0;font-weight:bold">10</span>),
+</span></span><span style="display:flex;"><span>	};
+</span></span><span style="display:flex;"><span>	fmt.Println(*student.MathScore);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>포인터를 이용한 방법은  <code>database/sql</code> 패키지를 쓰는 것에 비해서 쉽게 사용이 가능하다는 장점이 있지만, nil-safeness를 포기하게 되므로 trade-off가 있는 방법이다.</p>
 <hr>
 <p>DB 뿐만 아니라 JSON 등 많은 경우에 nullable한 값을 사용하게 될 수 있다. 이 때에도 위의 트릭들을 이용하면 고통받지 않고 처리할 수 있다.</p>
 
@@ -289,13 +289,13 @@ err := db.QueryRow(<span style="color:#0ff;font-weight:bold">&#34;SELECT name FR
     
     <li><a href="https://blog.billo.io/devposts/typed_nil_go/">Go에서 nil 비교할 때 주의해야 하는 점</a></li>
     
+    <li><a href="https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/">Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</a></li>
+    
     <li><a href="https://blog.billo.io/devposts/golang_ellipsis_deep_dive/">Go언어 &#39;...&#39; 자세히 알아보기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/translate_dev_doc/">스타 19k 받은 기술 문서 번역하기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/go_orm_recommandation/">Golang ORM, 무엇이 좋을까?</a></li>
-    
-    <li><a href="https://blog.billo.io/devposts/golang_naming_convention/">Golang 에서의 명명 규칙</a></li>
     
 </ul>
 
@@ -304,7 +304,7 @@ err := db.QueryRow(<span style="color:#0ff;font-weight:bold">&#34;SELECT name FR
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -349,7 +349,7 @@ err := db.QueryRow(<span style="color:#0ff;font-weight:bold">&#34;SELECT name FR
 
     
       
-      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://blog.billo.io/js/dark-mode.min.1d139a81392167c6a37135df59f9fd95747abba988ba33c1a557c573776cb197.js"></script>
     
 
     
@@ -367,7 +367,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

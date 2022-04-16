@@ -21,9 +21,10 @@
     <meta property="og:title" content="Hugo 블로그에 관련된 글 노출하기" />
 <meta property="og:description" content="hugo로 만든 블로그에 관련된 포스트를 노출할 수 있는 방법을 설명한다" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.billo.io/devposts/hugo_related_posts/" />
+<meta property="og:url" content="https://blog.billo.io/devposts/hugo_related_posts/" /><meta property="article:section" content="devposts" />
 <meta property="article:published_time" content="2020-09-23T16:34:08+09:00" />
 <meta property="article:modified_time" content="2020-10-12T01:31:20+09:00" />
+
 
 
     
@@ -80,7 +81,7 @@
 
     <script data-ad-client="ca-pub-5643825641989584" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.97.0" />
   </head>
   
   
@@ -165,30 +166,29 @@
         
         <p>네이버에 블로그를 사이트 등록하고, 사이트에 대한 분석을 읽어보았더니, 내부 링크 관리가 잘 안되고 있다고 적혀있었다. 이를 개선하기 위해서 블로그에 See Also 란을 새로 만들어보기로 결정했다. 내가 사용하고 있는 블로그 플랫폼은 Hugo라서, Hugo에서 연관 포스트를 노출하는 방법을 찾아보았다. Hugo에서는 <a href="https://gohugo.io/content-management/related/#readout" title="hugo related content 문서">Related Contents</a> 라고 부르는 개념이었다. 개요는 간단했다. 노출할 <code>연관된 글 목록</code> 코드를 작성하고, 블로그 글에 해당되는 레이아웃에 원하는 위치에 해당 코드를 불러주는게 끝이였다. 관련된 설정은 <code>config 파일</code>에서 가능했다.</p>
 <p>하나씩 확인해보면, 우선 <code>연관된 글</code> 을 보여줄 코드를 작성해야 한다. 여기서는 짧게 <code>See Also</code> 코드라고 칭하겠다. Hugo의 <a href="https://gohugo.io/content-management/related/#readout" title="hugo related content 문서">Related Contents</a> 글에서 미리 짜져있는 코드가 있으므로, 이대로 사용하였다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ $related := .Site.RegularPages.Related . | first 5 }}
-{{ with $related }}
-&lt;<span style="font-weight:bold">h3</span>&gt;See Also&lt;/<span style="font-weight:bold">h3</span>&gt;
-&lt;<span style="font-weight:bold">ul</span>&gt;
-	{{ range . }}
-	&lt;<span style="font-weight:bold">li</span>&gt;&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ .RelPermalink }}&#34;</span>&gt;{{ .Title }}&lt;/<span style="font-weight:bold">a</span>&gt;&lt;/<span style="font-weight:bold">li</span>&gt;
-	{{ end }}
-&lt;/<span style="font-weight:bold">ul</span>&gt;
-{{ end }}
-</code></pre></div><p>간단하게 설명해보면, 해당 글과 연관된 글을 찾아서, 5개까지만 가져온다. 그리고 <code>See Also</code>라는 텍스트 밑에 가져온 5개의 제목을 적고, 각각에 링크를 단다. 혹시 수정할 내용이 있다면 설명을 참고하여 수정해서 사용하도록 하자. 이 코드를 <code>layouts/partials/related.html</code> 이라는 이름으로 저장하자. partials 폴더 밑에 있는 이유는 완전한 페이지가 아닌 관련된 포스트를 가져와주는 <code>코드 조각</code>이기 때문이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ $related := .Site.RegularPages.Related . | first 5 }}
+</span></span><span style="display:flex;"><span>{{ with $related }}
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">h3</span>&gt;See Also&lt;/<span style="font-weight:bold">h3</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">ul</span>&gt;
+</span></span><span style="display:flex;"><span>	{{ range . }}
+</span></span><span style="display:flex;"><span>	&lt;<span style="font-weight:bold">li</span>&gt;&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;{{ .RelPermalink }}&#34;</span>&gt;{{ .Title }}&lt;/<span style="font-weight:bold">a</span>&gt;&lt;/<span style="font-weight:bold">li</span>&gt;
+</span></span><span style="display:flex;"><span>	{{ end }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="font-weight:bold">ul</span>&gt;
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div><p>간단하게 설명해보면, 해당 글과 연관된 글을 찾아서, 5개까지만 가져온다. 그리고 <code>See Also</code>라는 텍스트 밑에 가져온 5개의 제목을 적고, 각각에 링크를 단다. 혹시 수정할 내용이 있다면 설명을 참고하여 수정해서 사용하도록 하자. 이 코드를 <code>layouts/partials/related.html</code> 이라는 이름으로 저장하자. partials 폴더 밑에 있는 이유는 완전한 페이지가 아닌 관련된 포스트를 가져와주는 <code>코드 조각</code>이기 때문이다.</p>
 <p>그 다음 블로그 글 템플릿에 <code>See Also</code> 코드를 넣어줄 차례이다. <code>layouts/posts/single.html</code> 파일이 존재한다면, 해당 파일을 열고, 만약 존재하지 않는다면, <code>themes/{사용하고_있는_테마}/layouts/posts/single.html</code>을 <code>layouts/posts/single.html</code> 로 복사하자. 이렇게 해주는 이유는 hugo의 overriding 방식 때문이다. Hugo의 코드 구조는</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">{프로젝트}
-- layouts
-- resources
-- assets
-- ...
-- themes
-  - {내가_사용하는_테마}
-    - layouts
-    - resources
-    - assets
-    - ...
-
-</code></pre></div><p>처럼, 기본 hugo 파일구조가 테마에도 똑같이 존재한다. 만약 테마의 특정 파일을 수정하고 싶은 경우, 테마 파일을 직접 수정하는 것이 아니라, 테마에서 수정하고 싶은 파일을 찾아서 프로젝트의 폴더에 복사&amp;붙여넣기 한 후 프로젝트의 파일을 수정한다. 우리는 지금 <code>themes/{사용하고_있는_테마}/layouts/posts/single.html</code> 파일을 수정하고 싶지만 이 파일을 직접 수정하는 것이 아니라, 해당 파일을 복사해서 <code>layouts/posts/single.html</code>에 넣고, 새로 생긴 파일을 수정하면 된다. 그러면 hugo가 알아서 수정된 버전의 파일로 표시해준다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>{프로젝트}
+</span></span><span style="display:flex;"><span>- layouts
+</span></span><span style="display:flex;"><span>- resources
+</span></span><span style="display:flex;"><span>- assets
+</span></span><span style="display:flex;"><span>- ...
+</span></span><span style="display:flex;"><span>- themes
+</span></span><span style="display:flex;"><span>  - {내가_사용하는_테마}
+</span></span><span style="display:flex;"><span>    - layouts
+</span></span><span style="display:flex;"><span>    - resources
+</span></span><span style="display:flex;"><span>    - assets
+</span></span><span style="display:flex;"><span>    - ...
+</span></span></code></pre></div><p>처럼, 기본 hugo 파일구조가 테마에도 똑같이 존재한다. 만약 테마의 특정 파일을 수정하고 싶은 경우, 테마 파일을 직접 수정하는 것이 아니라, 테마에서 수정하고 싶은 파일을 찾아서 프로젝트의 폴더에 복사&amp;붙여넣기 한 후 프로젝트의 파일을 수정한다. 우리는 지금 <code>themes/{사용하고_있는_테마}/layouts/posts/single.html</code> 파일을 수정하고 싶지만 이 파일을 직접 수정하는 것이 아니라, 해당 파일을 복사해서 <code>layouts/posts/single.html</code>에 넣고, 새로 생긴 파일을 수정하면 된다. 그러면 hugo가 알아서 수정된 버전의 파일로 표시해준다.</p>
 <p>이렇게 준비된 <code>layouts/posts/single.html</code>를 열어서, 원하는 위치에 <code>{{ partial &quot;posts/related.html&quot; . }}</code> 코드를 넣어주자. 나의 경우는, 컨텐츠가 다 끝나고 댓글 바로 윗부분에 넣어주었다.</p>
 
 <figure >
@@ -196,40 +196,40 @@
 </figure>
 
 <p>이제 남은 것은 <code>config</code>에 적절한 설정을 추가하는 것이다. 물론 아무 설정하지 않아도 기본값으로 동작하게 된다. 우선 <code>config/_default/config.toml</code>파일을 열고, 아래 코드를 붙여넣자.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[related]
-  includeNewer = <span style="color:#fff;font-weight:bold">false</span>
-  threshold = <span style="color:#ff0;font-weight:bold">80</span>
-  toLower = <span style="color:#fff;font-weight:bold">false</span>
-
-  [[related.indices]]
-    name = <span style="color:#0ff;font-weight:bold">&#34;keywords&#34;</span>
-    weight = <span style="color:#ff0;font-weight:bold">100</span>
-
-  [[related.indices]]
-    name = <span style="color:#0ff;font-weight:bold">&#34;date&#34;</span>
-    weight = <span style="color:#ff0;font-weight:bold">10</span>
-</code></pre></div><p>등장한 여러 변수에 대한 설명은 <a href="https://gohugo.io/content-management/related/#readout" title="hugo related contents 문서">Related Contents</a> 에서 찾아볼 수 있으니 참고하기 바란다. (어렵지 않다) 여기서 이해해야 하는 부분이 <code>related.indices</code>이다. 이는 <code>related</code> 정도를 게산하는 척도로, 각 블로그 글 마크다운 파일의 상단에 등장하는 필드들이 계산 대상이다. 예를 들어 나의 경우 아래와 같은 헤더를 가지고있는데,</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[related]
+</span></span><span style="display:flex;"><span>  includeNewer = <span style="color:#fff;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>  threshold = <span style="color:#ff0;font-weight:bold">80</span>
+</span></span><span style="display:flex;"><span>  toLower = <span style="color:#fff;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[related.indices]]
+</span></span><span style="display:flex;"><span>    name = <span style="color:#0ff;font-weight:bold">&#34;keywords&#34;</span>
+</span></span><span style="display:flex;"><span>    weight = <span style="color:#ff0;font-weight:bold">100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[related.indices]]
+</span></span><span style="display:flex;"><span>    name = <span style="color:#0ff;font-weight:bold">&#34;date&#34;</span>
+</span></span><span style="display:flex;"><span>    weight = <span style="color:#ff0;font-weight:bold">10</span>
+</span></span></code></pre></div><p>등장한 여러 변수에 대한 설명은 <a href="https://gohugo.io/content-management/related/#readout" title="hugo related contents 문서">Related Contents</a> 에서 찾아볼 수 있으니 참고하기 바란다. (어렵지 않다) 여기서 이해해야 하는 부분이 <code>related.indices</code>이다. 이는 <code>related</code> 정도를 게산하는 척도로, 각 블로그 글 마크다운 파일의 상단에 등장하는 필드들이 계산 대상이다. 예를 들어 나의 경우 아래와 같은 헤더를 가지고있는데,</p>
 
 <figure >
         <img src="https://blog-static.billo.io/images/hugo_related_posts/post_headers.png" />
 </figure>
 
 <p>이 경우에는 title, date, draft, tags, description, category가 계산 대상이다. 이 글을 작성하는 지금의 세팅은 아래와 같다.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">...
-[related]
-  includeNewer = <span style="color:#fff;font-weight:bold">true</span>
-  threshold = <span style="color:#ff0;font-weight:bold">81</span>
-  toLower = <span style="color:#fff;font-weight:bold">false</span>
-
-  [[related.indices]]
-    name = <span style="color:#0ff;font-weight:bold">&#34;category&#34;</span>
-    weight = <span style="color:#ff0;font-weight:bold">80</span>
-
-  [[related.indices]]
-    name = <span style="color:#0ff;font-weight:bold">&#34;tags&#34;</span>
-    weight = <span style="color:#ff0;font-weight:bold">10</span>
-...
-</code></pre></div><p>이 블로그는 보드게임과 개발 두가지 축으로 운영되어서 같은 카테고리에 있는 글만 노출되어야 하므로 <code>category</code> 필드의 비중을 크게 높였고, 게시글의 태그가 비슷한 것들 끼리 노출되게 하기 위해서 <code>tags</code> 필드도 related 계산 기준에 추가하였다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>[related]
+</span></span><span style="display:flex;"><span>  includeNewer = <span style="color:#fff;font-weight:bold">true</span>
+</span></span><span style="display:flex;"><span>  threshold = <span style="color:#ff0;font-weight:bold">81</span>
+</span></span><span style="display:flex;"><span>  toLower = <span style="color:#fff;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[related.indices]]
+</span></span><span style="display:flex;"><span>    name = <span style="color:#0ff;font-weight:bold">&#34;category&#34;</span>
+</span></span><span style="display:flex;"><span>    weight = <span style="color:#ff0;font-weight:bold">80</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[related.indices]]
+</span></span><span style="display:flex;"><span>    name = <span style="color:#0ff;font-weight:bold">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span>    weight = <span style="color:#ff0;font-weight:bold">10</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>이 블로그는 보드게임과 개발 두가지 축으로 운영되어서 같은 카테고리에 있는 글만 노출되어야 하므로 <code>category</code> 필드의 비중을 크게 높였고, 게시글의 태그가 비슷한 것들 끼리 노출되게 하기 위해서 <code>tags</code> 필드도 related 계산 기준에 추가하였다.</p>
 <p>이렇게 까지 세팅을 하면 hugo 블로그에 관련 글을 자동으로 노출하게 된다.</p>
 
       </div>
@@ -245,13 +245,13 @@
     
     <li><a href="https://blog.billo.io/devposts/blog_github_page/">Github Pages &#43; Hugo를 사용한 블로그 구축기</a></li>
     
+    <li><a href="https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/">Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</a></li>
+    
     <li><a href="https://blog.billo.io/devposts/golang_ellipsis_deep_dive/">Go언어 &#39;...&#39; 자세히 알아보기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/typed_nil_go/">Go에서 nil 비교할 때 주의해야 하는 점</a></li>
     
     <li><a href="https://blog.billo.io/devposts/translate_dev_doc/">스타 19k 받은 기술 문서 번역하기</a></li>
-    
-    <li><a href="https://blog.billo.io/devposts/go_orm_recommandation/">Golang ORM, 무엇이 좋을까?</a></li>
     
 </ul>
 
@@ -260,7 +260,7 @@
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -305,7 +305,7 @@
 
     
       
-      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://blog.billo.io/js/dark-mode.min.1d139a81392167c6a37135df59f9fd95747abba988ba33c1a557c573776cb197.js"></script>
     
 
     
@@ -323,7 +323,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

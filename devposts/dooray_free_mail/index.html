@@ -21,9 +21,10 @@
     <meta property="og:title" content="Dooray로 내 도메인 메일 무료로 운영하기" />
 <meta property="og:description" content="Dooray를 활용하여 자신의 도메인 밑의 메일을 활용하는 방법을 소개한다" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.billo.io/devposts/dooray_free_mail/" />
+<meta property="og:url" content="https://blog.billo.io/devposts/dooray_free_mail/" /><meta property="article:section" content="devposts" />
 <meta property="article:published_time" content="2020-08-17T20:37:52+09:00" />
 <meta property="article:modified_time" content="2020-10-12T01:31:20+09:00" />
+
 
 
     
@@ -80,7 +81,7 @@
 
     <script data-ad-client="ca-pub-5643825641989584" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.97.0" />
   </head>
   
   
@@ -175,8 +176,8 @@
         
         <h3 id="내-도메인으로-메일을-운영해보자">내 도메인으로 메일을 운영해보자</h3>
 <p>신박한 서비스를 위해, 아니면 개인 PR을 위해, 혹은 그냥 예뻐보여서 도메인을 산 당신. 멋드러지게 꾸민 사이트 하단에</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">contact me: example@gmail.com
-</code></pre></div><p>적혀진 이메일 주소가 gmail이라면? 흠.. 뭔가 아쉽다. 도메인도 산 김에, 구매한 도메인으로 된 메일이 있으면 외우기도 쉽고, 더 전문적으로 보일 것 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>contact me: example@gmail.com
+</span></span></code></pre></div><p>적혀진 이메일 주소가 gmail이라면? 흠.. 뭔가 아쉽다. 도메인도 산 김에, 구매한 도메인으로 된 메일이 있으면 외우기도 쉽고, 더 전문적으로 보일 것 같다.</p>
 <p>그래서 도메인을 위한 메일 서버를 직접 운영하기로 마음먹고 방법을 찾아본다면? 생각보다 쉽지 않을것이다. Postfix며 Dovecot이며 알아야 할 것도 엄청 많고, 설정 파일도 잘 수정해야 한다. 뿐만 아니라 항시 운영되는 서버를 켜놔야하고, 웹에서 메일을 보려면 웹메일 클라이언트 서버도 띄워야하며, 1년, 2년이 지나도 잘 유지보수 할 수 있을지도 미지수.</p>
 <p>위의 이유로 질려버리고 G Suite와 같은 SaaS를 찾아본다면? 생각보다 비싼 가격이 발목을 잡는다. 그냥 메일 주소 한 두개를 운영해도 개당 5, 6천원씩 가격이 나온다.</p>
 <p>위처럼 나도 <code>billo.io</code> 로 된 메일 주소를 운영하기 위해서 고민하던 때, <a href="https://dooray.com" title="두레이 공식 사이트">Dooray</a>라는 서비스를 발견했다. Dooray는 NHN TOAST에서 운영하는 협업 도구로, 메신저, 메일, 드라이브. 화상회의, 프로젝트 관리 등 많은 기능을 포함한 서비스이다.</p>
@@ -236,11 +237,11 @@
     
     <li><a href="https://blog.billo.io/devposts/local_subdomain/">로컬 환경에서 Subdomain 테스트하기</a></li>
     
+    <li><a href="https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/">Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</a></li>
+    
     <li><a href="https://blog.billo.io/devposts/golang_ellipsis_deep_dive/">Go언어 &#39;...&#39; 자세히 알아보기</a></li>
     
     <li><a href="https://blog.billo.io/devposts/typed_nil_go/">Go에서 nil 비교할 때 주의해야 하는 점</a></li>
-    
-    <li><a href="https://blog.billo.io/devposts/translate_dev_doc/">스타 19k 받은 기술 문서 번역하기</a></li>
     
 </ul>
 
@@ -249,7 +250,7 @@
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -294,7 +295,7 @@
 
     
       
-      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://blog.billo.io/js/dark-mode.min.1d139a81392167c6a37135df59f9fd95747abba988ba33c1a557c573776cb197.js"></script>
     
 
     
@@ -312,7 +313,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

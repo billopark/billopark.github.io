@@ -1,559 +1,359 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://blog.billo.io/tags/error-wrap/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/go/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/go-error/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/golang/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/hidden-interface/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/interface/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/json/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/json-marshaler/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/json-unmarshaler/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.billo.io/tags/</loc>
+    <lastmod>2022-04-17T05:05:51+09:00</lastmod>
+  </url><url>
     <loc>https://blog.billo.io/tags/ellipsis/</loc>
     <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/golang/</loc>
-    <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/go%EC%96%B8%EC%96%B4/</loc>
-    <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/golang_ellipsis_deep_dive/</loc>
     <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/</loc>
-    <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/three-dots/</loc>
     <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/variadic-function/</loc>
     <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EC%A0%90-%EC%84%B8%EA%B0%9C/</loc>
     <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EC%A9%9C%EC%A9%9C%EC%A9%9C/</loc>
     <lastmod>2021-04-25T15:47:48+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.billo.io/tags/go/</loc>
-    <lastmod>2021-03-31T14:25:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/typed_nil_go/</loc>
     <lastmod>2021-03-31T14:25:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/nil/</loc>
     <lastmod>2021-03-31T14:25:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/typed/</loc>
     <lastmod>2021-03-31T14:25:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/github/</loc>
     <lastmod>2020-11-12T15:23:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/translate/</loc>
     <lastmod>2020-11-12T15:23:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%B2%88%EC%97%AD/</loc>
     <lastmod>2020-11-12T15:23:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/translate_dev_doc/</loc>
     <lastmod>2020-11-12T15:23:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/hugo/</loc>
     <lastmod>2020-10-12T01:44:17+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/hugo_related_posts/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/related/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/see-also/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/static-site-generator/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EA%B4%80%EB%A0%A8%EB%90%9C-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/data-layer/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/entgo/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/go-pg/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/go_orm_recommandation/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/gorm/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/orm/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/sqlboiler/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/sqlc/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/sqlx/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/squirrel/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/upper.io/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/xorm/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/2020-%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84%EC%BD%98/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/bgposts/20_online_con/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EA%B0%80%EC%83%81%EC%A0%84%EC%8B%9C%EC%9E%A5/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84%EC%BD%98/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EC%BD%94%EB%A6%AC%EC%95%84%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84%EC%A6%88/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EC%BD%94%EB%B3%B4%EA%B2%8C/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/card/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/playing-card/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/tichu/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/tumblbug/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/wadiz/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9D%B4%EB%A8%B8/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/bgposts/playing_card_design_tip/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EC%B9%B4%EB%93%9C/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%ED%8B%B0%EC%B8%84/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/golang_naming_convention/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/naming/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/naming-convention/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/tabletop-simulator/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/tts/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EC%98%A8%EB%9D%BC%EC%9D%B8/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/bgposts/table_top_simulator/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/github-profile/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/github_profile_repo/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EA%B9%83%ED%97%99/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EA%B9%83%ED%97%99-%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9C/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/domain/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/dooray/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/dooray_free_mail/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/free/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/mail/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/toast/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%8F%84%EB%A9%94%EC%9D%B8/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%8F%84%EB%A9%94%EC%9D%B8-%EB%A9%94%EC%9D%BC/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%91%90%EB%A0%88%EC%9D%B4/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%A9%94%EC%9D%BC/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%AC%B4%EB%A3%8C/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/nil_for_go/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/zero-value/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/at-time-zone/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/postgres/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/postgresql/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/psql/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/psql_at_time_zone/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/timestamp/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/timezone/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/order-by/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/psql_offset_wo_order_by/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/dns/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/dns-server/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/iep.ee/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/iep_ee/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/lvh.me/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/github-pages/</loc>
     <lastmod>2020-10-12T01:44:17+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/blog_github_page/</loc>
     <lastmod>2020-10-12T01:44:17+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/domain-backorder/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/domain_backorder/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/bgposts/19_fall_festa/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%EB%B3%B4%EB%93%9C%EA%B2%8C%EC%9E%84-%ED%8E%98%EC%8A%A4%ED%83%80/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/%ED%8E%98%EC%8A%A4%ED%83%80/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/subdomain/</loc>
     <lastmod>2020-09-23T16:32:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/local_subdomain/</loc>
     <lastmod>2020-09-23T16:32:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/go_struct_validation/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/struct-tag/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/validation/</loc>
     <lastmod>2020-10-12T01:31:20+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/about/</loc>
     <lastmod>2021-03-31T14:22:44+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/bgposts/</loc>
     <lastmod>2020-09-11T16:31:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/database/sql/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/devposts/</loc>
     <lastmod>2020-09-11T16:31:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/go-.../</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/golang-.../</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/</loc>
     <lastmod>2019-09-04T01:04:59+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/series/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.billo.io/tags/xo/xo/</loc>
   </url>
-  
 </urlset>

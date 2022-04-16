@@ -21,9 +21,10 @@
     <meta property="og:title" content="Golang 에서의 명명 규칙" />
 <meta property="og:description" content="Go언어에서 사용되는 명명 규칙을 알아본다" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.billo.io/devposts/golang_naming_convention/" />
+<meta property="og:url" content="https://blog.billo.io/devposts/golang_naming_convention/" /><meta property="article:section" content="devposts" />
 <meta property="article:published_time" content="2020-09-08T21:23:47+09:00" />
 <meta property="article:modified_time" content="2020-10-12T01:31:20+09:00" />
+
 
 
     
@@ -80,7 +81,7 @@
 
     <script data-ad-client="ca-pub-5643825641989584" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.97.0" />
   </head>
   
   
@@ -171,25 +172,25 @@
 <hr>
 <p>기본적으로, Go에서 두 단어 이상이 결합할 때에는 MixedCaps 혹은 mixedCaps 형태로 붙여서 사용한다. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 만약 URL, IP, NATO 처럼 이니셜이나 줄임말로 이루어진 단어들의 경우에는 <em>consistent case</em>, 즉 대문자나 소문자로 일정하게 사용해야 한다. <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 즉 IP도 되고, ip도 되지만 Ip처럼 사용하지는 말라는 뜻이다.</p>
 <p>그리고 위에서 잠시 말했지만, Go에서 함수나 변수, 구조체 등의 이름 첫 글자는 매우 중요하다. 이 첫 글자가 대문자면, 패키지 외부에서 사용할 수 있다 라는 뜻이다.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">package</span> main
-
-<span style="color:#fff;font-weight:bold">var</span> internalValue <span style="color:#fff;font-weight:bold">int</span>
-<span style="color:#fff;font-weight:bold">var</span> ExternalValue <span style="color:#fff;font-weight:bold">int</span>
-
-<span style="color:#fff;font-weight:bold">func</span> internalFunc() <span style="color:#fff;font-weight:bold">int</span> {
-  ...
-}
-
-<span style="color:#fff;font-weight:bold">func</span> ExternalFunc() <span style="color:#fff;font-weight:bold">int</span> {
-  ...
-}
-</code></pre></div><p>위의 코드에서, <code>internalValue</code> 와 <code>internalFunc</code>는 해당 패키지 내부에서만 호출이 가능하나, <code>ExternalValue</code> 와 <code>ExternalFunc</code>는 패키지 외부에서도 호출이 가능하다. 다른 언어의 <code>public</code> <code>private</code>개념을 대소문자를 가지고 구분 한 것이다. Go에서는 변수나 함수 이름에 특정 유니코드 문자를 지원하는데<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>, &ldquo;카운트&rdquo;, &ldquo;인덱스&rdquo; 와 같은 단어를 변수나 함수 명으로 사용할 수 있다는 뜻이다. 이런 경우일때는 대/소문자가 없다. 그러면 외부에서 호출이 가능할까 불가능할까? 위에서 말 했던 것처럼, <em>첫 글자가 대문자면, 패키지 외부에서 사용 가능하기</em> 때문에, 첫 글자가 대문자가 아니므로, 패키지 외부에서는 사용이 불가능하다. 이 경우에는, &ldquo;T카운트&rdquo; 처럼 앞에 영 대문자를 붙여야 한다.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> internalValue <span style="color:#fff;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">var</span> ExternalValue <span style="color:#fff;font-weight:bold">int</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> internalFunc() <span style="color:#fff;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">func</span> ExternalFunc() <span style="color:#fff;font-weight:bold">int</span> {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>위의 코드에서, <code>internalValue</code> 와 <code>internalFunc</code>는 해당 패키지 내부에서만 호출이 가능하나, <code>ExternalValue</code> 와 <code>ExternalFunc</code>는 패키지 외부에서도 호출이 가능하다. 다른 언어의 <code>public</code> <code>private</code>개념을 대소문자를 가지고 구분 한 것이다. Go에서는 변수나 함수 이름에 특정 유니코드 문자를 지원하는데<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>, &ldquo;카운트&rdquo;, &ldquo;인덱스&rdquo; 와 같은 단어를 변수나 함수 명으로 사용할 수 있다는 뜻이다. 이런 경우일때는 대/소문자가 없다. 그러면 외부에서 호출이 가능할까 불가능할까? 위에서 말 했던 것처럼, <em>첫 글자가 대문자면, 패키지 외부에서 사용 가능하기</em> 때문에, 첫 글자가 대문자가 아니므로, 패키지 외부에서는 사용이 불가능하다. 이 경우에는, &ldquo;T카운트&rdquo; 처럼 앞에 영 대문자를 붙여야 한다.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
 <hr>
 <p>또한 패키지 명을 지을 때도 일정한 규칙이 있다. 소문자로, 한 단어로 패키지 명을 지어야한다. 그리고 패키지 명은 소스 디렉터리의 basename 이어야 한다. <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>basename이란 디렉터리의 가장 끝에 있는 이름을 말한다.<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> 즉, <code>src/encoding/base64</code> 는 <code>&quot;encoding/base64&quot;</code>로 import 되지만, 패키지명은 <code>&quot;base64&quot;</code>여야 한다.  또 패키지 안의 내용은 <em>동어 반복을 삼가야한다</em>. <code>bufio</code> 패키지 안의 <code>Reader</code>는 <code>bufio.Reader</code>로 이름지어야 하지, <code>bufio.BufReader</code>와 같이 사용해서는 안된다.</p>
 <p>인터페이스에도 규칙이 하나 있다. interface가 메서드 하나 만을 가질 떄, 메서드의 이름에 + er을 붙여 인터페이스를 짓는다.<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> 즉 Read 함수 하나만을 가지는 인터페이스를 Reader, Close 함수 하나만을 가지는 인터페이스를 Closer 라고 명명한다. 많은 Go의 standard library들이 해당 형식으로 interface를 사용한다.</p>
 <p>상수의 경우에는 타 언어에서는 MAX_VALUE 와 같이 SCREAMING_SNAKE_CASE 를 사용하는 경우가 많다. 하지만 Go에서는 일반 변수 짓는 것과 같이 변수를 짓는다. <sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#fff;font-weight:bold">const</span> maxValue <span style="color:#fff;font-weight:bold">int</span> = <span style="color:#ff0;font-weight:bold">5</span>
-</code></pre></div><p>위와 같이 일반 mixedCaps 형태로 사용하므로, 혼란이 없어야 겠다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#fff;font-weight:bold">const</span> maxValue <span style="color:#fff;font-weight:bold">int</span> = <span style="color:#ff0;font-weight:bold">5</span>
+</span></span></code></pre></div><p>위와 같이 일반 mixedCaps 형태로 사용하므로, 혼란이 없어야 겠다.</p>
 <p>그리고 함수 이름이 Must로 시작하는 것과 관련된 규칙이 하나 있다. 함수 이름이 Must로 시작한다면, 해당 동작을 실행 할 수 없을 때 panic을 내야 한다는 규칙이다. 예를 들면 <code>regexp.MustCompile</code> 이 있는데, 이는 <code>regexp.Compile</code> 함수와 비슷하나, expression이 파싱 될 수 없으면 panic을 뱉는다. 이는 공식적인 가이드는 아니나, 많은 standard library에서 찾아 볼 수 있다.<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup></p>
 <hr>
 <p>Go에서도 export를 결정하는 대/소문자 규칙을 제외하고는 네이밍 컨벤션을 따르지 않아도 같게 동작한다. 작업하는 팀에서 그들만의 네이밍 컨벤션이 있는 경우를 제외한다면, 많은 사람들과 함께 작업 할 때, 코드를 오픈소스화 해야 할 때 등은 Go의 네이밍 컨벤션을 지키는 것이 더 관리 잘 되는 코드를 만들 수 있을 것이다.</p>
@@ -197,34 +198,34 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://golang.org/doc/effective_go.html#mixed-caps">https://golang.org/doc/effective_go.html#mixed-caps</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://golang.org/doc/effective_go.html#mixed-caps">https://golang.org/doc/effective_go.html#mixed-caps</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="https://github.com/golang/go/wiki/CodeReviewComments#initialisms">https://github.com/golang/go/wiki/CodeReviewComments#initialisms</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://github.com/golang/go/wiki/CodeReviewComments#initialisms">https://github.com/golang/go/wiki/CodeReviewComments#initialisms</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p><a href="https://golang.org/doc/effective_go.html#names">https://golang.org/doc/effective_go.html#names</a> <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://golang.org/doc/effective_go.html#names">https://golang.org/doc/effective_go.html#names</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4" role="doc-endnote">
-<p><a href="https://golang.org/ref/spec#Identifiers">https://golang.org/ref/spec#Identifiers</a> <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://golang.org/ref/spec#Identifiers">https://golang.org/ref/spec#Identifiers</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:5" role="doc-endnote">
-<p><a href="https://golang.org/doc/faq#unicode_identifiers">https://golang.org/doc/faq#unicode_identifiers</a> <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://golang.org/doc/faq#unicode_identifiers">https://golang.org/doc/faq#unicode_identifiers</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:6" role="doc-endnote">
-<p><a href="https://golang.org/doc/effective_go.html#package-names">https://golang.org/doc/effective_go.html#package-names</a> <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://golang.org/doc/effective_go.html#package-names">https://golang.org/doc/effective_go.html#package-names</a>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:7" role="doc-endnote">
-<p><a href="https://en.wikipedia.org/wiki/Basename">https://en.wikipedia.org/wiki/Basename</a> <a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Basename">https://en.wikipedia.org/wiki/Basename</a>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:8" role="doc-endnote">
-<p><a href="https://golang.org/doc/effective_go.html#interface-names">https://golang.org/doc/effective_go.html#interface-names</a> <a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://golang.org/doc/effective_go.html#interface-names">https://golang.org/doc/effective_go.html#interface-names</a>&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:9" role="doc-endnote">
-<p><a href="https://stackoverflow.com/a/22688926">https://stackoverflow.com/a/22688926</a> <a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://stackoverflow.com/a/22688926">https://stackoverflow.com/a/22688926</a>&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:10" role="doc-endnote">
-<p><a href="https://stackoverflow.com/questions/39590458/golang-guard-assert-functions-naming-convention">https://stackoverflow.com/questions/39590458/golang-guard-assert-functions-naming-convention</a> <a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://stackoverflow.com/questions/39590458/golang-guard-assert-functions-naming-convention">https://stackoverflow.com/questions/39590458/golang-guard-assert-functions-naming-convention</a>&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -240,6 +241,8 @@
 <h3>See Also</h3>
 <ul>
     
+    <li><a href="https://blog.billo.io/devposts/hidden_useful_interfaces_in_go/">Go로 센스있는 패키지를 만들기 위해 꼭 알야아하는 숨겨진 interface들</a></li>
+    
     <li><a href="https://blog.billo.io/devposts/typed_nil_go/">Go에서 nil 비교할 때 주의해야 하는 점</a></li>
     
     <li><a href="https://blog.billo.io/devposts/translate_dev_doc/">스타 19k 받은 기술 문서 번역하기</a></li>
@@ -248,8 +251,6 @@
     
     <li><a href="https://blog.billo.io/devposts/go_orm_recommandation/">Golang ORM, 무엇이 좋을까?</a></li>
     
-    <li><a href="https://blog.billo.io/devposts/nil_for_go/">Golang에서 nullable한 값 잘 처리하기</a></li>
-    
 </ul>
 
         
@@ -257,7 +258,7 @@
 
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -302,7 +303,7 @@
 
     
       
-      <script src="https://blog.billo.io/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://blog.billo.io/js/dark-mode.min.1d139a81392167c6a37135df59f9fd95747abba988ba33c1a557c573776cb197.js"></script>
     
 
     
@@ -320,7 +321,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

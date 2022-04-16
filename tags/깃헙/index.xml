@@ -6,11 +6,7 @@
     <description>Recent content in 깃헙 on Billo Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 30 Aug 2020 23:44:16 +0900</lastBuildDate>
-    
-	<atom:link href="https://blog.billo.io/tags/%EA%B9%83%ED%97%99/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 30 Aug 2020 23:44:16 +0900</lastBuildDate><atom:link href="https://blog.billo.io/tags/%EA%B9%83%ED%97%99/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github Profile에 자기소개 노출하기</title>
       <link>https://blog.billo.io/devposts/github_profile_repo/</link>
