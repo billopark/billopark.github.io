@@ -14,7 +14,7 @@
       
       <guid>https://blog.billo.io/devposts/go_struct_validation/</guid>
       <description>외부에서 Data Object를 받아오는 경우, 특히 신뢰할 수 없는 출처로부터 받아오는 경우에는 해당 Object에 대한 Validation작업이 필수적으로 요구된다. RESTful API를 구현한 Backend Server가 대표적인 예인데, 클라이언트에서 넘겨준 Object는 무조건 신뢰할 수 없는 정보로 간주하고 Validation을 해야 안전한 서버를 구현할 수 있다. 이를 위해, Golang에서도 struct 에 담긴 Data를 검증하는 다양한 방법이 존재한다.
- 가장 Naive 하게 구현할 수 있는 방법은 해당 struct에 IsValid() 함수를 구현하는 방법이다. 예를 들어, 아래 형태의 struct를 사용한다고 가정 해 보자.</description>
+가장 Naive 하게 구현할 수 있는 방법은 해당 struct에 IsValid() 함수를 구현하는 방법이다. 예를 들어, 아래 형태의 struct를 사용한다고 가정 해 보자.</description>
     </item>
     
   </channel>

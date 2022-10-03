@@ -80,8 +80,51 @@
     </script>
 
     <script data-ad-client="ca-pub-5643825641989584" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     
-    <meta name="generator" content="Hugo 0.97.0" />
+    <script>
+      (function() {
+        var w = window;
+        if (w.ChannelIO) {
+          return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+        }
+        var ch = function() {
+          ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+          ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+          if (w.ChannelIOInitialized) {
+            return;
+          }
+          w.ChannelIOInitialized = true;
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+          s.charset = 'UTF-8';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+          l();
+        } else if (window.attachEvent) {
+          window.attachEvent('onload', l);
+        } else {
+          window.addEventListener('DOMContentLoaded', l, false);
+          window.addEventListener('load', l, false);
+        }
+      })();
+      ChannelIO('boot', {
+        "pluginKey": "b801ffaa-03b3-41fa-b5e3-7f1ec3449177"
+      });
+    </script>
+    
+    
+    <meta name="generator" content="Hugo 0.104.2" />
   </head>
   
   
@@ -169,24 +212,24 @@
         <p>go언어로 프로젝트를 구상하려고 하면 가장 먼저 막히는 부분은 <code>프로젝트를 어떻게 구성해야 하지?</code> 일 것이다. go언어는 정해진 프로젝트 구조가 없다. 어떻게 폴더 구조를 만들 것인지, 어떻게 패키지 구조를 구성할지는 Circular import를 하지 않는다면 아주 자유롭다. 자유롭다는 것은 항상 좋을 것 같지만 막상 직접 구조를 고민하다보면 꼭 좋은 것 만은 아니라는 것을 알 수 있다.</p>
 <p>이럴 때 필요한 것이 레퍼런스. Go로 된 다른 프로젝트들의 구조를 찾아보면, 놀랍도록 다양하다는 것을 알 수 있다. 프로젝트의 root에 모든 파일을 다 늘어놓은 프로젝트부터, 나름대로 철학을 가지고 구조화한 프로젝트 까지 아주 다양하다. 이렇게 여러 프로젝트들의 구조를 관찰하여 일반적인 프로젝트 레이아웃 패턴을 정리한 <a href="https://github.com/golang-standards/project-layout">기술 문서</a> 가 있다. 이 문서는 작성하는 오늘 기준으로 19k의 스타를 받은 만큼, Go언어에서 해당 부분으로 많은 사람들이 고민을 하고 있다는 방증이다.</p>
 
-<figure >
-        <img src="https://blog-static.billo.io/images/translate_dev_doc/repo.png" />
-</figure>
+  <figure >
+          <img src="https://blog-static.billo.io/images/translate_dev_doc/repo.png" />
+  </figure>
 
 <p>나도 이 프로젝트가 나에게 프로젝트 구조화에 큰 도움을 준 만큼, 이 문서에 기여하고 싶었다. 마침 이 문서에 누군가 중국어 번역을 추가했기에, 한국어도 같이 추가하여 다른 한국어 Go언어 사용자도 참고하였으면 좋을 것 같아 번역하게 되었다.</p>
 <p>거의 처음으로 번역을 해보는 일이다보니 생각보다 몰랐던 점들이 많았다. 처음 번역한 문장을 쓰려는 순간, 직역을 하는 것이 좋을지, 의역을 하는 것이 좋을지가 헷갈렸다. 직역 기법을 활용한 기술 문서들을 읽었을 때는 항상 눈에 안읽혀서 힘들었고, 의역 기법을 활용한 문서들은 기술 문서라 의역한 부분이 잘못된 내용을 전달하는 것은 아닐지 고민이 들었다. 마침 학교에서 글쓰기 수업을 듣고 있던 터라 교수님께 여쭤보았을 때, 직역과 의역 중 한 가지의 기법을 활용하기 보다 상황에 맞추어 적절하게 활용하라는 답변을 들었다. 그에 맞춰 문서에서 전달하고 싶은 내용을 최대한 살리는 방향으로 직역과 의역을 섞어서 번역을 시작했다.</p>
 <p>눈으로 문서를 읽는 것 자체는 그리 긴 시간이 걸리지 않았으나, 번역을 하는 것은 생각보다 오래걸리는 작업이었다. 중의적 문장을 해석해야 하는 일도 있어서 고민을 오래 했던 때도 있었고, 영어에서만 사용되는 단어를 한국어로 어떻게 번역하는 게 좋을 지 고민했던 때도 있었다. 예를 들어, opinionated 라는 단어를 번역해야 하는 일이 있었다. 단어 자체의 의미를 직역하면 <code>독선적인</code> 이라는 의미이나, 해당 단어가 등장한 맥락이 문서 자체가 중립적으로 작성 되어져 오던 상황이라 <code>중립적이라기 보다는 작성자의 의견이 조금 더 들어가있는</code> 의 뜻을 전달해야 하는 상황이었다. 이 때 문장의 가독성을 해치지 않으면서 해당 내용을 전달하려면 어떻게 해야 할 지 고민이 많이 들었다. 결국은 <code>더 의견이 담긴</code> 이라는 어구로 번역하였지만, 아직도 전체 문장을 읽었을 때 매끄럽지는 못하다고 생각한다. (더 나은 번역이 있다면, 제안 받습니다 :))</p>
 <p>약 4일 정도, 총 10여시간 정도 걸려서 전체 문서를 번역할 수 있었다. 하루 날 잡고 번역하려고 했는데, 체력을 크게 소모하는 일이어서 쉽지 않았다. 이후 PR을 올렸는데, 따로 리뷰를 많이 받을 수 없어서 아쉬웠다. PR이 머지된 날, 굉장히 뿌듯했다. Go언어에서는 19k 정도의 스타를 받은 레포지토리는 극히 드문 일인데, 그렇게 사람들이 많이 보는 문서에 내가 번역한 글이 실려서 신기했다.</p>
 
-<figure >
-        <img src="https://blog-static.billo.io/images/translate_dev_doc/translated.png" />
-</figure>
+ <figure >
+         <img src="https://blog-static.billo.io/images/translate_dev_doc/translated.png" />
+ </figure>
 
 <p>물론 19k 스타를 받은 코드 레포지토리의 컨트리뷰터가 되면 더 좋았겠지만, 기술 문서로서도 기여할 수 있어서 기뻤다. 특히 쉽게 오픈소스에 기여할 수 있다는 것이 신기했다. 만약 자신이 크게 도움을 받은 문서가 있다면, 번역을 해보는 것도 좋을 것 같다. 이해도도 올라가고, 다른 사람들의 정보 접근성에도 기여할 수 있을 것이다.</p>
 
-<figure >
-        <img src="https://blog-static.billo.io/images/translate_dev_doc/contribution_ranking.png" />
-</figure>
+ <figure >
+         <img src="https://blog-static.billo.io/images/translate_dev_doc/contribution_ranking.png" />
+ </figure>
 
 
       </div>
@@ -262,7 +305,7 @@
 
     
       
-      <script src="https://blog.billo.io/js/dark-mode.min.1d139a81392167c6a37135df59f9fd95747abba988ba33c1a557c573776cb197.js"></script>
+      <script src="https://blog.billo.io/js/dark-mode.min.c2d8a1f8f2660e4a46d776277c72695a1e0ca65939d79f754441d47551604af5.js"></script>
     
 
     
