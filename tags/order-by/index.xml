@@ -23,7 +23,7 @@ SELECT * FROM articles LIMIT 30 OFFSET 120;
 을 하면 될 것 같다.
 음&amp;hellip; 예상하지 못했던 게시글들이 보인다.
 뭐가 문제지..?
- 정답은 ORDER BY 절이 빠졌기 때문이다.
+정답은 ORDER BY 절이 빠졌기 때문이다.
 ORDER BY 절은 ORDER BY 이후에 표시된 컬럼들을 기준으로 순서대로 정렬해준다.</description>
     </item>
     

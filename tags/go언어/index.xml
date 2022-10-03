@@ -36,7 +36,8 @@ Golang에서는 가변인자 함수를 어떻게 만들 수 있을까? 이 때 �
       <description>nil != nil
 누구나 이 명제를 보면 항상 거짓이라고 생각할 것이다. 하지만 놀랍게도, Go에서는 참이 되는 경우도 있다.
 아래의 상황을 보자
-package main  import ( 	&amp;#34;fmt&amp;#34; )  type A struct {} var condition = false  func billo() interface{} { 	var a *A = nil 	if condition { 	a = &amp;amp;A{} 	} 	return a }  func main() { 	fmt.Println(billo() == nil) } 이 경우에 출력값을 잠시 고민해보자.</description>
+package main import ( &amp;#34;fmt&amp;#34; ) type A struct {} var condition = false func billo() interface{} { var a *A = nil if condition { a = &amp;amp;A{} } return a } func main() { fmt.Println(billo() == nil) } 이 경우에 출력값을 잠시 고민해보자.
+많은 분들이 true라고 생각하겠지만, 사실은 false 이다.</description>
     </item>
     
     <item>
